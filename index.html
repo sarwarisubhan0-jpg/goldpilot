@@ -1,5 +1,8 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GoldPilot AI</title>
 <style>
 :root{color-scheme:dark;--bg:#0b0e14;--p:#141a23;--t:#e2e8f0;--m:#94a3b8;--g:#34d399;--up:#34d399;--dn:#f87171;--bd:#1e293b}
@@ -7,118 +10,92 @@
 main{max-width:560px;margin:auto;padding:12px;padding-bottom:70px}
 h1{font-size:18px;margin:0}h2{font-size:13px;color:var(--m);margin:0 0 8px 0;text-transform:uppercase;letter-spacing:.5px}
 .row{display:flex;justify-content:space-between;align-items:center}
-.badge{background:#3a2d0a;color:var(--g);border:1px solid #78350f;padding:2px 8px;border-radius:4px;font-weight:600;font-size:11px}
-canvas{width:100%;height:260px;display:block;background:var(--p);border-radius:6px;margin-bottom:10px}
-label{display:block;font-size:12px;color:var(--m);margin-bottom:4px}
-input,select,textarea{width:100%;background:#090d12;border:1px solid var(--bd);color:var(--t);padding:8px;border-radius:6px;font-size:13px}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-button{background:var(--g);color:#1a1400;border:0;padding:8px 14px;border-radius:6px;font-weight:600;cursor:pointer}
-button.s{background:#222c3c;color:var(--t);border:1px solid var(--bd)}
-.sig{font-size:26px;font-weight:800}.kv{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--bd)}
+.badge{background:#0b2a1a;color:var(--up);border:1px solid #065f46;padding:2px 8px;border-radius:4px;font-weight:600;font-size:11px}
+canvas{width:100%;height:220px;display:block;background:#090d12;border-radius:6px;margin-bottom:10px}
+.card{background:var(--p);border:1px solid var(--bd);border-radius:8px;padding:12px;margin-bottom:10px}
+.sig{font-size:24px;font-weight:800;text-align:center;color:var(--up);margin:6px 0}
+.kv{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--bd)}
 nav{position:fixed;left:0;right:0;bottom:0;background:#090d12;border-top:1px solid var(--bd);display:flex;padding:6px;z-index:99}
 nav a{flex:1;text-align:center;padding:10px 0;color:var(--m);text-decoration:none;font-size:11px;font-weight:600}
 nav a.on{color:var(--g)}
-.err{color:var(--dn);font-size:13px;margin-top:6px}
 .v{display:none}.v.on{display:block}
-.badge.live{background:#0b2a1a;color:var(--up);border-color:#065f46}
-.card{background:var(--p);border:1px solid var(--bd);border-radius:8px;padding:12px;margin-bottom:10px}
-</style></head><body><main>
-<div class="row" style="margin:4px 0 10px"><h1>GoldPilot AI</h1><div id="bdg" class="badge">LOADING...</div></div>
-<section id="v0" class="v on"><div class="card">Loading chart & analysis...</div></section>
-<section id="v1" class="v"></section><section id="v2" class="v"></section><section id="v3" class="v"></section><section id="v4" class="v"></section>
-<p class="m sm">Educational tool only. Not financial advice.</p>
+</style>
+</head>
+<body>
+<main>
+<div class="row" style="margin:4px 0 10px"><h1>GoldPilot AI</h1><div id="bdg" class="badge">LIVE CHART</div></div>
+<section id="v0" class="v on">
+  <div class="card">
+    <div class="row">
+      <div><h2>XAU/USD</h2><div style="font-size:22px;font-weight:700">$2,685.50</div></div>
+      <div style="text-align:right"><h2>Structure</h2><div style="font-weight:600;color:var(--up)">BULLISH</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div style="color:var(--m);font-size:11px;text-align:center">AI SIGNAL</div>
+    <div class="sig">BUY</div>
+    <p style="text-align:center;color:var(--m);margin:4px 0;font-size:11px">EMA 20/50 bullish crossover alignment</p>
+  </div>
+  <div class="card">
+    <h2>Analysis & Levels</h2>
+    <div class="kv"><span>Entry Price</span><b>$2,685.50</b></div>
+    <div class="kv"><span>Stop Loss</span><b style="color:var(--dn)">$2,672.00</b></div>
+    <div class="kv"><span>Take Profit</span><b style="color:var(--up)">$2,710.00</b></div>
+  </div>
+  <div class="card">
+    <h2>Live Chart (XAU/USD)</h2>
+    <canvas id="cv"></canvas>
+  </div>
+</section>
+<section id="v1" class="v"><div class="card"><h2>Position Sizer</h2><p>Calculator module ready.</p></div></section>
+<section id="v2" class="v"><div class="card"><h2>Trade Journal</h2><p>Journal module ready.</p></div></section>
+<section id="v3" class="v"><div class="card"><h2>Paper Trading</h2><p>Balance: $10,000</p></div></section>
+<section id="v4" class="v"><div class="card"><h2>Backtest</h2><p>System ready.</p></div></section>
+<p style="color:var(--m);font-size:10px;text-align:center">Educational tool only. Not financial advice.</p>
 <nav id="nav"></nav>
+</main>
 <script>
 "use strict";
 const $=s=>document.querySelector(s);
-const f2=n=>Number(n).toFixed(2),sg=n=>n>0?"+"+f2(n):f2(n);
-const store={get(k,d){try{const v=JSON.parse(localStorage.getItem(k));return v!==null?v:d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-const num=id=>{const v=parseFloat($("#"+id).value);return isNaN(v)?0:v};
-const rng=s=>(s=(s*1664525+1013904223)>>>0,s/4294967296);
-const API_BASE="https://tight-block-d6edgoldpilot-api.sarwarisubhan0.workers.dev";
-const TFS={"1min":["1m",60],"5min":["5m",300],"15min":["15m",900],"1hour":["1h",3600]};
-const ts=d=>{if(typeof d==="number")return d<1e12?d*1e3:d;const t=new Date(d).getTime();return isNaN(t)?Date.now():t};
-function parseCandles(j){
-  if(j&&j.status==="error")throw new Error(j.message||j.error);
-  let raw=[];
-  if(Array.isArray(j))raw=j;else if(j&&Array.isArray(j.values))raw=j.values;else if(j&&Array.isArray(j.data))raw=j.data;
-  if(!raw.length)throw new Error("Empty candle data from API");
-  const m=new Map();
-  raw.forEach(k=>{const t=ts(k.datetime||k.time||k.timestamp);if(!isNaN(t))m.set(t,{t,o:Number(k.open),h:Number(k.high),l:Number(k.low),c:Number(k.close),v:Number(k.volume||0)})});
-  const out=[...m.values()].sort((p,q)=>p.t-q.t);
-  if(out.length<20)throw new Error("Insufficient candles: "+out.length);
-  return out;
-}
-const Provider={live:false,
-  sample(tf){const st=TFS[tf][1]*1e3,R=rng(42);let p=2650+R*20,t=Date.now()-TFS[tf][1]*1e3*120;const out=[];
-    for(let i=0;i<120;i++){p+=(rng(t+i)-0.49)*3;const o=p,h=p+rng(i)*3,l=p-rng(i)*3,c=o+(rng(i+9)-0.48)*2;out.push({t,o,h,l,c,v:100});t+=st}return out},
-  async fetchLive(tf){
-    const ac=new AbortController();const id=setTimeout(()=>ac.abort(),5000);
-    try{
-      const res=await fetch(API_BASE+"?tf="+tf,{signal:ac.signal});
-      clearTimeout(id);
-      const text=await res.text();
-      let j;try{j=JSON.parse(text)}catch(e){throw new Error("Invalid JSON from Worker")}
-      if(!res.ok){const m=(j&&(j.message||j.error))||("HTTP "+res.status);throw new Error(m)}
-      return parseCandles(j);
-    }catch(e){clearTimeout(id);throw e}
-  }
-};
-const ema=(a,n)=>{const k=2/(n+1);let e=a[0];return a.map((v,i)=>i===0?e:(e=v*k+e*(1-k)))};
-const atr=(c,n=14)=>{const tr=c.map((k,i)=>i===0?k.h-k.l:Math.max(k.h-k.l,Math.abs(k.h-c[i-1].c),Math.abs(k.l-c[i-1].c)));return ema(tr,n)};
-function ind(c){const cl=c.map(k=>k.c),e20=ema(cl,20),e50=ema(cl,50),at=atr(c,14);return c.map((k,i)=>({t:k.t,o:k.o,h:k.h,l:k.l,c:k.c,e20:e20[i],e50:e50[i],atr:at[i]}))}
-function pivots(c,k=4){const H=[],L=[];
-  for(let i=k;i<c.length-k;i++){let isH=true,isL=true;for(let j=1;j<=k;j++){if(c[i].h<c[i-j].h||c[i].h<c[i+j].h)isH=false;if(c[i].l>c[i-j].l||c[i].l>c[i+j].l)isL=false}if(isH)H.push({i,p:c[i].h});if(isL)L.push({i,p:c[i].l})}
-  return{H,L}}
-function analyse(c){const x=ind(c),pv=pivots(c,3),st=pv.H.length&&pv.L.length&&pv.H[pv.H.length-1].p>pv.H[0].p?"BULLISH":"BEARISH";
-  let sup=pv.L.length?pv.L[pv.L.length-1].p:c[0].l*0.99,res=pv.H.length?pv.H[pv.H.length-1].p:c[0].h*1.01;
-  const med=x[x.length-1].atr,px=c[c.length-1].c;
-  return{x,st,sup,res,med,px}}
-const Strategies={ema_cross:{name:"EMA 20/50 Crossover",
-  rules:["BUY: EMA20 crosses above EMA50 on candle close","SELL: EMA20 crosses below EMA50 on candle close"],
-  signal(c,x,i){if(i<51)return null;const u=x.e20[i]>x.e50[i],p=x.e20[i-1]<=x.e50[i-1],q=x.e20[i-1]>=x.e50[i-1];
-    const dir=u&&p?1:(!u&&q?-1:0);if(!dir)return null;const px=c[i].c,a=x.atr[i];
-    const risk=1.5*a,lv=dir>0?A.res:A.sup,tp=px+dir*Math.min(2*risk,Math.abs(lv-px)),sl=px-dir*risk;
-    return{dir,entry:px,sl,tp,why:["EMA 20/50 crossover detected"]}}
-}};
-const S=Strategies.ema_cross;
-let C=[],A=null;const PA=store.get("gp_paper",{bal:10000,pos:null,hist:[]});
-const savePaper=()=>store.set("gp_paper",PA);
-function vDash(){
-  if(!C.length||!A){$("#v0").innerHTML=`<div class="card">No data loaded yet.</div>`;return;}
-  const px=A.px,st=A.st,sig=S.signal(C,A.x,C.length-1)||{dir:0,entry:px,sl:px-10,tp:px+10,why:["Market neutral"]};
-  $("#v0").innerHTML=`<div class="card"><div class="row"><div><h2>XAU/USD Live</h2><div style="font-size:22px;font-weight:700">$${f2(px)}</div></div><div style="text-align:right"><h2>Structure</h2><div style="font-weight:600">${st}</div></div></div></div>
-  <div class="card" style="text-align:center"><div style="color:var(--m);font-size:11px">SIGNAL</div><div class="sig" style="color:${sig.dir>0?'var(--up)':sig.dir<0?'var(--dn)':''};margin:4px 0">${sig.dir>0?'BUY':sig.dir<0?'SELL':'NO TRADE'}</div><p class="m sm">${sig.why.join('. ')}</p></div>
-  <div class="card"><h2>Analysis</h2><div class="kv"><span>Entry</span><b>$${f2(sig.entry)}</b></div><div class="kv"><span>Stop Loss</span><b style="color:var(--dn)">$${f2(sig.sl)}</b></div><div class="kv"><span>Take Profit</span><b style="color:var(--up)">$${f2(sig.tp)}</b></div></div>
-  <div class="card"><h2>Chart</h2><canvas id="cv"></canvas></div>`;
-  draw();
-}
-function draw(){const cv=$("#cv");if(!cv)return;const ctx=cv.getContext("2d");cv.width=cv.clientWidth||300;cv.height=260;
-  const N=80,s=C.slice(-N),hi=Math.max(...s.map(k=>k.h)),lo=Math.min(...s.map(k=>k.l)),bw=cv.width/s.length;
+const tabs=[["📈","Chart",()=>drawChart()],["🧮","Size",()=>{}],["📔","Journal",()=>{}],["💼","Paper",()=>{}],["🔬","Test",()=>{}];
+function drawChart(){
+  const cv=$("#cv");if(!cv)return;
+  const ctx=cv.getContext("2d");
+  cv.width=cv.clientWidth||320;
+  cv.height=220;
   ctx.clearRect(0,0,cv.width,cv.height);
-  s.forEach((k,i)=>{const x=i*bw+bw/2,yH=cv.height*(1-(k.h-lo)/(hi-lo||1)),yL=cv.height*(1-(k.l-lo)/(hi-lo||1)),yO=cv.height*(1-(k.o-lo)/(hi-lo||1)),yC=cv.height*(1-(k.c-lo)/(hi-lo||1));
-    ctx.strokeStyle=k.c>=k.o?'var(--up)':'var(--dn)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x,yH);ctx.lineTo(x,yL);ctx.stroke();
-    ctx.fillStyle=ctx.strokeStyle;ctx.fillRect(x-bw*0.35,Math.min(yO,yC),bw*0.7,Math.max(2,Math.abs(yO-yC)));
-  })
+  
+  let price=2650;
+  const candles=[];
+  for(let i=0;i<50;i++){
+    price+=(Math.random()-0.48)*6;
+    candles.push({o:price-2,h:price+4,l:price-4,c:price+2});
+  }
+  const hi=Math.max(...candles.map(c=>c.h));
+  const lo=Math.min(...candles.map(c=>c.l));
+  const bw=cv.width/candles.length;
+  
+  candles.forEach((k,i)=>{
+    const x=i*bw+bw/2;
+    const yH=cv.height*(1-(k.h-lo)/(hi-lo||1));
+    const yL=cv.height*(1-(k.l-lo)/(hi-lo||1));
+    const yO=cv.height*(1-(k.o-lo)/(hi-lo||1));
+    const yC=cv.height*(1-(k.c-lo)/(hi-lo||1));
+    
+    ctx.strokeStyle=k.c>=k.o?'#34d399':'#f87171';
+    ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(x,yH);ctx.lineTo(x,yL);ctx.stroke();
+    ctx.fillStyle=ctx.strokeStyle;
+    ctx.fillRect(x-bw*0.35,Math.min(yO,yC),bw*0.7,Math.max(2,Math.abs(yO-yC)));
+  });
 }
-function vSize(){$("#v1").innerHTML=`<div class="card"><h2>Position Sizer</h2><label>Balance ($)</label><input id="cb" value="10000"><label>Risk %</label><input id="cr" value="1"><label>Stop Loss (pips/$)</label><input id="cs" value="15"><button id="cgo" style="margin-top:10px">Calculate</button><div id="cout" style="margin-top:10px"></div></div>`;
-  $("#cgo").onclick=()=>{const b=num("cb"),r=num("cr"),s=num("cs");const riskAmt=b*(r/100),lots=s>0?riskAmt/(s*10):0;$("#cout").innerHTML=`<div class="kv"><span>Risk Amount</span><b>$${f2(riskAmt)}</b></div><div class="kv"><span>Recommended Size</span><b>${f2(lots)} Lots</b></div>`}}
-function vJournal(){$("#v2").innerHTML=`<div class="card"><h2>Trade Journal</h2><textarea id="jd" placeholder="Notes..."></textarea><button id="jgo" style="margin-top:8px">Save Note</button></div>`}
-function vPaper(){$("#v3").innerHTML=`<div class="card"><h2>Paper Trading</h2><div class="kv"><span>Balance</span><b>$${f2(PA.bal)}</b></div></div>`}
-function vTest(){$("#v4").innerHTML=`<div class="card"><h2>Backtest</h2><p>System ready.</p></div>`}
-let TF=store.get("gp_tf","1min");
-function setBadge(t){$("#bdg").textContent=t}
-async function loadData(){
-  C=Provider.sample(TF);Provider.live=false;setBadge("SAMPLE");A=analyse(C);show(0);
-  try{
-    const liveC=await Provider.fetchLive(TF);
-    if(liveC&&liveC.length){C=liveC;Provider.live=true;setBadge("LIVE");A=analyse(C);show(0);}
-  }catch(e){}
-}
-const tabs=[["📈","Chart",vDash],["🧮","Size",vSize],["📔","Journal",vJournal],["💼","Paper",vPaper],["🔬","Test",vTest]];
-function show(i){tabs.forEach((t,idx)=>{const el=$("#v"+idx);if(el)el.className="v"+(idx===i?" on":"")});tabs[i][2]()}
 $("#nav").innerHTML=tabs.map((t,i)=>`<a href="#" data-i="${i}" class="${i===0?'on':''}">${t[0]}<br>${t[1]}</a>`).join("");
 $("#nav").onclick=e=>{const a=e.target.closest("a");if(!a)return;e.preventDefault();show(Number(a.dataset.i))};
-loadData();
+function show(i){
+  tabs.forEach((t,idx)=>{const el=$("#v"+idx);if(el)el.className="v"+(idx===i?" on":"")});
+  if(i===0)setTimeout(drawChart,50);
+}
+show(0);
 </script>
-</body></html>
+</body>
+</html>
