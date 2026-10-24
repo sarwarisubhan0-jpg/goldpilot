@@ -2,288 +2,226 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>GoldPilot AI — Professional XAU/USD Analytics</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0e13">
+<title>GoldPilot AI — XAU/USD</title>
 <style>
-:root{
-  --bg: #07090e;
-  --panel: #111622;
-  --panel-border: #1e2638;
-  --text: #f1f5f9;
-  --muted: #94a3b8;
-  --gold: #f59e0b;
-  --up: #10b981;
-  --dn: #ef4444;
-  --radius: 10px;
-}
-*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-body{background:var(--bg);color:var(--text);font-size:13px;padding-bottom:80px;-webkit-tap-highlight-color:transparent}
-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--panel);border-bottom:1px solid var(--panel-border);position:sticky;top:0;z-index:100}
-h1{font-size:16px;font-weight:700;color:var(--gold);letter-spacing:0.5px}
-.badge{padding:3px 8px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase}
-.badge.live{background:rgba(16,185,129,0.15);color:var(--up);border:1px solid rgba(16,185,129,0.3)}
-.badge.sample{background:rgba(245,158,11,0.15);color:var(--gold);border:1px solid rgba(245,158,11,0.3)}
-
-main{max-width:600px;margin:0 auto;padding:12px}
-.card{background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius);padding:14px;margin-bottom:12px;box-shadow:0 4px 12px rgba(0,0,0,0.3)}
-.row{display:flex;justify-content:space-between;align-items:center}
-.val-lg{font-size:22px;font-weight:800;color:var(--text);margin-top:2px}
-.lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px}
-
-.signal-box{text-align:center;padding:16px;background:linear-gradient(135deg, #111622 0%, #1a2233 100%);border:1px solid var(--panel-border)}
-.sig-title{font-size:11px;color:var(--muted);letter-spacing:1px}
-.sig-val{font-size:28px;font-weight:900;margin:6px 0;letter-spacing:1px;color:var(--up);text-shadow:0 0 20px rgba(16,185,129,0.4)}
-
-.kv{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--panel-border);font-size:13px}
-.kv:last-child{border-bottom:none}
-.kv span{color:var(--muted)}
-.kv b{color:var(--text);font-weight:600}
-
-canvas{width:100%!important;height:240px!important;display:block;background:#090d14;border-radius:6px;margin-top:8px;border:1px solid var(--panel-border)}
-
-.tf-bar{display:flex;gap:6px;margin-bottom:10px;overflow-x:auto;padding-bottom:4px}
-.tf-btn{background:#161f30;border:1px solid var(--panel-border);color:var(--muted);padding:5px 10px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;flex:1;text-align:center}
-.tf-btn.active{background:var(--gold);color:#000;border-color:var(--gold)}
-
-input,select,textarea{width:100%;background:#090d14;border:1px solid var(--panel-border);color:var(--text);padding:10px;border-radius:6px;font-size:13px;margin-top:4px;margin-bottom:10px}
-button.btn-action{background:var(--gold);color:#000;border:0;padding:12px;border-radius:6px;font-weight:700;width:100%;cursor:pointer;font-size:13px;text-transform:uppercase;letter-spacing:0.5px}
-
-nav{position:fixed;bottom:0;left:0;right:0;background:var(--panel);border-top:1px solid var(--panel-border);display:flex;padding:6px 0;z-index:100;backdrop-filter:blur(10px)}
-nav a{flex:1;text-align:center;color:var(--muted);text-decoration:none;font-size:10px;font-weight:600;padding:4px 0}
-nav a.on{color:var(--gold)}
-nav a span{display:block;font-size:16px;margin-bottom:2px}
-
-.view{display:none}
-.view.on{display:block}
-.footer-note{text-align:center;font-size:10px;color:var(--muted);margin:16px 0;line-height:1.4}
+:root{--bg:#0b0e13;--panel:#121720;--panel2:#171e29;--line:#283242;--text:#edf1f7;--muted:#8d9aab;--gold:#e5b94e;--green:#38d39f;--red:#ff6577;--blue:#76a9ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#17202b 0,#0b0e13 55%);color:var(--text);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:10px;background:#1a2230;color:var(--text);padding:10px 13px}button:active{transform:scale(.98)}button.primary{background:var(--gold);color:#15130d;border-color:var(--gold);font-weight:800}.app{max-width:1200px;margin:auto;padding:18px 14px 50px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.brand{display:flex;align-items:center;gap:11px}.logo{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#f4d779,#a8761b);color:#16130b;font-weight:1000;font-size:22px;box-shadow:0 5px 25px #d9a62d25}.brand h1{font-size:19px;margin:0;letter-spacing:.3px}.brand p{margin:2px 0 0;color:var(--muted);font-size:11px;letter-spacing:1.6px}.status{display:flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:99px;padding:8px 10px;color:var(--muted);font-size:11px;white-space:nowrap}.dot{width:7px;height:7px;background:var(--red);border-radius:50%}.dot.live{background:var(--green);box-shadow:0 0 9px #38d39f80}.notice{border:1px solid #6d572b;background:#2a2314;color:#f1dca2;border-radius:12px;padding:11px 13px;font-size:12px;margin-bottom:15px}.market{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:14px}.card,.panel{background:linear-gradient(180deg,#151b25,#11161e);border:1px solid var(--line);border-radius:16px;padding:15px;min-width:0}.label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}.value{font-size:24px;font-weight:750;margin-top:6px;letter-spacing:-.5px;overflow-wrap:anywhere}.sub{font-size:11px;color:var(--muted);margin-top:5px}.tabs{display:flex;gap:7px;overflow:auto;padding:2px 0 12px;margin-bottom:2px}.tabs button{white-space:nowrap;color:var(--muted);background:transparent}.tabs button.active{color:#17130a;background:var(--gold);border-color:var(--gold);font-weight:800}.layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(270px,1fr);gap:13px}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:13px}.panel h2{font-size:15px;margin:0}.small{font-size:11px;color:var(--muted)}.timeframes{display:flex;gap:5px;flex-wrap:wrap}.timeframes button{padding:6px 9px;font-size:11px}.timeframes button.active{border-color:var(--gold);color:var(--gold)}.chart-wrap{position:relative;width:100%;height:310px;background:#0d1219;border:1px solid #222c3b;border-radius:12px;overflow:hidden}.chart-wrap canvas{width:100%;height:100%;display:block}.chart-legend{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:11px;margin-top:10px}.legend-dot{display:inline-block;width:7px;height:7px;border-radius:2px;margin-right:5px}.analysis-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.signal{font-size:23px;font-weight:900;letter-spacing:1px}.signal.buy{color:var(--green)}.signal.sell{color:var(--red)}.signal.none{color:var(--gold)}.pill{font-size:10px;border:1px solid var(--line);border-radius:99px;padding:5px 8px;color:var(--muted)}.analysis-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}.metric{background:#0e131a;border:1px solid #222b38;border-radius:10px;padding:10px}.metric span{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.8px}.metric b{display:block;font-size:16px;margin-top:4px;overflow-wrap:anywhere}.reasons{padding-left:18px;margin:10px 0 0;color:#c4ccd7;font-size:12px}.reasons li{margin:7px 0}.section{display:none}.section.active{display:block}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field label{display:block;font-size:11px;color:var(--muted);margin-bottom:6px}.field input,.field select{width:100%;background:#0b1017;border:1px solid var(--line);border-radius:9px;padding:11px;color:var(--text);outline:none}.field input:focus,.field select:focus{border-color:var(--gold)}.result-box{background:#0d1219;border:1px solid var(--line);padding:15px;border-radius:12px;margin-top:14px}.result-box strong{font-size:22px;color:var(--gold)}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:520px;font-size:12px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:600}.empty{padding:24px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}.footer{text-align:center;color:#657184;font-size:11px;margin-top:22px}.hidden{display:none!important}.error{color:#ff9ba6}.good{color:var(--green)}@media(max-width:760px){.app{padding:13px 10px 35px}.market{grid-template-columns:repeat(2,minmax(0,1fr))}.value{font-size:22px}.layout{grid-template-columns:1fr}.chart-wrap{height:270px}.top{align-items:flex-start}.brand h1{font-size:17px}.status{font-size:10px}.form-grid{grid-template-columns:1fr 1fr}}@media(max-width:390px){.value{font-size:19px}.card,.panel{padding:12px}.form-grid{grid-template-columns:1fr}.chart-wrap{height:245px}}
 </style>
 </head>
 <body>
-
-<header>
-  <h1>GoldPilot AI</h1>
-  <div id="status-badge" class="badge sample">SYNCED (3,995.81)</div>
+<div class="app">
+<header class="top">
+  <div class="brand"><div class="logo">G</div><div><h1>GoldPilot <span style="color:var(--gold)">AI</span></h1><p>XAU/USD INTELLIGENCE</p></div></div>
+  <div class="status"><span id="statusDot" class="dot"></span><span id="statusText">CONNECTING</span></div>
 </header>
-
-<main>
-  <!-- VIEW 0: CHART & ANALYSIS -->
-  <section id="v0" class="view on">
-    <div class="tf-bar" id="tf-bar">
-      <div class="tf-btn active" data-tf="1min">1M</div>
-      <div class="tf-btn" data-tf="5min">5M</div>
-      <div class="tf-btn" data-tf="15min">15M</div>
-      <div class="tf-btn" data-tf="1hour">1H</div>
-    </div>
-
-    <div class="card">
-      <div class="row">
-        <div>
-          <div class="lbl">XAU/USD Market Price</div>
-          <div id="live-price" class="val-lg">$3,995.81</div>
-        </div>
-        <div style="text-align:right">
-          <div class="lbl">Market Structure</div>
-          <div style="font-weight:700;color:var(--up);margin-top:2px">BULLISH</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card signal-box">
-      <div class="sig-title">AI STRATEGY SIGNAL</div>
-      <div class="sig-val">BUY</div>
-      <div class="sig-desc" style="font-size:12px;color:var(--muted)">EMA 20/50 bullish alignment confirmed</div>
-    </div>
-
-    <div class="card">
-      <h2>Setup Parameters</h2>
-      <div class="kv"><span>Entry Zone</span><b id="lvl-entry">$3,995.81</b></div>
-      <div class="kv"><span>Stop Loss (SL)</span><b id="lvl-sl" style="color:var(--dn)">$3,975.00</b></div>
-      <div class="kv"><span>Take Profit (TP)</span><b id="lvl-tp" style="color:var(--up)">$4,030.00</b></div>
-      <div class="kv"><span>Risk / Reward Ratio</span><b>1 : 1.7</b></div>
-      <div class="kv"><span>Setup Quality Score</span><b>82% (Estimate)</b></div>
-    </div>
-
-    <div class="card">
-      <div class="row">
-        <h2>XAU/USD Candlestick Chart</h2>
-        <span id="last-update" style="font-size:10px;color:var(--muted)">--:--:--</span>
-      </div>
-      <canvas id="cv" width="360" height="240"></canvas>
-    </div>
-  </section>
-
-  <!-- VIEW 1: POSITION SIZER -->
-  <section id="v1" class="view">
-    <div class="card">
-      <h2>Risk Management & Position Sizer</h2>
-      <label class="lbl">Account Balance ($)</label>
-      <input type="number" id="psz-bal" value="10000">
-      <label class="lbl">Risk Percentage (%)</label>
-      <input type="number" id="psz-risk" value="1" step="0.1">
-      <label class="lbl">Stop Loss Distance ($)</label>
-      <input type="number" id="psz-sl" value="20">
-      <button class="btn-action" id="btn-calc">Calculate Position Size</button>
-      <div id="psz-results" style="margin-top:14px;border-top:1px solid var(--panel-border);padding-top:10px">
-        <div class="kv"><span>Risk Amount ($)</span><b id="res-risk-amt">$100.00</b></div>
-        <div class="kv"><span>Recommended Lots</span><b id="res-lots" style="color:var(--gold)">0.50 Lots</b></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- VIEW 2: TRADE JOURNAL -->
-  <section id="v2" class="view">
-    <div class="card">
-      <h2>Trade Journal</h2>
-      <label class="lbl">Direction</label>
-      <select id="j-dir"><option value="BUY">BUY</option><option value="SELL">SELL</option></select>
-      <label class="lbl">Entry Price</label>
-      <input type="number" id="j-entry" placeholder="3995.81">
-      <label class="lbl">Notes</label>
-      <textarea id="j-notes" placeholder="Strategy notes..."></textarea>
-      <button class="btn-action" id="btn-save-journal">Save Trade</button>
-    </div>
-    <div class="card">
-      <h2>Journal Entries</h2>
-      <div id="journal-list" style="font-size:12px;color:var(--muted);text-align:center;padding:10px">No entries recorded yet.</div>
-    </div>
-  </section>
-
-  <!-- VIEW 3: PAPER TRADING -->
-  <section id="v3" class="view">
-    <div class="card">
-      <h2>Paper Trading Simulator</h2>
-      <div class="kv"><span>Virtual Balance</span><b style="color:var(--gold);font-size:16px">$10,000.00</b></div>
-      <div style="margin-top:12px;display:flex;gap:8px">
-        <button class="btn-action" style="background:var(--up)" onclick="alert('Simulated BUY order placed at $3,995.81')">Simulate BUY</button>
-        <button class="btn-action" style="background:var(--dn)" onclick="alert('Simulated SELL order placed at $3,995.81')">Simulate SELL</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- VIEW 4: BACKTEST -->
-  <section id="v4" class="view">
-    <div class="card">
-      <h2>Strategy Backtest</h2>
-      <div class="kv"><span>Win Rate</span><b style="color:var(--up)">65.2%</b></div>
-      <div class="kv"><span>Profit Factor</span><b>1.82</b></div>
-    </div>
-  </section>
-
-  <div class="footer-note">
-    GoldPilot AI is an educational analysis tool. Not financial advice.
-  </div>
-</main>
-
-<nav id="nav">
-  <a href="#" data-i="0" class="on"><span>📈</span>Chart</a>
-  <a href="#" data-i="1"><span>🧮</span>Sizer</a>
-  <a href="#" data-i="2"><span>📔</span>Journal</a>
-  <a href="#" data-i="3"><span>💼</span>Paper</a>
-  <a href="#" data-i="4"><span>🔬</span>Backtest</a>
+<div id="notice" class="notice">Connecting to your Cloudflare market-data service. Signals are unavailable until valid live candle data is received.</div>
+<section class="market">
+  <div class="card"><div class="label">Gold / USD</div><div id="price" class="value">—</div><div id="priceChange" class="sub">Waiting for market data</div></div>
+  <div class="card"><div class="label">Market Trend</div><div id="trend" class="value">—</div><div id="trendSub" class="sub">Requires candle history</div></div>
+  <div class="card"><div class="label">Volatility</div><div id="volatility" class="value">—</div><div class="sub">Recent candle range</div></div>
+  <div class="card"><div class="label">Last Update</div><div id="updated" class="value" style="font-size:17px">—</div><div id="candleCount" class="sub">0 candles</div></div>
+</section>
+<nav class="tabs" aria-label="Main navigation">
+  <button class="active" data-tab="chart">Chart & Analysis</button><button data-tab="size">Position Size</button><button data-tab="journal">Journal</button><button data-tab="paper">Paper Trading</button><button data-tab="test">Backtest</button>
 </nav>
-
+<section id="chart" class="section active">
+ <div class="layout">
+  <div class="panel">
+   <div class="panel-head"><h2>XAU/USD Candlestick Chart</h2><div class="timeframes"><button class="active" data-tf="1min">1m</button><button data-tf="5min">5m</button><button data-tf="15min">15m</button><button data-tf="1h">1H</button><button data-tf="4h">4H</button><button data-tf="1day">1D</button></div></div>
+   <div class="chart-wrap"><canvas id="chartCanvas" aria-label="XAU/USD candlestick chart"></canvas></div>
+   <div class="chart-legend"><span><i class="legend-dot" style="background:#38d39f"></i>Bullish</span><span><i class="legend-dot" style="background:#ff6577"></i>Bearish</span><span>EMA20 <b style="color:#e5b94e">—</b></span><span>EMA50 <b style="color:#76a9ff">—</b></span></div>
+   <div class="toolbar"><button id="refreshBtn" class="primary">Refresh data</button><span class="small" id="chartMessage">Waiting for candles…</span></div>
+  </div>
+  <div class="panel">
+   <div class="panel-head"><h2>Market Analysis</h2><span class="pill" id="analysisTF">1m</span></div>
+   <div class="analysis-top"><div id="signal" class="signal none">NO TRADE</div><span class="pill" id="quality">Not evaluated</span></div>
+   <div class="small" id="signalSummary" style="margin-top:8px">A signal will appear only after the data is validated.</div>
+   <div class="analysis-grid">
+    <div class="metric"><span>Entry</span><b id="entry">—</b></div><div class="metric"><span>Stop Loss</span><b id="sl">—</b></div>
+    <div class="metric"><span>Take Profit 1</span><b id="tp">—</b></div><div class="metric"><span>Risk : Reward</span><b id="rr">—</b></div>
+   </div>
+   <div class="label">Why this result?</div><ul id="reasons" class="reasons"><li>Waiting for validated candle data.</li></ul>
+   <div class="small" style="margin-top:14px">Educational analysis only. Not financial advice or a guarantee of profit.</div>
+  </div>
+ </div>
+</section>
+<section id="size" class="section">
+ <div class="panel"><div class="panel-head"><h2>Position Size Calculator</h2><span class="pill">Risk planning</span></div>
+  <div class="form-grid">
+   <div class="field"><label>Account balance ($)</label><input id="balance" type="number" value="200" min="0" step="any"></div>
+   <div class="field"><label>Risk per trade (%)</label><input id="riskPct" type="number" value="1" min="0.1" max="5" step="0.1"></div>
+   <div class="field"><label>Entry price</label><input id="sizeEntry" type="number" placeholder="e.g. 2350" step="any"></div>
+   <div class="field"><label>Stop Loss price</label><input id="sizeSL" type="number" placeholder="e.g. 2345" step="any"></div>
+   <div class="field"><label>Contract size (oz per lot)</label><input id="contract" type="number" value="100" min="0.01" step="any"></div>
+   <div class="field"><label>Broker lot increment</label><input id="lotStep" type="number" value="0.01" min="0.001" step="any"></div>
+  </div><div class="toolbar"><button class="primary" id="calcSize">Calculate position</button><button id="useSignal">Use analysis levels</button></div>
+  <div id="sizeResult" class="result-box">Enter your balance, entry and stop loss, then calculate. Confirm contract specifications with your broker.</div>
+ </div>
+</section>
+<section id="journal" class="section">
+ <div class="panel"><div class="panel-head"><h2>Trade Journal</h2><span class="pill">Saved on this device</span></div>
+  <div class="form-grid">
+   <div class="field"><label>Direction</label><select id="jDirection"><option>BUY</option><option>SELL</option></select></div><div class="field"><label>Entry price</label><input id="jEntry" type="number" step="any"></div>
+   <div class="field"><label>Exit price</label><input id="jExit" type="number" step="any"></div><div class="field"><label>Position size (lots)</label><input id="jLots" type="number" value="0.01" min="0" step="any"></div>
+   <div class="field"><label>Contract size (oz per lot)</label><input id="jContract" type="number" value="100" min="0.01" step="any"></div><div class="field"><label>Notes</label><input id="jNotes" type="text" placeholder="Setup / lesson learned"></div>
+  </div><div class="toolbar"><button class="primary" id="addJournal">Save closed trade</button><button id="exportJournal">Export CSV</button></div>
+  <div class="market" style="margin-top:12px"><div class="card"><div class="label">Trades</div><div class="value" id="jTotal">0</div></div><div class="card"><div class="label">Win rate</div><div class="value" id="jWin">—</div></div><div class="card"><div class="label">Net P/L ($)</div><div class="value" id="jPL">$0.00</div></div><div class="card"><div class="label">Wins / Losses</div><div class="value" id="jWL">0 / 0</div></div></div>
+  <div id="journalTable"></div>
+ </div>
+</section>
+<section id="paper" class="section">
+ <div class="panel"><div class="panel-head"><h2>Paper Trading</h2><span class="pill">Virtual only — no real orders</span></div>
+  <div class="form-grid"><div class="field"><label>Starting virtual balance ($)</label><input id="paperBalance" type="number" value="10000" min="0"></div><div class="field"><label>Risk per trade (%)</label><input id="paperRisk" type="number" value="1" min="0.1" max="5" step="0.1"></div></div>
+  <div class="toolbar"><button id="paperBuy" class="primary">Open virtual BUY</button><button id="paperSell">Open virtual SELL</button><button id="closePaper">Close at current price</button></div>
+  <div id="paperInfo" class="result-box">Paper trading requires fresh market data. Trades are simulated only and do not reach a broker.</div><div id="paperTable" style="margin-top:12px"></div>
+ </div>
+</section>
+<section id="test" class="section">
+ <div class="panel"><div class="panel-head"><h2>Strategy Backtest</h2><span class="pill">EMA 20 / EMA 50</span></div>
+  <p class="small">Runs a simple educational EMA-cross simulation on the candles currently loaded. This is not proof of future performance and does not include broker costs or slippage.</p>
+  <div class="toolbar"><button id="runTest" class="primary">Run backtest</button></div><div id="testResult" class="result-box">Load enough real candles to run a backtest.</div>
+ </div>
+</section>
+<div class="footer">GoldPilot AI · Analysis and simulation only · No automatic real-money execution</div>
+</div>
 <script>
-"use strict";
-const WORKER_URL = "https://tight-block-d6edgoldpilot-api.sarwarisubhan0.workers.dev";
-let candleData = [];
-const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
-
-$$("#nav a").forEach(el=>{
-  el.onclick=e=>{
-    e.preventDefault();
-    const idx=Number(el.dataset.i);
-    $$("#nav a").forEach(a=>a.classList.remove("on"));
-    el.classList.add("on");
-    $$(".view").forEach((v,i)=>v.classList.toggle("on",i===idx));
-    if(idx===0) setTimeout(renderChart, 50);
-  }
+(() => {
+'use strict';
+const WORKER = 'https://tight-block-d6edgoldpilot-api.sarwarisubhan0.workers.dev';
+const $ = id => document.getElementById(id);
+let timeframe='1min', candles=[], lastGoodAt=0, lastPrice=null, analysis=null, loading=false;
+const fmt=(n,d=2)=>Number.isFinite(Number(n))?Number(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
+const timeFmt=s=>{try{return new Date(s).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}catch{return '—'}};
+function setStatus(kind,text){$('statusDot').className='dot'+(kind==='live'?' live':'');$('statusText').textContent=text;}
+function showNotice(text,type='warn'){$('notice').textContent=text;$('notice').style.borderColor=type==='error'?'#803c49':type==='ok'?'#236a54':'#6d572b';$('notice').style.background=type==='error'?'#2b151b':type==='ok'?'#10251e':'#2a2314';$('notice').style.color=type==='error'?'#ffc0c7':type==='ok'?'#b7f4d9':'#f1dca2';}
+function normalizeRows(payload){
+ let rows=Array.isArray(payload)?payload:(payload?.candles||payload?.data||payload?.values||payload?.results||payload?.prices||[]);
+ if(!Array.isArray(rows)&&rows&&typeof rows==='object') rows=Object.values(rows);
+ if(!Array.isArray(rows)) return [];
+ return rows.map((r,i)=>{
+  if(Array.isArray(r)){return {time:r[0]??i,open:+r[1],high:+r[2],low:+r[3],close:+r[4],volume:+r[5]||0};}
+  const time=r.datetime??r.timestamp??r.time??r.date??r.t??i;
+  return {time,open:+(r.open??r.o),high:+(r.high??r.h),low:+(r.low??r.l),close:+(r.close??r.c??r.price),volume:+(r.volume??r.v)||0};
+ }).filter(c=>[c.open,c.high,c.low,c.close].every(Number.isFinite)&&c.open>0&&c.high>0&&c.low>0&&c.close>0&&c.high>=c.low)
+ .sort((a,b)=>new Date(a.time).getTime()-new Date(b.time).getTime());
+}
+async function loadCandles(){
+ if(loading)return;loading=true;$('refreshBtn').disabled=true;$('chartMessage').textContent='Loading market data…';
+ try{
+  const url=WORKER+'/api/candles?interval='+encodeURIComponent(timeframe);
+  const res=await fetch(url,{cache:'no-store'});
+  if(!res.ok)throw new Error('Worker returned HTTP '+res.status);
+  const json=await res.json();
+  const parsed=normalizeRows(json);
+  if(parsed.length<20)throw new Error('The service returned fewer than 20 valid candles.');
+  candles=parsed.slice(-240);lastGoodAt=Date.now();lastPrice=candles[candles.length-1].close;
+  setStatus('live','DATA RECEIVED');showNotice('Market data received from your Cloudflare Worker. Confirm the provider timestamp and market session before relying on any analysis.','ok');
+  $('price').textContent=fmt(lastPrice,2);const first=candles[Math.max(0,candles.length-2)].close;
+  const ch=lastPrice-first;$('priceChange').textContent=(ch>=0?'+':'')+fmt(ch,2)+' vs previous candle';$('priceChange').className='sub '+(ch>=0?'good':'error');
+  $('updated').textContent=timeFmt(candles[candles.length-1].time);$('candleCount').textContent=candles.length+' candles loaded';
+  $('chartMessage').textContent='Data received · '+candles.length+' candles';
+  analyse();drawChart();checkPaper();
+ }catch(e){
+  setStatus('error','DATA ERROR');showNotice('Cannot validate live market data: '+e.message+'. No live signal will be generated. Check the Worker endpoint and its candle response format.','error');
+  $('chartMessage').textContent='Data unavailable';$('signal').textContent='NO TRADE';$('signal').className='signal none';$('signalSummary').textContent='Live data is unavailable or invalid.';$('reasons').innerHTML='<li>Signal generation is disabled until valid candle data is received.</li>';
+  if(!candles.length){$('price').textContent='—';$('trend').textContent='—';$('volatility').textContent='—';drawChart();}
+ }finally{loading=false;$('refreshBtn').disabled=false;}
+}
+function ema(vals,period){let out=[],k=2/(period+1),v=null;for(let i=0;i<vals.length;i++){v=v===null?vals[i]:vals[i]*k+v*(1-k);out.push(v);}return out;}
+function analyse(){
+ const closes=candles.map(c=>c.close), e20=ema(closes,20),e50=ema(closes,50),n=closes.length,last=candles[n-1],prev=candles[n-2];
+ const trend=e20[n-1]>e50[n-1]?'BULLISH':e20[n-1]<e50[n-1]?'BEARISH':'NEUTRAL';
+ const ranges=candles.slice(-14).map(c=>c.high-c.low),avgRange=ranges.reduce((a,b)=>a+b,0)/Math.max(1,ranges.length);
+ const med=candles.slice(-50).map(c=>c.high-c.low).sort((a,b)=>a-b)[Math.floor(Math.min(49,candles.slice(-50).length-1)/2)]||avgRange;
+ const vol=avgRange>med*1.8?'HIGH':avgRange<med*.55?'LOW':'NORMAL';
+ const hi=Math.max(...candles.slice(-20,-1).map(c=>c.high)),lo=Math.min(...candles.slice(-20,-1).map(c=>c.low));
+ const nearEMA=Math.abs(last.close-e20[n-1])<=Math.max(avgRange*1.2,last.close*.0008);
+ const roomBuy=hi-last.close,roomSell=last.close-lo;
+ let direction='NO TRADE',entry=null,sl=null,tp=null,rr=null,reasons=[];
+ if(n<60) reasons.push('At least 60 candles are required; only '+n+' are available.');
+ else {
+  if(trend==='BULLISH'&&last.close>e20[n-1]&&nearEMA&&last.close>prev.close&&vol==='NORMAL'&&roomBuy>avgRange*1.5){direction='BUY';entry=last.close;sl=Math.min(last.low,entry-avgRange*1.2);tp=entry+(entry-sl)*1.5;rr=(tp-entry)/(entry-sl);}
+  else if(trend==='BEARISH'&&last.close<e20[n-1]&&nearEMA&&last.close<prev.close&&vol==='NORMAL'&&roomSell>avgRange*1.5){direction='SELL';entry=last.close;sl=Math.max(last.high,entry+avgRange*1.2);tp=entry-(sl-entry)*1.5;rr=(entry-tp)/(sl-entry);}
+  if(direction==='NO TRADE'){
+   if(trend==='NEUTRAL')reasons.push('EMA20 and EMA50 do not establish a clear trend.');
+   else reasons.push('The current candle does not satisfy all trend and entry conditions.');
+   if(!nearEMA)reasons.push('Price is not close enough to EMA20 for this pullback rule.');
+   if(vol!=='NORMAL')reasons.push('Volatility filter: '+vol.toLowerCase()+' volatility.');
+   if(trend==='BULLISH'&&roomBuy<=avgRange*1.5)reasons.push('Nearby resistance leaves insufficient room.');
+   if(trend==='BEARISH'&&roomSell<=avgRange*1.5)reasons.push('Nearby support leaves insufficient room.');
+  }else reasons=['EMA trend and price direction agree.','Entry is near EMA20 with normal recent volatility.','Minimum 1.5R target is used; verify support/resistance manually.'];
+ }
+ $('trend').textContent=trend;$('trend').style.color=trend==='BULLISH'?'var(--green)':trend==='BEARISH'?'var(--red)':'var(--gold)';$('trendSub').textContent='EMA20 '+fmt(e20[n-1],2)+' · EMA50 '+fmt(e50[n-1],2);
+ $('volatility').textContent=vol;$('volatility').style.color=vol==='NORMAL'?'var(--green)':vol==='HIGH'?'var(--red)':'var(--gold)';$('analysisTF').textContent=timeframe.toUpperCase();
+ $('signal').textContent=direction;$('signal').className='signal '+(direction==='BUY'?'buy':direction==='SELL'?'sell':'none');
+ $('quality').textContent=direction==='NO TRADE'?'Setup not qualified':'Rule-based setup';$('signalSummary').textContent=direction==='NO TRADE'?'No qualified setup. Waiting is a valid decision.':'Conditions passed a simple rule-based filter; this is not a prediction or profit probability.';
+ $('entry').textContent=entry?fmt(entry):'—';$('sl').textContent=sl?fmt(sl):'—';$('tp').textContent=tp?fmt(tp):'—';$('rr').textContent=rr?rr.toFixed(2)+'R':'—';
+ $('reasons').innerHTML='';reasons.forEach(t=>{let li=document.createElement('li');li.textContent=t;$('reasons').appendChild(li)});
+ analysis={direction,entry,sl,tp,rr,trend};
+}
+function drawChart(){
+ const canvas=$('chartCanvas'),rect=canvas.getBoundingClientRect(),dpr=window.devicePixelRatio||1;
+ canvas.width=Math.max(1,Math.floor(rect.width*dpr));canvas.height=Math.max(1,Math.floor(rect.height*dpr));
+ const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);const w=rect.width,h=rect.height;ctx.fillStyle='#0d1219';ctx.fillRect(0,0,w,h);
+ if(!candles.length){ctx.fillStyle='#8794a6';ctx.font='13px sans-serif';ctx.textAlign='center';ctx.fillText('Waiting for valid candle data',w/2,h/2);return;}
+ const data=candles.slice(-65),pad={l:8,r:58,t:16,b:24},cw=w-pad.l-pad.r,ch=h-pad.t-pad.b;
+ let min=Math.min(...data.map(c=>c.low)),max=Math.max(...data.map(c=>c.high));if(max===min){max+=1;min-=1}const extra=(max-min)*.08;min-=extra;max+=extra;
+ const y=p=>pad.t+(max-p)/(max-min)*ch,step=cw/data.length,body=Math.max(2,step*.58);
+ ctx.font='10px sans-serif';ctx.textAlign='left';
+ for(let i=0;i<=4;i++){let val=min+(max-min)*i/4,yy=y(val);ctx.strokeStyle='#202a37';ctx.beginPath();ctx.moveTo(pad.l,yy);ctx.lineTo(w-pad.r+3,yy);ctx.stroke();ctx.fillStyle='#8d9aab';ctx.fillText(val.toFixed(2),w-pad.r+7,yy+3);}
+ const close=data.map(c=>c.close),e20=ema(close,20),e50=ema(close,50);
+ data.forEach((c,i)=>{const x=pad.l+i*step+step/2,up=c.close>=c.open,col=up?'#38d39f':'#ff6577';ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x,y(c.high));ctx.lineTo(x,y(c.low));ctx.stroke();let top=y(Math.max(c.open,c.close)),bh=Math.max(1,Math.abs(y(c.open)-y(c.close)));ctx.fillRect(x-body/2,top,body,bh);});
+ function line(vals,color){ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.beginPath();let started=false;vals.forEach((v,i)=>{if(i<Math.max(0,vals.length-50))return;let x=pad.l+i*step+step/2;if(!started){ctx.moveTo(x,y(v));started=true}else ctx.lineTo(x,y(v));});ctx.stroke();}
+ line(e20,'#e5b94e');line(e50,'#76a9ff');
+ ctx.fillStyle='#8d9aab';ctx.textAlign='left';ctx.fillText(String(data[0].time).slice(0,16),pad.l,h-7);ctx.textAlign='right';ctx.fillText(String(data[data.length-1].time).slice(0,16),w-pad.r,h-7);
+}
+document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id===b.dataset.tab));if(b.dataset.tab==='chart')drawChart();}));
+document.querySelectorAll('[data-tf]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-tf]').forEach(x=>x.classList.toggle('active',x===b));timeframe=b.dataset.tf;loadCandles();}));
+$('refreshBtn').addEventListener('click',loadCandles);window.addEventListener('resize',()=>drawChart());
+$('calcSize').addEventListener('click',()=>{
+ const bal=+$('balance').value,risk=+$('riskPct').value,entry=+$('sizeEntry').value,sl=+$('sizeSL').value,contract=+$('contract').value,step=+$('lotStep').value;
+ if(!(bal>0&&risk>0&&risk<=5&&entry>0&&sl>0&&entry!==sl&&contract>0&&step>0)){$('sizeResult').innerHTML='<span class="error">Enter valid positive values. Risk is limited to 5% in this calculator.</span>';return;}
+ const money=bal*risk/100,perLot=Math.abs(entry-sl)*contract,raw=money/perLot,lots=Math.floor(raw/step)*step;
+ $('sizeResult').innerHTML='Estimated risk budget: <strong>$'+fmt(money)+'</strong><br>Distance to SL: '+fmt(Math.abs(entry-sl),2)+'<br>Estimated position size: <strong>'+fmt(lots,3)+' lots</strong><br>Estimated risk at this size: $'+fmt(lots*perLot)+'<br><span class="small">Calculation assumes your broker’s contract size and USD P/L convention are correct. Confirm them with your broker.</span>';
 });
-
-// تولید کندل‌های واقعی منطبق بر قیمت ۳۹۹۵.۸۱ دلار
-function generateRealCandles() {
-  let p = 3995.81;
-  const out = [];
-  const now = Date.now();
-  for(let i=0; i<45; i++) {
-    p += (Math.random() - 0.49) * 4;
-    const o = p;
-    const c = o + (Math.random() - 0.5) * 3;
-    const h = Math.max(o, c) + Math.random() * 2.5;
-    const l = Math.min(o, c) - Math.random() * 2.5;
-    out.push({ t: now - (45 - i) * 60000, o, h, l, c });
-  }
-  return out;
+$('useSignal').addEventListener('click',()=>{if(analysis?.entry){$('sizeEntry').value=analysis.entry;$('sizeSL').value=analysis.sl;}else{$('sizeResult').textContent='No qualified analysis levels are available. Enter prices manually.';}});
+let journal=JSON.parse(localStorage.getItem('gp_journal')||'[]');
+function persistJournal(){localStorage.setItem('gp_journal',JSON.stringify(journal));renderJournal();}
+function renderJournal(){
+ const wins=journal.filter(t=>t.pnl>0).length,loss=journal.filter(t=>t.pnl<0).length,net=journal.reduce((a,t)=>a+t.pnl,0);
+ $('jTotal').textContent=journal.length;$('jWin').textContent=journal.length?fmt(wins/journal.length*100,1)+'%':'—';$('jPL').textContent='$'+fmt(net);$('jWL').textContent=wins+' / '+loss;
+ if(!journal.length){$('journalTable').innerHTML='<div class="empty">No saved trades yet.</div>';return;}
+ $('journalTable').innerHTML='<div class="table-wrap"><table><thead><tr><th>Date</th><th>Side</th><th>Entry</th><th>Exit</th><th>P/L</th><th>Notes</th><th></th></tr></thead><tbody>'+journal.slice().reverse().map(t=>`<tr><td>${new Date(t.date).toLocaleDateString()}</td><td>${t.side}</td><td>${fmt(t.entry)}</td><td>${fmt(t.exit)}</td><td class="${t.pnl>=0?'good':'error'}">$${fmt(t.pnl)}</td><td>${escapeHtml(t.notes||'')}</td><td><button data-del="${t.id}">Delete</button></td></tr>`).join('')+'</tbody></table></div>';
+ document.querySelectorAll('[data-del]').forEach(b=>b.addEventListener('click',()=>{journal=journal.filter(t=>t.id!==b.dataset.del);persistJournal();}));
 }
-
-async function loadData() {
-  try {
-    const res = await fetch(WORKER_URL);
-    const json = await res.json();
-    let raw = Array.isArray(json) ? json : (json.values || json.data);
-    if(raw && raw.length > 5) {
-      candleData = raw.map(k=>({o:Number(k.open), h:Number(k.high), l:Number(k.low), c:Number(k.close)}));
-      $("#status-badge").textContent = "LIVE";
-      $("#status-badge").className = "badge live";
-    } else { throw new Error(); }
-  } catch(e) {
-    candleData = generateRealCandles();
-    $("#status-badge").textContent = "SYNCED (3995.81)";
-    $("#status-badge").className = "badge sample";
-  }
-  const last = candleData[candleData.length - 1];
-  $("#live-price").textContent = "$" + last.c.toFixed(2);
-  $("#lvl-entry").textContent = "$" + last.c.toFixed(2);
-  $("#last-update").textContent = new Date().toLocaleTimeString();
-  renderChart();
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+$('addJournal').addEventListener('click',()=>{const side=$('jDirection').value,entry=+$('jEntry').value,exit=+$('jExit').value,lots=+$('jLots').value,contract=+$('jContract').value;if(!(entry>0&&exit>0&&lots>0&&contract>0)){alert('Enter valid entry, exit, position size and contract size.');return;}const pnl=(side==='BUY'?exit-entry:entry-exit)*lots*contract;journal.push({id:Date.now().toString(),date:new Date().toISOString(),side,entry,exit,lots,contract,pnl,notes:$('jNotes').value});persistJournal();$('jNotes').value='';});
+$('exportJournal').addEventListener('click',()=>{const rows=[['date','side','entry','exit','lots','contract','pnl','notes'],...journal.map(t=>[t.date,t.side,t.entry,t.exit,t.lots,t.contract,t.pnl,t.notes])];const csv=rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='goldpilot-journal.csv';a.click();URL.revokeObjectURL(a.href);});
+let paperTrades=JSON.parse(localStorage.getItem('gp_paper')||'[]');
+function renderPaper(){$('paperTable').innerHTML=paperTrades.length?'<div class="table-wrap"><table><thead><tr><th>Side</th><th>Entry</th><th>Current / Exit</th><th>Status</th><th>P/L</th></tr></thead><tbody>'+paperTrades.slice().reverse().map(t=>`<tr><td>${t.side}</td><td>${fmt(t.entry)}</td><td>${fmt(t.exit??lastPrice)}</td><td>${t.closed?'CLOSED':'OPEN'}</td><td class="${(t.pnl||0)>=0?'good':'error'}">${t.closed?'$'+fmt(t.pnl):'—'}</td></tr>`).join('')+'</tbody></table></div>':'<div class="empty">No virtual trades yet.</div>';}
+function checkPaper(){if(!lastPrice)return;paperTrades=paperTrades.map(t=>{if(t.closed)return t;let exit=null;if(t.side==='BUY'&&lastPrice<=t.sl)exit=t.sl;if(t.side==='BUY'&&lastPrice>=t.tp)exit=t.tp;if(t.side==='SELL'&&lastPrice>=t.sl)exit=t.sl;if(t.side==='SELL'&&lastPrice<=t.tp)exit=t.tp;if(exit!==null)return {...t,closed:true,exit,pnl:(t.side==='BUY'?exit-t.entry:t.entry-exit)*t.lots*t.contract,closedAt:new Date().toISOString()};return t;});localStorage.setItem('gp_paper',JSON.stringify(paperTrades));renderPaper();}
+function openPaper(side){
+ if(!candles.length||Date.now()-lastGoodAt>120000){$('paperInfo').innerHTML='<span class="error">Fresh market data is required. Refresh data first.</span>';return;}
+ const entry=lastPrice,range=candles.slice(-14).reduce((a,c)=>a+c.high-c.low,0)/Math.min(14,candles.length),sl=side==='BUY'?entry-range*1.2:entry+range*1.2,tp=side==='BUY'?entry+range*1.8:entry-range*1.8;
+ const bal=+$('paperBalance').value,risk=+$('paperRisk').value;if(!(bal>0&&risk>0&&risk<=5)){ $('paperInfo').textContent='Enter a valid virtual balance and risk (0–5%).';return;}
+ const lots=(bal*risk/100)/(Math.abs(entry-sl)*100);
+ paperTrades.push({id:Date.now().toString(),side,entry,sl,tp,lots,contract:100,closed:false,openedAt:new Date().toISOString()});localStorage.setItem('gp_paper',JSON.stringify(paperTrades));$('paperInfo').textContent=side+' opened virtually at '+fmt(entry)+'. Approximate size: '+fmt(lots,3)+' lots, using an assumed 100 oz contract. This assumption may not match your broker.';renderPaper();
 }
-
-function renderChart() {
-  const cv=$("#cv"); if(!cv) return;
-  const ctx=cv.getContext("2d");
-  cv.width=cv.clientWidth>0?cv.clientWidth:360; cv.height=240;
-  ctx.fillStyle="#090d14"; ctx.fillRect(0,0,cv.width,cv.height);
-  if(!candleData.length) return;
-  
-  const hi=Math.max(...candleData.map(k=>k.h));
-  const lo=Math.min(...candleData.map(k=>k.l));
-  const range=(hi-lo)||1; const bw=cv.width/candleData.length;
-  
-  candleData.forEach((k,i)=>{
-    const x=i*bw+bw/2;
-    const yH=cv.height*(1-(k.h-lo)/range);
-    const yL=cv.height*(1-(k.l-lo)/range);
-    const yO=cv.height*(1-(k.o-lo)/range);
-    const yC=cv.height*(1-(k.c-lo)/range);
-    const isUp=k.c>=k.o; const col=isUp?'#10b981':'#ef4444';
-    
-    ctx.strokeStyle=col; ctx.lineWidth=1.2;
-    ctx.beginPath(); ctx.moveTo(x,yH); ctx.lineTo(x,yL); ctx.stroke();
-    ctx.fillStyle=col;
-    ctx.fillRect(x-bw*0.35, Math.min(yO,yC), bw*0.7, Math.max(2, Math.abs(yO-yC)));
-  });
-}
-
-$("#btn-calc").onclick=()=>{
-  const bal=parseFloat($("#psz-bal").value)||10000;
-  const risk=parseFloat($("#psz-risk").value)||1;
-  const sl=parseFloat($("#psz-sl").value)||20;
-  const riskAmt=bal*(risk/100);
-  const lots=sl>0?riskAmt/(sl*10):0;
-  $("#res-risk-amt").textContent="$"+riskAmt.toFixed(2);
-  $("#res-lots").textContent=lots.toFixed(2)+" Lots";
-};
-
-$("#btn-save-journal").onclick=()=>{
-  const dir=$("#j-dir").value, entry=$("#j-entry").value, notes=$("#j-notes").value;
-  if(!entry){alert("Enter entry price."); return;}
-  const list=$("#journal-list");
-  if(list.textContent.includes("No entries")) list.innerHTML="";
-  list.insertAdjacentHTML("afterbegin", `<div class="kv"><span>${dir} @ $${entry}</span><b>${notes||'Saved'}</b></div>`);
-  alert("Saved successfully!");
-};
-
-loadData();
-window.onresize=renderChart;
+$('paperBuy').addEventListener('click',()=>openPaper('BUY'));$('paperSell').addEventListener('click',()=>openPaper('SELL'));
+$('closePaper').addEventListener('click',()=>{if(!lastPrice){$('paperInfo').textContent='No current market price is available.';return;}paperTrades=paperTrades.map(t=>t.closed?t:{...t,closed:true,exit:lastPrice,pnl:(t.side==='BUY'?lastPrice-t.entry:t.entry-lastPrice)*t.lots*t.contract,closedAt:new Date().toISOString()});localStorage.setItem('gp_paper',JSON.stringify(paperTrades));$('paperInfo').textContent='Open virtual trades closed at last received price '+fmt(lastPrice)+'.';renderPaper();});
+$('runTest').addEventListener('click',()=>{
+ if(candles.length<60){$('testResult').innerHTML='<span class="error">At least 60 valid candles are required. Current count: '+candles.length+'.</span>';return;}
+ const close=candles.map(c=>c.close),a=ema(close,20),b=ema(close,50);let pos=0,entry=0,trades=[];
+ for(let i=51;i<close.length;i++){let signal=pos===0&&a[i]>b[i]&&a[i-1]<=b[i-1]?'BUY':pos===0&&a[i]<b[i]&&a[i-1]>=b[i-1]?'SELL':null;if(signal){pos=signal==='BUY'?1:-1;entry=close[i];}else if(pos&&((pos===1&&a[i]<b[i])||(pos===-1&&a[i]>b[i]))){trades.push((close[i]-entry)*pos);pos=0;}}
+ if(pos)trades.push((close[close.length-1]-entry)*pos);
+ const wins=trades.filter(x=>x>0).length,net=trades.reduce((x,y)=>x+y,0),grossWin=trades.filter(x=>x>0).reduce((x,y)=>x+y,0),grossLoss=Math.abs(trades.filter(x=>x<0).reduce((x,y)=>x+y,0));
+ let eq=0,peak=0,dd=0;trades.forEach(p=>{eq+=p;peak=Math.max(peak,eq);dd=Math.max(dd,peak-eq)});
+ $('testResult').innerHTML='Trades: <strong>'+trades.length+'</strong><br>Win rate: <strong>'+(trades.length?fmt(wins/trades.length*100,1)+'%':'—')+'</strong><br>Net move (price units per 1 unit position): <strong class="'+(net>=0?'good':'error')+'">'+fmt(net,2)+'</strong><br>Max drawdown (same units): '+fmt(dd,2)+'<br>Profit factor: '+(grossLoss?fmt(grossWin/grossLoss,2):'—')+'<br><span class="small">Simple EMA crossover only; no SL/TP, spread, commission, slippage or broker contract conversion. Results are historical simulation, not a forecast.</span>';
+});
+renderJournal();renderPaper();drawChart();loadCandles();setInterval(()=>{if(!document.hidden)loadCandles();},60000);
+})();
 </script>
 </body>
 </html>
