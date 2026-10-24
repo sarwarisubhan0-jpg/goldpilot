@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0e13">
+<title>GoldPilot AI — XAU/USD</title>
+<style>
+:root{--bg:#0b0e13;--panel:#121720;--panel2:#171e29;--line:#283242;--text:#edf1f7;--muted:#8d9aab;--gold:#e5b94e;--green:#38d39f;--red:#ff6577;--blue:#76a9ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#17202b 0,#0b0e13 55%);color:var(--text);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:10px;background:#1a2230;color:var(--text);padding:10px 13px}button:active{transform:scale(.98)}button.primary{background:var(--gold);color:#15130d;border-color:var(--gold);font-weight:800}.app{max-width:1200px;margin:auto;padding:18px 14px 50px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.brand{display:flex;align-items:center;gap:11px}.logo{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#f4d779,#a8761b);color:#16130b;font-weight:1000;font-size:22px;box-shadow:0 5px 25px #d9a62d25}.brand h1{font-size:19px;margin:0;letter-spacing:.3px}.brand p{margin:2px 0 0;color:var(--muted);font-size:11px;letter-spacing:1.6px}.status{display:flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:99px;padding:8px 10px;color:var(--muted);font-size:11px;white-space:nowrap}.dot{width:7px;height:7px;background:var(--red);border-radius:50%}.dot.live{background:var(--green);box-shadow:0 0 9px #38d39f80}.notice{border:1px solid #6d572b;background:#2a2314;color:#f1dca2;border-radius:12px;padding:11px 13px;font-size:12px;margin-bottom:15px}.market{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:14px}.card,.panel{background:linear-gradient(180deg,#151b25,#11161e);border:1px solid var(--line);border-radius:16px;padding:15px;min-width:0}.label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}.value{font-size:24px;font-weight:750;margin-top:6px;letter-spacing:-.5px;overflow-wrap:anywhere}.sub{font-size:11px;color:var(--muted);margin-top:5px}.tabs{display:flex;gap:7px;overflow:auto;padding:2px 0 12px;margin-bottom:2px}.tabs button{white-space:nowrap;color:var(--muted);background:transparent}.tabs button.active{color:#17130a;background:var(--gold);border-color:var(--gold);font-weight:800}.layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(270px,1fr);gap:13px}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:13px}.panel h2{font-size:15px;margin:0}.small{font-size:11px;color:var(--muted)}.timeframes{display:flex;gap:5px;flex-wrap:wrap}.timeframes button{padding:6px 9px;font-size:11px}.timeframes button.active{border-color:var(--gold);color:var(--gold)}.chart-wrap{position:relative;width:100%;height:310px;background:#0d1219;border:1px solid #222c3b;border-radius:12px;overflow:hidden}.chart-wrap canvas{width:100%;height:100%;display:block}.chart-legend{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:11px;margin-top:10px}.legend-dot{display:inline-block;width:7px;height:7px;border-radius:2px;margin-right:5px}.analysis-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.signal{font-size:23px;font-weight:900;letter-spacing:1px}.signal.buy{color:var(--green)}.signal.sell{color:var(--red)}.signal.none{color:var(--gold)}.pill{font-size:10px;border:1px solid var(--line);border-radius:99px;padding:5px 8px;color:var(--muted)}.analysis-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}.metric{background:#0e131a;border:1px solid #222b38;border-radius:10px;padding:10px}.metric span{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.8px}.metric b{display:block;font-size:16px;margin-top:4px;overflow-wrap:anywhere}.reasons{padding-left:18px;margin:10px 0 0;color:#c4ccd7;font-size:12px}.reasons li{margin:7px 0}.section{display:none}.section.active{display:block}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field label{display:block;font-size:11px;color:var(--muted);margin-bottom:6px}.field input,.field select{width:100%;background:#0b1017;border:1px solid var(--line);border-radius:9px;padding:11px;color:var(--text);outline:none}.field input:focus,.field select:focus{border-color:var(--gold)}.result-box{background:#0d1219;border:1px solid var(--line);padding:15px;border-radius:12px;margin-top:14px}.result-box strong{font-size:22px;color:var(--gold)}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:520px;font-size:12px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:600}.empty{padding:24px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}.footer{text-align:center;color:#657184;font-size:11px;margin-top:22px}.hidden{display:none!important}.error{color:#ff9ba6}.good{color:var(--green)}@media(max-width:760px){.app{padding:13px 10px 35px}.market{grid-template-columns:repeat(2,minmax(0,1fr))}.value{font-size:22px}.layout{grid-template-columns:1fr}.chart-wrap{height:270px}.top{align-items:flex-start}.brand h1{font-size:17px}.status{font-size:10px}.form-grid{grid-template-columns:1fr 1fr}}@media(max-width:390px){.value{font-size:19px}.card,.panel{padding:12px}.form-grid{grid-template-columns:1fr}.chart-wrap{height:245px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top">
+  <div class="brand"><div class="logo">G</div><div><h1>GoldPilot <span style="color:var(--gold)">AI</span></h1><p>XAU/USD INTELLIGENCE</p></div></div>
+  <div class="status"><span id="statusDot" class="dot"></span><span id="statusText">CONNECTING</span></div>
+</header>
+<div id="notice" class="notice">Connecting to your Cloudflare market-data service. Signals are unavailable until valid live candle data is received.</div>
+<section class="market">
+  <div class="card"><div class="label">Gold / USD · last candle</div><div id="price" class="value">—</div><div id="priceChange" class="sub">Waiting for market data</div></div>
+  <div class="card"><div class="label">Market Trend</div><div id="trend" class="value">—</div><div id="trendSub" class="sub">Requires candle history</div></div>
+  <div class="card"><div class="label">Volatility</div><div id="volatility" class="value">—</div><div class="sub">Recent candle range</div></div>
+  <div class="card"><div class="label">Last Update</div><div id="updated" class="value" style="font-size:17px">—</div><div id="candleCount" class="sub">0 candles</div></div>
+</section>
+<nav class="tabs" aria-label="Main navigation">
+  <button class="active" data-tab="chart">Chart & Analysis</button><button data-tab="size">Position Size</button><button data-tab="journal">Journal</button><button data-tab="paper">Paper Trading</button><button data-tab="test">Backtest</button><button data-tab="diagnostics">Data Diagnostics</button>
+</nav>
+<section id="chart" class="section active">
+ <div class="layout">
+  <div class="panel">
+   <div class="panel-head"><h2>XAU/USD Candlestick Chart</h2><div class="timeframes"><button class="active" data-tf="1min">1m</button><button data-tf="5min">5m</button><button data-tf="15min">15m</button><button data-tf="1h">1H</button><button data-tf="4h">4H</button><button data-tf="1day">1D</button></div></div>
+   <div class="chart-wrap"><canvas id="chartCanvas" aria-label="XAU/USD candlestick chart"></canvas></div>
+   <div class="chart-legend"><span><i class="legend-dot" style="background:#38d39f"></i>Bullish</span><span><i class="legend-dot" style="background:#ff6577"></i>Bearish</span><span>EMA20 <b style="color:#e5b94e">—</b></span><span>EMA50 <b style="color:#76a9ff">—</b></span></div>
+   <div class="toolbar"><button id="refreshBtn" class="primary">Refresh data</button><span class="small" id="chartMessage">Waiting for candles…</span></div>
+  </div>
+  <div class="panel">
+   <div class="panel-head"><h2>Market Analysis</h2><span class="pill" id="analysisTF">1m</span></div>
+   <div class="analysis-top"><div id="signal" class="signal none">NO TRADE</div><span class="pill" id="quality">Not evaluated</span></div>
+   <div class="small" id="signalSummary" style="margin-top:8px">A signal will appear only after the data is validated.</div>
+   <div class="analysis-grid">
+    <div class="metric"><span>Entry</span><b id="entry">—</b></div><div class="metric"><span>Stop Loss</span><b id="sl">—</b></div>
+    <div class="metric"><span>Take Profit 1</span><b id="tp">—</b></div><div class="metric"><span>Risk : Reward</span><b id="rr">—</b></div>
+   </div>
+   <div class="label">Why this result?</div><ul id="reasons" class="reasons"><li>Waiting for validated candle data.</li></ul>
+   <div class="small" style="margin-top:14px">Educational analysis only. Not financial advice or a guarantee of profit.</div>
+  </div>
+ </div>
+</section>
+<section id="size" class="section">
+ <div class="panel"><div class="panel-head"><h2>Position Size Calculator</h2><span class="pill">Risk planning</span></div>
+  <div class="form-grid">
+   <div class="field"><label>Account balance ($)</label><input id="balance" type="number" value="200" min="0" step="any"></div>
+   <div class="field"><label>Risk per trade (%)</label><input id="riskPct" type="number" value="1" min="0.1" max="5" step="0.1"></div>
+   <div class="field"><label>Entry price</label><input id="sizeEntry" type="number" placeholder="e.g. 2350" step="any"></div>
+   <div class="field"><label>Stop Loss price</label><input id="sizeSL" type="number" placeholder="e.g. 2345" step="any"></div>
+   <div class="field"><label>Contract size (oz per lot)</label><input id="contract" type="number" value="100" min="0.01" step="any"></div>
+   <div class="field"><label>Broker lot increment</label><input id="lotStep" type="number" value="0.01" min="0.001" step="any"></div>
+  </div><div class="toolbar"><button class="primary" id="calcSize">Calculate position</button><button id="useSignal">Use analysis levels</button></div>
+  <div id="sizeResult" class="result-box">Enter your balance, entry and stop loss, then calculate. Confirm contract specifications with your broker.</div>
+ </div>
+</section>
+<section id="journal" class="section">
+ <div class="panel"><div class="panel-head"><h2>Trade Journal</h2><span class="pill">Saved on this device</span></div>
+  <div class="form-grid">
+   <div class="field"><label>Direction</label><select id="jDirection"><option>BUY</option><option>SELL</option></select></div><div class="field"><label>Entry price</label><input id="jEntry" type="number" step="any"></div>
+   <div class="field"><label>Exit price</label><input id="jExit" type="number" step="any"></div><div class="field"><label>Position size (lots)</label><input id="jLots" type="number" value="0.01" min="0" step="any"></div>
+   <div class="field"><label>Contract size (oz per lot)</label><input id="jContract" type="number" value="100" min="0.01" step="any"></div><div class="field"><label>Notes</label><input id="jNotes" type="text" placeholder="Setup / lesson learned"></div>
+  </div><div class="toolbar"><button class="primary" id="addJournal">Save closed trade</button><button id="exportJournal">Export CSV</button></div>
+  <div class="market" style="margin-top:12px"><div class="card"><div class="label">Trades</div><div class="value" id="jTotal">0</div></div><div class="card"><div class="label">Win rate</div><div class="value" id="jWin">—</div></div><div class="card"><div class="label">Net P/L ($)</div><div class="value" id="jPL">$0.00</div></div><div class="card"><div class="label">Wins / Losses</div><div class="value" id="jWL">0 / 0</div></div></div>
+  <div id="journalTable"></div>
+ </div>
+</section>
+<section id="paper" class="section">
+ <div class="panel"><div class="panel-head"><h2>Paper Trading</h2><span class="pill">Virtual only — no real orders</span></div>
+  <div class="form-grid"><div class="field"><label>Starting virtual balance ($)</label><input id="paperBalance" type="number" value="10000" min="0"></div><div class="field"><label>Risk per trade (%)</label><input id="paperRisk" type="number" value="1" min="0.1" max="5" step="0.1"></div></div>
+  <div class="toolbar"><button id="paperBuy" class="primary">Open virtual BUY</button><button id="paperSell">Open virtual SELL</button><button id="closePaper">Close at current price</button></div>
+  <div id="paperInfo" class="result-box">Paper trading requires fresh market data. Trades are simulated only and do not reach a broker.</div><div id="paperTable" style="margin-top:12px"></div>
+ </div>
+</section>
+<section id="test" class="section">
+ <div class="panel"><div class="panel-head"><h2>Strategy Backtest</h2><span class="pill">EMA 20 / EMA 50</span></div>
+  <p class="small">Runs a simple educational EMA-cross simulation on the candles currently loaded. This is not proof of future performance and does not include broker costs or slippage.</p>
+  <div class="toolbar"><button id="runTest" class="primary">Run backtest</button></div><div id="testResult" class="result-box">Load enough real candles to run a backtest.</div>
+ </div>
+</section>
+<section id="diagnostics" class="section">
+ <div class="panel"><div class="panel-head"><h2>Market Data Diagnostics</h2><span class="pill" id="diagOverall">Checking…</span></div>
+  <p class="small">This page checks timestamps and candle consistency. A received response is not proof that the price is live or suitable for trading.</p>
+  <div class="analysis-grid">
+   <div class="metric"><span>Provider</span><b>Twelve Data via Worker</b></div><div class="metric"><span>Selected interval</span><b id="diagInterval">1min</b></div>
+   <div class="metric"><span>Newest candle (UTC)</span><b id="diagTimestamp">—</b></div><div class="metric"><span>Candle age</span><b id="diagAge">—</b></div>
+   <div class="metric"><span>Distinct open prices</span><b id="diagDistinct">—</b></div><div class="metric"><span>Repeated opens</span><b id="diagRepeats">—</b></div>
+   <div class="metric"><span>Exact duplicate OHLC</span><b id="diagDuplicates">—</b></div><div class="metric"><span>Last received close</span><b id="diagClose">—</b></div>
+  </div>
+  <div id="diagMessage" class="result-box">Waiting for provider data.</div>
+  <div class="toolbar"><button id="diagRefresh" class="primary">Check data again</button><a href="https://www.tradingview.com/symbols/XAUUSD/?exchange=OANDA" target="_blank" rel="noopener" style="display:inline-block;border:1px solid var(--line);border-radius:10px;background:#1a2230;color:var(--text);padding:10px 13px;text-decoration:none">Open OANDA:XAUUSD on TradingView</a></div>
+  <p class="small">GoldPilot does not have access to OANDA's private price feed. If Twelve Data returns incorrect candles, the website cannot safely manufacture a matching OANDA price. The right behaviour is to flag the data and block signals until a reliable feed is available.</p>
+ </div>
+</section>
+<div class="footer">GoldPilot AI · Analysis and simulation only · No automatic real-money execution</div>
+</div>
+<script>
+(() => {
+'use strict';
+const WORKER = 'https://tight-block-d6edgoldpilot-api.sarwarisubhan0.workers.dev';
+const $ = id => document.getElementById(id);
+let timeframe='1min', candles=[], lastGoodAt=0, lastPrice=null, analysis=null, loading=false, dataQuality={ok:false,flags:['Waiting for market data'],ageMinutes:null,closed:false,distinctOpens:0,repeatedOpens:0,duplicates:0,newestTime:null};
+const fmt=(n,d=2)=>Number.isFinite(Number(n))?Number(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
+const parseTime=s=>{if(typeof s==='number')return new Date(s<1e12?s*1000:s);const v=String(s??'');return new Date(/^\d{4}-\d\d-\d\d[ T]\d\d:\d\d(?::\d\d(?:\.\d+)?)?$/.test(v)?v.replace(' ','T')+'Z':v)};
+const timeFmt=s=>{const d=parseTime(s);return Number.isNaN(d.getTime())?'—':d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',timeZone:Intl.DateTimeFormat().resolvedOptions().timeZone})};
+function setStatus(kind,text){$('statusDot').className='dot'+(kind==='live'?' live':'');$('statusText').textContent=text;}
+function showNotice(text,type='warn'){$('notice').textContent=text;$('notice').style.borderColor=type==='error'?'#803c49':type==='ok'?'#236a54':'#6d572b';$('notice').style.background=type==='error'?'#2b151b':type==='ok'?'#10251e':'#2a2314';$('notice').style.color=type==='error'?'#ffc0c7':type==='ok'?'#b7f4d9':'#f1dca2';}
+function normalizeRows(payload){
+ let rows=Array.isArray(payload)?payload:(payload?.candles||payload?.data||payload?.values||payload?.results||payload?.prices||[]);
+ if(!Array.isArray(rows)&&rows&&typeof rows==='object') rows=Object.values(rows);
+ if(!Array.isArray(rows)) return [];
+ return rows.map((r,i)=>{
+  if(Array.isArray(r)){return {time:r[0]??i,open:+r[1],high:+r[2],low:+r[3],close:+r[4],volume:+r[5]||0};}
+  const time=r.datetime??r.timestamp??r.time??r.date??r.t??i;
+  return {time,open:+(r.open??r.o),high:+(r.high??r.h),low:+(r.low??r.l),close:+(r.close??r.c??r.price),volume:+(r.volume??r.v)||0};
+ }).filter(c=>[c.open,c.high,c.low,c.close].every(Number.isFinite)&&c.open>0&&c.high>0&&c.low>0&&c.close>0&&c.high>=c.low)
+ .sort((a,b)=>parseTime(a.time).getTime()-parseTime(b.time).getTime());
+}
+function inspectData(list, interval){
+ const flags=[];
+ if(!list.length)return {ok:false,flags:['No valid candles received'],ageMinutes:null,closed:false,distinctOpens:0,repeatedOpens:0,duplicates:0,newestTime:null};
+ const newest=list[list.length-1],stamp=parseTime(newest.time),ageMinutes=(Date.now()-stamp.getTime())/60000;
+ const now=new Date(),utcDay=now.getUTCDay(),utcHour=now.getUTCHours();
+ const closed=(utcDay===6)||(utcDay===5&&utcHour>=22)||(utcDay===0&&utcHour<21);
+ const opens=new Set(list.map(c=>Number(c.open).toFixed(5)));
+ const distinctOpens=opens.size,repeatedOpens=Math.max(0,list.length-distinctOpens);
+ const signatures=list.map(c=>[c.open,c.high,c.low,c.close].map(v=>Number(v).toFixed(5)).join('|'));
+ const duplicates=signatures.length-new Set(signatures).size;
+ const maxAge={'1min':4,'5min':12,'15min':35,'1h':130,'4h':500,'1day':2200}[interval]||5;
+ if(Number.isNaN(stamp.getTime()))flags.push('Provider timestamp cannot be parsed.');
+ else if(ageMinutes < -2)flags.push('Newest candle timestamp is in the future.');
+ else if(ageMinutes>maxAge)flags.push('Newest candle is stale ('+Math.max(0,Math.round(ageMinutes))+' minutes old).');
+ if(closed)flags.push('The gold market is in its usual weekend closure window; do not treat this as a live price.');
+ if(list.length>=20&&repeatedOpens/list.length>=0.85)flags.push('Suspicious candle data: '+repeatedOpens+' of '+list.length+' candles share repeated open prices.');
+ if(duplicates>2)flags.push('Suspicious history: '+duplicates+' exact duplicate OHLC candles.');
+ const ok=flags.length===0;
+ return {ok,flags,ageMinutes,closed,distinctOpens,repeatedOpens,duplicates,newestTime:newest.time,newestClose:newest.close};
+}
+function renderDiagnostics(){
+ const q=dataQuality;
+ if($('diagOverall')){
+  $('diagOverall').textContent=q.ok?'DATA CHECK PASSED':'DATA NOT TRUSTED';
+  $('diagOverall').style.color=q.ok?'var(--green)':'var(--red)';
+  $('diagInterval').textContent=timeframe;
+  $('diagTimestamp').textContent=q.newestTime?parseTime(q.newestTime).toISOString().replace('T',' ').replace('.000Z',' UTC'):'—';
+  $('diagAge').textContent=Number.isFinite(q.ageMinutes)?Math.max(0,Math.round(q.ageMinutes))+' min':'—';
+  $('diagDistinct').textContent=q.distinctOpens+' / '+(candles.length||'—');
+  $('diagRepeats').textContent=q.repeatedOpens+' / '+(candles.length||'—');
+  $('diagDuplicates').textContent=String(q.duplicates);
+  $('diagClose').textContent=Number.isFinite(q.newestClose)?fmt(q.newestClose,3):'—';
+  $('diagMessage').textContent=q.ok?'No obvious timestamp or candle-pattern problem was detected. This still does not guarantee exact agreement with OANDA.':q.flags.join(' ');
+  $('diagMessage').style.borderColor=q.ok?'#236a54':'#803c49';
+ }
+}
+function disableSignals(reason){
+ $('signal').textContent='NO TRADE';$('signal').className='signal none';$('quality').textContent='Data validation failed';
+ $('signalSummary').textContent='Signals are disabled because the latest market data cannot be trusted.';
+ $('entry').textContent='—';$('sl').textContent='—';$('tp').textContent='—';$('rr').textContent='—';
+ $('reasons').innerHTML='';(reason.length?reason:['Valid live data is required before analysis.']).forEach(t=>{const li=document.createElement('li');li.textContent=t;$('reasons').appendChild(li)});
+ analysis=null;
+}
+async function loadCandles(){
+ if(loading)return;loading=true;$('refreshBtn').disabled=true;$('chartMessage').textContent='Loading market data…';
+ try{
+  const url=WORKER+'/api/candles?interval='+encodeURIComponent(timeframe)+'&_='+Date.now();
+  const res=await fetch(url,{cache:'no-store'});
+  if(!res.ok)throw new Error('Worker returned HTTP '+res.status);
+  const json=await res.json();
+  if(json?.status==='error'||json?.code||json?.error)throw new Error(json.message||json.details||json.error||'Provider error');
+  const parsed=normalizeRows(json);
+  if(parsed.length<20)throw new Error('The service returned fewer than 20 valid candles.');
+  candles=parsed.slice(-240);lastGoodAt=Date.now();lastPrice=candles[candles.length-1].close;
+  dataQuality=inspectData(candles,timeframe);renderDiagnostics();
+  $('price').textContent=fmt(lastPrice,2);const first=candles[Math.max(0,candles.length-2)].close;
+  const ch=lastPrice-first;$('priceChange').textContent=(ch>=0?'+':'')+fmt(ch,2)+' vs previous candle · '+(dataQuality.ok?'validated':'NOT LIVE / UNTRUSTED');$('priceChange').className='sub '+(dataQuality.ok?'good':'error');
+  $('updated').textContent=timeFmt(candles[candles.length-1].time);$('candleCount').textContent=candles.length+' candles · '+Math.max(0,Math.round(dataQuality.ageMinutes||0))+'m old';
+  $('chartMessage').textContent=dataQuality.ok?'Validated provider data · '+candles.length+' candles':'Data loaded, but NOT trusted · '+candles.length+' candles';
+  if(dataQuality.ok){setStatus('live','DATA CHECKED');showNotice('Provider candles passed basic timestamp and consistency checks. Price feeds can still differ from OANDA; verify the source before any trading.','ok');analyse();checkPaper();}
+  else {setStatus('error',dataQuality.closed?'MARKET CLOSED':'DATA UNTRUSTED');showNotice(dataQuality.flags.join(' '), 'error');disableSignals(dataQuality.flags);}
+  drawChart();
+ }catch(e){
+  dataQuality={ok:false,flags:['Cannot validate market data: '+e.message],ageMinutes:null,closed:false,distinctOpens:0,repeatedOpens:0,duplicates:0,newestTime:null};renderDiagnostics();
+  setStatus('error','DATA ERROR');showNotice('Cannot validate market data: '+e.message+'. No trading signal will be generated.','error');
+  $('chartMessage').textContent='Data unavailable';disableSignals(dataQuality.flags);
+  if(!candles.length){$('price').textContent='—';$('trend').textContent='—';$('volatility').textContent='—';drawChart();}
+ }finally{loading=false;$('refreshBtn').disabled=false;}
+}
+function ema(vals,period){let out=[],k=2/(period+1),v=null;for(let i=0;i<vals.length;i++){v=v===null?vals[i]:vals[i]*k+v*(1-k);out.push(v);}return out;}
+function analyse(){
+ const closes=candles.map(c=>c.close), e20=ema(closes,20),e50=ema(closes,50),n=closes.length,last=candles[n-1],prev=candles[n-2];
+ const trend=e20[n-1]>e50[n-1]?'BULLISH':e20[n-1]<e50[n-1]?'BEARISH':'NEUTRAL';
+ const ranges=candles.slice(-14).map(c=>c.high-c.low),avgRange=ranges.reduce((a,b)=>a+b,0)/Math.max(1,ranges.length);
+ const med=candles.slice(-50).map(c=>c.high-c.low).sort((a,b)=>a-b)[Math.floor(Math.min(49,candles.slice(-50).length-1)/2)]||avgRange;
+ const vol=avgRange>med*1.8?'HIGH':avgRange<med*.55?'LOW':'NORMAL';
+ const hi=Math.max(...candles.slice(-20,-1).map(c=>c.high)),lo=Math.min(...candles.slice(-20,-1).map(c=>c.low));
+ const nearEMA=Math.abs(last.close-e20[n-1])<=Math.max(avgRange*1.2,last.close*.0008);
+ const roomBuy=hi-last.close,roomSell=last.close-lo;
+ let direction='NO TRADE',entry=null,sl=null,tp=null,rr=null,reasons=[];
+ if(n<60) reasons.push('At least 60 candles are required; only '+n+' are available.');
+ else {
+  if(trend==='BULLISH'&&last.close>e20[n-1]&&nearEMA&&last.close>prev.close&&vol==='NORMAL'&&roomBuy>avgRange*1.5){direction='BUY';entry=last.close;sl=Math.min(last.low,entry-avgRange*1.2);tp=entry+(entry-sl)*1.5;rr=(tp-entry)/(entry-sl);}
+  else if(trend==='BEARISH'&&last.close<e20[n-1]&&nearEMA&&last.close<prev.close&&vol==='NORMAL'&&roomSell>avgRange*1.5){direction='SELL';entry=last.close;sl=Math.max(last.high,entry+avgRange*1.2);tp=entry-(sl-entry)*1.5;rr=(entry-tp)/(sl-entry);}
+  if(direction==='NO TRADE'){
+   if(trend==='NEUTRAL')reasons.push('EMA20 and EMA50 do not establish a clear trend.');
+   else reasons.push('The current candle does not satisfy all trend and entry conditions.');
+   if(!nearEMA)reasons.push('Price is not close enough to EMA20 for this pullback rule.');
+   if(vol!=='NORMAL')reasons.push('Volatility filter: '+vol.toLowerCase()+' volatility.');
+   if(trend==='BULLISH'&&roomBuy<=avgRange*1.5)reasons.push('Nearby resistance leaves insufficient room.');
+   if(trend==='BEARISH'&&roomSell<=avgRange*1.5)reasons.push('Nearby support leaves insufficient room.');
+  }else reasons=['EMA trend and price direction agree.','Entry is near EMA20 with normal recent volatility.','Minimum 1.5R target is used; verify support/resistance manually.'];
+ }
+ $('trend').textContent=trend;$('trend').style.color=trend==='BULLISH'?'var(--green)':trend==='BEARISH'?'var(--red)':'var(--gold)';$('trendSub').textContent='EMA20 '+fmt(e20[n-1],2)+' · EMA50 '+fmt(e50[n-1],2);
+ $('volatility').textContent=vol;$('volatility').style.color=vol==='NORMAL'?'var(--green)':vol==='HIGH'?'var(--red)':'var(--gold)';$('analysisTF').textContent=timeframe.toUpperCase();
+ $('signal').textContent=direction;$('signal').className='signal '+(direction==='BUY'?'buy':direction==='SELL'?'sell':'none');
+ $('quality').textContent=direction==='NO TRADE'?'Setup not qualified':'Rule-based setup';$('signalSummary').textContent=direction==='NO TRADE'?'No qualified setup. Waiting is a valid decision.':'Conditions passed a simple rule-based filter; this is not a prediction or profit probability.';
+ $('entry').textContent=entry?fmt(entry):'—';$('sl').textContent=sl?fmt(sl):'—';$('tp').textContent=tp?fmt(tp):'—';$('rr').textContent=rr?rr.toFixed(2)+'R':'—';
+ $('reasons').innerHTML='';reasons.forEach(t=>{let li=document.createElement('li');li.textContent=t;$('reasons').appendChild(li)});
+ analysis={direction,entry,sl,tp,rr,trend};
+}
+function drawChart(){
+ const canvas=$('chartCanvas'),rect=canvas.getBoundingClientRect(),dpr=window.devicePixelRatio||1;
+ canvas.width=Math.max(1,Math.floor(rect.width*dpr));canvas.height=Math.max(1,Math.floor(rect.height*dpr));
+ const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);const w=rect.width,h=rect.height;ctx.fillStyle='#0d1219';ctx.fillRect(0,0,w,h);
+ if(!candles.length){ctx.fillStyle='#8794a6';ctx.font='13px sans-serif';ctx.textAlign='center';ctx.fillText('Waiting for valid candle data',w/2,h/2);return;}
+ const data=candles.slice(-65),pad={l:8,r:58,t:16,b:24},cw=w-pad.l-pad.r,ch=h-pad.t-pad.b;
+ let min=Math.min(...data.map(c=>c.low)),max=Math.max(...data.map(c=>c.high));if(max===min){max+=1;min-=1}const extra=(max-min)*.08;min-=extra;max+=extra;
+ const y=p=>pad.t+(max-p)/(max-min)*ch,step=cw/data.length,body=Math.max(2,step*.58);
+ ctx.font='10px sans-serif';ctx.textAlign='left';
+ for(let i=0;i<=4;i++){let val=min+(max-min)*i/4,yy=y(val);ctx.strokeStyle='#202a37';ctx.beginPath();ctx.moveTo(pad.l,yy);ctx.lineTo(w-pad.r+3,yy);ctx.stroke();ctx.fillStyle='#8d9aab';ctx.fillText(val.toFixed(2),w-pad.r+7,yy+3);}
+ const close=data.map(c=>c.close),e20=ema(close,20),e50=ema(close,50);
+ data.forEach((c,i)=>{const x=pad.l+i*step+step/2,up=c.close>=c.open,col=up?'#38d39f':'#ff6577';ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x,y(c.high));ctx.lineTo(x,y(c.low));ctx.stroke();let top=y(Math.max(c.open,c.close)),bh=Math.max(1,Math.abs(y(c.open)-y(c.close)));ctx.fillRect(x-body/2,top,body,bh);});
+ function line(vals,color){ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.beginPath();let started=false;vals.forEach((v,i)=>{if(i<Math.max(0,vals.length-50))return;let x=pad.l+i*step+step/2;if(!started){ctx.moveTo(x,y(v));started=true}else ctx.lineTo(x,y(v));});ctx.stroke();}
+ line(e20,'#e5b94e');line(e50,'#76a9ff');
+ ctx.fillStyle='#8d9aab';ctx.textAlign='left';ctx.fillText(String(data[0].time).slice(0,16),pad.l,h-7);ctx.textAlign='right';ctx.fillText(String(data[data.length-1].time).slice(0,16),w-pad.r,h-7);
+}
+document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id===b.dataset.tab));if(b.dataset.tab==='chart')drawChart();}));
+document.querySelectorAll('[data-tf]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-tf]').forEach(x=>x.classList.toggle('active',x===b));timeframe=b.dataset.tf;loadCandles();}));
+$('refreshBtn').addEventListener('click',loadCandles);$('diagRefresh').addEventListener('click',loadCandles);window.addEventListener('resize',()=>drawChart());
+$('calcSize').addEventListener('click',()=>{
+ const bal=+$('balance').value,risk=+$('riskPct').value,entry=+$('sizeEntry').value,sl=+$('sizeSL').value,contract=+$('contract').value,step=+$('lotStep').value;
+ if(!(bal>0&&risk>0&&risk<=5&&entry>0&&sl>0&&entry!==sl&&contract>0&&step>0)){$('sizeResult').innerHTML='<span class="error">Enter valid positive values. Risk is limited to 5% in this calculator.</span>';return;}
+ const money=bal*risk/100,perLot=Math.abs(entry-sl)*contract,raw=money/perLot,lots=Math.floor(raw/step)*step;
+ $('sizeResult').innerHTML='Estimated risk budget: <strong>$'+fmt(money)+'</strong><br>Distance to SL: '+fmt(Math.abs(entry-sl),2)+'<br>Estimated position size: <strong>'+fmt(lots,3)+' lots</strong><br>Estimated risk at this size: $'+fmt(lots*perLot)+'<br><span class="small">Calculation assumes your broker’s contract size and USD P/L convention are correct. Confirm them with your broker.</span>';
+});
+$('useSignal').addEventListener('click',()=>{if(analysis?.entry){$('sizeEntry').value=analysis.entry;$('sizeSL').value=analysis.sl;}else{$('sizeResult').textContent='No qualified analysis levels are available. Enter prices manually.';}});
+let journal=JSON.parse(localStorage.getItem('gp_journal')||'[]');
+function persistJournal(){localStorage.setItem('gp_journal',JSON.stringify(journal));renderJournal();}
+function renderJournal(){
+ const wins=journal.filter(t=>t.pnl>0).length,loss=journal.filter(t=>t.pnl<0).length,net=journal.reduce((a,t)=>a+t.pnl,0);
+ $('jTotal').textContent=journal.length;$('jWin').textContent=journal.length?fmt(wins/journal.length*100,1)+'%':'—';$('jPL').textContent='$'+fmt(net);$('jWL').textContent=wins+' / '+loss;
+ if(!journal.length){$('journalTable').innerHTML='<div class="empty">No saved trades yet.</div>';return;}
+ $('journalTable').innerHTML='<div class="table-wrap"><table><thead><tr><th>Date</th><th>Side</th><th>Entry</th><th>Exit</th><th>P/L</th><th>Notes</th><th></th></tr></thead><tbody>'+journal.slice().reverse().map(t=>`<tr><td>${new Date(t.date).toLocaleDateString()}</td><td>${t.side}</td><td>${fmt(t.entry)}</td><td>${fmt(t.exit)}</td><td class="${t.pnl>=0?'good':'error'}">$${fmt(t.pnl)}</td><td>${escapeHtml(t.notes||'')}</td><td><button data-del="${t.id}">Delete</button></td></tr>`).join('')+'</tbody></table></div>';
+ document.querySelectorAll('[data-del]').forEach(b=>b.addEventListener('click',()=>{journal=journal.filter(t=>t.id!==b.dataset.del);persistJournal();}));
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+$('addJournal').addEventListener('click',()=>{const side=$('jDirection').value,entry=+$('jEntry').value,exit=+$('jExit').value,lots=+$('jLots').value,contract=+$('jContract').value;if(!(entry>0&&exit>0&&lots>0&&contract>0)){alert('Enter valid entry, exit, position size and contract size.');return;}const pnl=(side==='BUY'?exit-entry:entry-exit)*lots*contract;journal.push({id:Date.now().toString(),date:new Date().toISOString(),side,entry,exit,lots,contract,pnl,notes:$('jNotes').value});persistJournal();$('jNotes').value='';});
+$('exportJournal').addEventListener('click',()=>{const rows=[['date','side','entry','exit','lots','contract','pnl','notes'],...journal.map(t=>[t.date,t.side,t.entry,t.exit,t.lots,t.contract,t.pnl,t.notes])];const csv=rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='goldpilot-journal.csv';a.click();URL.revokeObjectURL(a.href);});
+let paperTrades=JSON.parse(localStorage.getItem('gp_paper')||'[]');
+function renderPaper(){$('paperTable').innerHTML=paperTrades.length?'<div class="table-wrap"><table><thead><tr><th>Side</th><th>Entry</th><th>Current / Exit</th><th>Status</th><th>P/L</th></tr></thead><tbody>'+paperTrades.slice().reverse().map(t=>`<tr><td>${t.side}</td><td>${fmt(t.entry)}</td><td>${fmt(t.exit??lastPrice)}</td><td>${t.closed?'CLOSED':'OPEN'}</td><td class="${(t.pnl||0)>=0?'good':'error'}">${t.closed?'$'+fmt(t.pnl):'—'}</td></tr>`).join('')+'</tbody></table></div>':'<div class="empty">No virtual trades yet.</div>';}
+function checkPaper(){if(!lastPrice)return;paperTrades=paperTrades.map(t=>{if(t.closed)return t;let exit=null;if(t.side==='BUY'&&lastPrice<=t.sl)exit=t.sl;if(t.side==='BUY'&&lastPrice>=t.tp)exit=t.tp;if(t.side==='SELL'&&lastPrice>=t.sl)exit=t.sl;if(t.side==='SELL'&&lastPrice<=t.tp)exit=t.tp;if(exit!==null)return {...t,closed:true,exit,pnl:(t.side==='BUY'?exit-t.entry:t.entry-exit)*t.lots*t.contract,closedAt:new Date().toISOString()};return t;});localStorage.setItem('gp_paper',JSON.stringify(paperTrades));renderPaper();}
+function openPaper(side){
+ if(!candles.length||!dataQuality.ok||Date.now()-lastGoodAt>120000){$('paperInfo').innerHTML='<span class="error">Trusted, fresh market data is required. Current feed is stale, closed or has quality warnings.</span>';return;}
+ const entry=lastPrice,range=candles.slice(-14).reduce((a,c)=>a+c.high-c.low,0)/Math.min(14,candles.length),sl=side==='BUY'?entry-range*1.2:entry+range*1.2,tp=side==='BUY'?entry+range*1.8:entry-range*1.8;
+ const bal=+$('paperBalance').value,risk=+$('paperRisk').value;if(!(bal>0&&risk>0&&risk<=5)){ $('paperInfo').textContent='Enter a valid virtual balance and risk (0–5%).';return;}
+ const lots=(bal*risk/100)/(Math.abs(entry-sl)*100);
+ paperTrades.push({id:Date.now().toString(),side,entry,sl,tp,lots,contract:100,closed:false,openedAt:new Date().toISOString()});localStorage.setItem('gp_paper',JSON.stringify(paperTrades));$('paperInfo').textContent=side+' opened virtually at '+fmt(entry)+'. Approximate size: '+fmt(lots,3)+' lots, using an assumed 100 oz contract. This assumption may not match your broker.';renderPaper();
+}
+$('paperBuy').addEventListener('click',()=>openPaper('BUY'));$('paperSell').addEventListener('click',()=>openPaper('SELL'));
+$('closePaper').addEventListener('click',()=>{if(!lastPrice||!dataQuality.ok){$('paperInfo').textContent='Cannot mark virtual trades at a current price because the market data is not validated.';return;}paperTrades=paperTrades.map(t=>t.closed?t:{...t,closed:true,exit:lastPrice,pnl:(t.side==='BUY'?lastPrice-t.entry:t.entry-lastPrice)*t.lots*t.contract,closedAt:new Date().toISOString()});localStorage.setItem('gp_paper',JSON.stringify(paperTrades));$('paperInfo').textContent='Open virtual trades closed at last received price '+fmt(lastPrice)+'.';renderPaper();});
+$('runTest').addEventListener('click',()=>{
+ if(!dataQuality.ok){$('testResult').innerHTML='<span class="error">Backtest blocked: current candle data failed validation. Resolve the warning in Data Diagnostics first.</span>';return;}if(candles.length<60){$('testResult').innerHTML='<span class="error">At least 60 valid candles are required. Current count: '+candles.length+'.</span>';return;}
+ const close=candles.map(c=>c.close),a=ema(close,20),b=ema(close,50);let pos=0,entry=0,trades=[];
+ for(let i=51;i<close.length;i++){let signal=pos===0&&a[i]>b[i]&&a[i-1]<=b[i-1]?'BUY':pos===0&&a[i]<b[i]&&a[i-1]>=b[i-1]?'SELL':null;if(signal){pos=signal==='BUY'?1:-1;entry=close[i];}else if(pos&&((pos===1&&a[i]<b[i])||(pos===-1&&a[i]>b[i]))){trades.push((close[i]-entry)*pos);pos=0;}}
+ if(pos)trades.push((close[close.length-1]-entry)*pos);
+ const wins=trades.filter(x=>x>0).length,net=trades.reduce((x,y)=>x+y,0),grossWin=trades.filter(x=>x>0).reduce((x,y)=>x+y,0),grossLoss=Math.abs(trades.filter(x=>x<0).reduce((x,y)=>x+y,0));
+ let eq=0,peak=0,dd=0;trades.forEach(p=>{eq+=p;peak=Math.max(peak,eq);dd=Math.max(dd,peak-eq)});
+ $('testResult').innerHTML='Trades: <strong>'+trades.length+'</strong><br>Win rate: <strong>'+(trades.length?fmt(wins/trades.length*100,1)+'%':'—')+'</strong><br>Net move (price units per 1 unit position): <strong class="'+(net>=0?'good':'error')+'">'+fmt(net,2)+'</strong><br>Max drawdown (same units): '+fmt(dd,2)+'<br>Profit factor: '+(grossLoss?fmt(grossWin/grossLoss,2):'—')+'<br><span class="small">Simple EMA crossover only; no SL/TP, spread, commission, slippage or broker contract conversion. Results are historical simulation, not a forecast.</span>';
+});
+renderJournal();renderPaper();drawChart();loadCandles();setInterval(()=>{if(!document.hidden)loadCandles();},60000);
+})();
+</script>
+</body>
+</html>
