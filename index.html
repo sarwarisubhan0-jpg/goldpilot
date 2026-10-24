@@ -11,7 +11,7 @@ main{max-width:560px;margin:auto;padding:12px;padding-bottom:70px}
 h1{font-size:18px;margin:0}h2{font-size:13px;color:var(--m);margin:0 0 8px 0;text-transform:uppercase;letter-spacing:.5px}
 .row{display:flex;justify-content:space-between;align-items:center}
 .badge{background:#0b2a1a;color:var(--up);border:1px solid #065f46;padding:2px 8px;border-radius:4px;font-weight:600;font-size:11px}
-canvas{width:100%;height:220px;display:block;background:#090d12;border-radius:6px;margin-bottom:10px}
+canvas{width:100%!important;height:220px!important;display:block;background:#090d12;border-radius:6px;margin-bottom:10px;border:1px solid var(--bd)}
 .card{background:var(--p);border:1px solid var(--bd);border-radius:8px;padding:12px;margin-bottom:10px}
 .sig{font-size:24px;font-weight:800;text-align:center;color:var(--up);margin:6px 0}
 .kv{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--bd)}
@@ -44,7 +44,7 @@ nav a.on{color:var(--g)}
   </div>
   <div class="card">
     <h2>Live Chart (XAU/USD)</h2>
-    <canvas id="cv"></canvas>
+    <canvas id="cv" width="340" height="220"></canvas>
   </div>
 </section>
 <section id="v1" class="v"><div class="card"><h2>Position Sizer</h2><p>Calculator module ready.</p></div></section>
@@ -58,44 +58,71 @@ nav a.on{color:var(--g)}
 "use strict";
 const $=s=>document.querySelector(s);
 const tabs=[["📈","Chart",()=>drawChart()],["🧮","Size",()=>{}],["📔","Journal",()=>{}],["💼","Paper",()=>{}],["🔬","Test",()=>{}];
+
 function drawChart(){
-  const cv=$("#cv");if(!cv)return;
+  const cv=document.getElementById('cv');
+  if(!cv)return;
   const ctx=cv.getContext("2d");
-  cv.width=cv.clientWidth||320;
-  cv.height=220;
-  ctx.clearRect(0,0,cv.width,cv.height);
   
-  let price=2650;
-  const candles=[];
-  for(let i=0;i<50;i++){
-    price+=(Math.random()-0.48)*6;
-    candles.push({o:price-2,h:price+4,l:price-4,c:price+2});
+  cv.width = cv.clientWidth > 0 ? cv.clientWidth : 340;
+  cv.height = 220;
+  
+  // پاک کردن و پر کردن پس‌زمینه بوم با رنگ تیره مشخص
+  ctx.fillStyle = '#090d12';
+  ctx.fillRect(0, 0, cv.width, cv.height);
+  
+  let price = 2650;
+  const candles = [];
+  for(let i = 0; i < 35; i++){
+    price += (Math.random() - 0.48) * 8;
+    const o = price;
+    const c = o + (Math.random() - 0.5) * 6;
+    const h = Math.max(o, c) + Math.random() * 4;
+    const l = Math.min(o, c) - Math.random() * 4;
+    candles.push({o, h, l, c});
   }
-  const hi=Math.max(...candles.map(c=>c.h));
-  const lo=Math.min(...candles.map(c=>c.l));
-  const bw=cv.width/candles.length;
   
-  candles.forEach((k,i)=>{
-    const x=i*bw+bw/2;
-    const yH=cv.height*(1-(k.h-lo)/(hi-lo||1));
-    const yL=cv.height*(1-(k.l-lo)/(hi-lo||1));
-    const yO=cv.height*(1-(k.o-lo)/(hi-lo||1));
-    const yC=cv.height*(1-(k.c-lo)/(hi-lo||1));
+  const hi = Math.max(...candles.map(item => item.h));
+  const lo = Math.min(...candles.map(item => item.l));
+  const range = (hi - lo) || 1;
+  const bw = cv.width / candles.length;
+  
+  candles.forEach((k, i)=>{
+    const x = i * bw + bw / 2;
+    const yH = cv.height * (1 - (k.h - lo) / range);
+    const yL = cv.height * (1 - (k.l - lo) / range);
+    const yO = cv.height * (1 - (k.o - lo) / range);
+    const yC = cv.height * (1 - (k.c - lo) / range);
     
-    ctx.strokeStyle=k.c>=k.o?'#34d399':'#f87171';
-    ctx.lineWidth=1.5;
-    ctx.beginPath();ctx.moveTo(x,yH);ctx.lineTo(x,yL);ctx.stroke();
-    ctx.fillStyle=ctx.strokeStyle;
-    ctx.fillRect(x-bw*0.35,Math.min(yO,yC),bw*0.7,Math.max(2,Math.abs(yO-yC)));
+    const isUp = k.c >= k.o;
+    const col = isUp ? '#34d399' : '#f87171';
+    
+    // خط فتیله (Wick)
+    ctx.strokeStyle = col;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(x, yH);
+    ctx.lineTo(x, yL);
+    ctx.stroke();
+    
+    // بدنه کندل (Body)
+    ctx.fillStyle = col;
+    const topY = Math.min(yO, yC);
+    const boxHeight = Math.max(2, Math.abs(yO - yC));
+    ctx.fillRect(x - bw * 0.35, topY, bw * 0.7, boxHeight);
   });
 }
+
 $("#nav").innerHTML=tabs.map((t,i)=>`<a href="#" data-i="${i}" class="${i===0?'on':''}">${t[0]}<br>${t[1]}</a>`).join("");
 $("#nav").onclick=e=>{const a=e.target.closest("a");if(!a)return;e.preventDefault();show(Number(a.dataset.i))};
+
 function show(i){
   tabs.forEach((t,idx)=>{const el=$("#v"+idx);if(el)el.className="v"+(idx===i?" on":"")});
-  if(i===0)setTimeout(drawChart,50);
+  if(i===0) setTimeout(drawChart, 30);
 }
-show(0);
+
+window.onload = () => { drawChart(); };
+setTimeout(drawChart, 100);
 </script>
 </body>
 </html>
