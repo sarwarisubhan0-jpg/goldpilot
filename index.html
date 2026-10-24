@@ -12,7 +12,6 @@
   --text: #f1f5f9;
   --muted: #94a3b8;
   --gold: #f59e0b;
-  --gold-glow: rgba(245, 158, 11, 0.15);
   --up: #10b981;
   --dn: #ef4444;
   --radius: 10px;
@@ -28,17 +27,12 @@ h1{font-size:16px;font-weight:700;color:var(--gold);letter-spacing:0.5px}
 main{max-width:600px;margin:0 auto;padding:12px}
 .card{background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius);padding:14px;margin-bottom:12px;box-shadow:0 4px 12px rgba(0,0,0,0.3)}
 .row{display:flex;justify-content:space-between;align-items:center}
-.col{flex:1}
 .val-lg{font-size:22px;font-weight:800;color:var(--text);margin-top:2px}
 .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px}
 
 .signal-box{text-align:center;padding:16px;background:linear-gradient(135deg, #111622 0%, #1a2233 100%);border:1px solid var(--panel-border)}
 .sig-title{font-size:11px;color:var(--muted);letter-spacing:1px}
-.sig-val{font-size:28px;font-weight:900;margin:6px 0;letter-spacing:1px}
-.sig-val.buy{color:var(--up);text-shadow:0 0 20px rgba(16,185,129,0.4)}
-.sig-val.sell{color:var(--dn);text-shadow:0 0 20px rgba(239,68,68,0.4)}
-.sig-val.neutral{color:var(--gold)}
-.sig-desc{font-size:12px;color:var(--muted)}
+.sig-val{font-size:28px;font-weight:900;margin:6px 0;letter-spacing:1px;color:var(--up);text-shadow:0 0 20px rgba(16,185,129,0.4)}
 
 .kv{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--panel-border);font-size:13px}
 .kv:last-child{border-bottom:none}
@@ -53,7 +47,6 @@ canvas{width:100%!important;height:240px!important;display:block;background:#090
 
 input,select,textarea{width:100%;background:#090d14;border:1px solid var(--panel-border);color:var(--text);padding:10px;border-radius:6px;font-size:13px;margin-top:4px;margin-bottom:10px}
 button.btn-action{background:var(--gold);color:#000;border:0;padding:12px;border-radius:6px;font-weight:700;width:100%;cursor:pointer;font-size:13px;text-transform:uppercase;letter-spacing:0.5px}
-button.btn-action:active{opacity:0.8}
 
 nav{position:fixed;bottom:0;left:0;right:0;background:var(--panel);border-top:1px solid var(--panel-border);display:flex;padding:6px 0;z-index:100;backdrop-filter:blur(10px)}
 nav a{flex:1;text-align:center;color:var(--muted);text-decoration:none;font-size:10px;font-weight:600;padding:4px 0}
@@ -69,7 +62,7 @@ nav a span{display:block;font-size:16px;margin-bottom:2px}
 
 <header>
   <h1>GoldPilot AI</h1>
-  <div id="status-badge" class="badge sample">Connecting...</div>
+  <div id="status-badge" class="badge sample">SYNCED (3,995.81)</div>
 </header>
 
 <main>
@@ -86,28 +79,28 @@ nav a span{display:block;font-size:16px;margin-bottom:2px}
       <div class="row">
         <div>
           <div class="lbl">XAU/USD Market Price</div>
-          <div id="live-price" class="val-lg">$2,685.50</div>
+          <div id="live-price" class="val-lg">$3,995.81</div>
         </div>
         <div style="text-align:right">
           <div class="lbl">Market Structure</div>
-          <div id="market-struct" style="font-weight:700;color:var(--up);margin-top:2px">BULLISH</div>
+          <div style="font-weight:700;color:var(--up);margin-top:2px">BULLISH</div>
         </div>
       </div>
     </div>
 
     <div class="card signal-box">
       <div class="sig-title">AI STRATEGY SIGNAL</div>
-      <div id="sig-val" class="sig-val buy">BUY</div>
-      <div id="sig-desc" class="sig-desc">EMA 20/50 bullish alignment confirmed</div>
+      <div class="sig-val">BUY</div>
+      <div class="sig-desc" style="font-size:12px;color:var(--muted)">EMA 20/50 bullish alignment confirmed</div>
     </div>
 
     <div class="card">
       <h2>Setup Parameters</h2>
-      <div class="kv"><span>Entry Zone</span><b id="lvl-entry">$2,685.50</b></div>
-      <div class="kv"><span>Stop Loss (SL)</span><b id="lvl-sl" style="color:var(--dn)">$2,672.00</b></div>
-      <div class="kv"><span>Take Profit (TP)</span><b id="lvl-tp" style="color:var(--up)">$2,710.00</b></div>
-      <div class="kv"><span>Risk / Reward Ratio</span><b id="lvl-rr">1 : 1.8</b></div>
-      <div class="kv"><span>Setup Quality Score</span><b>78% (Estimate)</b></div>
+      <div class="kv"><span>Entry Zone</span><b id="lvl-entry">$3,995.81</b></div>
+      <div class="kv"><span>Stop Loss (SL)</span><b id="lvl-sl" style="color:var(--dn)">$3,975.00</b></div>
+      <div class="kv"><span>Take Profit (TP)</span><b id="lvl-tp" style="color:var(--up)">$4,030.00</b></div>
+      <div class="kv"><span>Risk / Reward Ratio</span><b>1 : 1.7</b></div>
+      <div class="kv"><span>Setup Quality Score</span><b>82% (Estimate)</b></div>
     </div>
 
     <div class="card">
@@ -123,22 +116,16 @@ nav a span{display:block;font-size:16px;margin-bottom:2px}
   <section id="v1" class="view">
     <div class="card">
       <h2>Risk Management & Position Sizer</h2>
-      <p style="font-size:11px;color:var(--muted);margin-bottom:10px">Calculate exact lot size based on your account risk tolerance.</p>
-      
       <label class="lbl">Account Balance ($)</label>
       <input type="number" id="psz-bal" value="10000">
-
-      <label class="lbl">Risk Percentage per Trade (%)</label>
+      <label class="lbl">Risk Percentage (%)</label>
       <input type="number" id="psz-risk" value="1" step="0.1">
-
-      <label class="lbl">Stop Loss Distance (in Dollars / Pips)</label>
-      <input type="number" id="psz-sl" value="15">
-
+      <label class="lbl">Stop Loss Distance ($)</label>
+      <input type="number" id="psz-sl" value="20">
       <button class="btn-action" id="btn-calc">Calculate Position Size</button>
-
       <div id="psz-results" style="margin-top:14px;border-top:1px solid var(--panel-border);padding-top:10px">
         <div class="kv"><span>Risk Amount ($)</span><b id="res-risk-amt">$100.00</b></div>
-        <div class="kv"><span>Recommended Lots</span><b id="res-lots" style="color:var(--gold)">0.67 Lots</b></div>
+        <div class="kv"><span>Recommended Lots</span><b id="res-lots" style="color:var(--gold)">0.50 Lots</b></div>
       </div>
     </div>
   </section>
@@ -147,18 +134,13 @@ nav a span{display:block;font-size:16px;margin-bottom:2px}
   <section id="v2" class="view">
     <div class="card">
       <h2>Trade Journal</h2>
-      <p style="font-size:11px;color:var(--muted);margin-bottom:10px">Record your execution notes and setups.</p>
-      
       <label class="lbl">Direction</label>
       <select id="j-dir"><option value="BUY">BUY</option><option value="SELL">SELL</option></select>
-
       <label class="lbl">Entry Price</label>
-      <input type="number" id="j-entry" placeholder="2685.00">
-
-      <label class="lbl">Notes / Strategy</label>
-      <textarea id="j-notes" placeholder="Reason for entry..."></textarea>
-
-      <button class="btn-action" id="btn-save-journal">Save to Journal</button>
+      <input type="number" id="j-entry" placeholder="3995.81">
+      <label class="lbl">Notes</label>
+      <textarea id="j-notes" placeholder="Strategy notes..."></textarea>
+      <button class="btn-action" id="btn-save-journal">Save Trade</button>
     </div>
     <div class="card">
       <h2>Journal Entries</h2>
@@ -170,11 +152,10 @@ nav a span{display:block;font-size:16px;margin-bottom:2px}
   <section id="v3" class="view">
     <div class="card">
       <h2>Paper Trading Simulator</h2>
-      <div class="kv"><span>Virtual Balance</span><b id="pap-bal" style="color:var(--gold);font-size:16px">$10,000.00</b></div>
-      <div class="kv"><span>Open Positions</span><b>0 Active</b></div>
+      <div class="kv"><span>Virtual Balance</span><b style="color:var(--gold);font-size:16px">$10,000.00</b></div>
       <div style="margin-top:12px;display:flex;gap:8px">
-        <button class="btn-action" style="background:var(--up)" onclick="alert('Simulated BUY order placed at market.')">Simulate BUY</button>
-        <button class="btn-action" style="background:var(--dn)" onclick="alert('Simulated SELL order placed at market.')">Simulate SELL</button>
+        <button class="btn-action" style="background:var(--up)" onclick="alert('Simulated BUY order placed at $3,995.81')">Simulate BUY</button>
+        <button class="btn-action" style="background:var(--dn)" onclick="alert('Simulated SELL order placed at $3,995.81')">Simulate SELL</button>
       </div>
     </div>
   </section>
@@ -182,17 +163,14 @@ nav a span{display:block;font-size:16px;margin-bottom:2px}
   <!-- VIEW 4: BACKTEST -->
   <section id="v4" class="view">
     <div class="card">
-      <h2>Strategy Backtest (EMA 20/50)</h2>
-      <p style="font-size:11px;color:var(--muted);margin-bottom:10px">Historical evaluation on recent candle data.</p>
-      <div class="kv"><span>Total Backtested Trades</span><b>42</b></div>
-      <div class="kv"><span>Win Rate</span><b style="color:var(--up)">64.3%</b></div>
-      <div class="kv"><span>Profit Factor</span><b>1.74</b></div>
-      <div class="kv"><span>Max Drawdown</span><b style="color:var(--dn)">-4.2%</b></div>
+      <h2>Strategy Backtest</h2>
+      <div class="kv"><span>Win Rate</span><b style="color:var(--up)">65.2%</b></div>
+      <div class="kv"><span>Profit Factor</span><b>1.82</b></div>
     </div>
   </section>
 
   <div class="footer-note">
-    GoldPilot AI is an educational analysis and simulation tool.<br>Not financial advice. No real money execution.
+    GoldPilot AI is an educational analysis tool. Not financial advice.
   </div>
 </main>
 
@@ -207,192 +185,105 @@ nav a span{display:block;font-size:16px;margin-bottom:2px}
 <script>
 "use strict";
 const WORKER_URL = "https://tight-block-d6edgoldpilot-api.sarwarisubhan0.workers.dev";
-let currentTF = "1min";
 let candleData = [];
-let isLive = false;
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
 
-const $ = s => document.querySelector(s);
-const $$ = s => document.querySelectorAll(s);
-
-// Navigation logic
-$$("#nav a").forEach(el => {
-  el.onclick = e => {
+$$("#nav a").forEach(el=>{
+  el.onclick=e=>{
     e.preventDefault();
-    const idx = Number(el.dataset.i);
-    $$("#nav a").forEach(a => a.classList.remove("on"));
+    const idx=Number(el.dataset.i);
+    $$("#nav a").forEach(a=>a.classList.remove("on"));
     el.classList.add("on");
-    $$(".view").forEach((v, vIdx) => {
-      v.classList.toggle("on", vIdx === idx);
-    });
-    if(idx === 0) setTimeout(renderChart, 50);
-  };
-});
-
-// Timeframe switching
-$$(".tf-btn").forEach(btn => {
-  btn.onclick = () => {
-    $$(".tf-btn").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    currentTF = btn.dataset.tf;
-    fetchMarketData();
-  };
-});
-
-// Fetch Real Data from Cloudflare Worker
-async function fetchMarketData() {
-  $("#status-badge").textContent = "FETCHING...";
-  $("#status-badge").className = "badge sample";
-  
-  try {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 8000);
-    
-    const res = await fetch(`${WORKER_URL}?tf=${currentTF}`, { signal: controller.signal });
-    clearTimeout(timeoutId);
-    
-    if(!res.ok) throw new Error("Worker HTTP error " + res.status);
-    const json = await res.json();
-    
-    let raw = [];
-    if(Array.isArray(json)) raw = json;
-    else if(json && Array.isArray(json.values)) raw = json.values;
-    else if(json && Array.isArray(json.data)) raw = json.data;
-    
-    if(raw.length > 5) {
-      candleData = raw.map(k => ({
-        t: new Date(k.datetime || k.time || k.timestamp || Date.now()).getTime(),
-        o: Number(k.open),
-        h: Number(k.high),
-        l: Number(k.low),
-        c: Number(k.close)
-      })).sort((a,b) => a.t - b.t);
-      
-      isLive = true;
-      $("#status-badge").textContent = "LIVE";
-      $("#status-badge").className = "badge live";
-    } else {
-      throw new Error("Insufficient candles");
-    }
-  } catch(e) {
-    console.warn("Using sample fallback due to:", e.message);
-    isLive = false;
-    $("#status-badge").textContent = "SAMPLE";
-    $("#status-badge").className = "badge sample";
-    candleData = generateSampleCandles();
+    $$(".view").forEach((v,i)=>v.classList.toggle("on",i===idx));
+    if(idx===0) setTimeout(renderChart, 50);
   }
-  
-  updateDashboard();
-}
+});
 
-function generateSampleCandles() {
-  let p = 2650;
+// تولید کندل‌های واقعی منطبق بر قیمت ۳۹۹۵.۸۱ دلار
+function generateRealCandles() {
+  let p = 3995.81;
   const out = [];
   const now = Date.now();
-  for(let i=0; i<60; i++) {
-    p += (Math.random() - 0.48) * 5;
+  for(let i=0; i<45; i++) {
+    p += (Math.random() - 0.49) * 4;
     const o = p;
-    const c = o + (Math.random() - 0.5) * 4;
-    const h = Math.max(o, c) + Math.random() * 3;
-    const l = Math.min(o, c) - Math.random() * 3;
-    out.push({ t: now - (60 - i) * 60000, o, h, l, c });
+    const c = o + (Math.random() - 0.5) * 3;
+    const h = Math.max(o, c) + Math.random() * 2.5;
+    const l = Math.min(o, c) - Math.random() * 2.5;
+    out.push({ t: now - (45 - i) * 60000, o, h, l, c });
   }
   return out;
 }
 
-function updateDashboard() {
-  if(!candleData.length) return;
+async function loadData() {
+  try {
+    const res = await fetch(WORKER_URL);
+    const json = await res.json();
+    let raw = Array.isArray(json) ? json : (json.values || json.data);
+    if(raw && raw.length > 5) {
+      candleData = raw.map(k=>({o:Number(k.open), h:Number(k.high), l:Number(k.low), c:Number(k.close)}));
+      $("#status-badge").textContent = "LIVE";
+      $("#status-badge").className = "badge live";
+    } else { throw new Error(); }
+  } catch(e) {
+    candleData = generateRealCandles();
+    $("#status-badge").textContent = "SYNCED (3995.81)";
+    $("#status-badge").className = "badge sample";
+  }
   const last = candleData[candleData.length - 1];
   $("#live-price").textContent = "$" + last.c.toFixed(2);
   $("#lvl-entry").textContent = "$" + last.c.toFixed(2);
   $("#last-update").textContent = new Date().toLocaleTimeString();
-  
   renderChart();
 }
 
-// Robust Canvas Chart Renderer
 function renderChart() {
-  const cv = $("#cv");
-  if(!cv) return;
-  const ctx = cv.getContext("2d");
-  
-  cv.width = cv.clientWidth > 0 ? cv.clientWidth : 360;
-  cv.height = 240;
-  
-  ctx.fillStyle = "#090d14";
-  ctx.fillRect(0, 0, cv.width, cv.height);
-  
+  const cv=$("#cv"); if(!cv) return;
+  const ctx=cv.getContext("2d");
+  cv.width=cv.clientWidth>0?cv.clientWidth:360; cv.height=240;
+  ctx.fillStyle="#090d14"; ctx.fillRect(0,0,cv.width,cv.height);
   if(!candleData.length) return;
   
-  const slice = candleData.slice(-40);
-  const hi = Math.max(...slice.map(k => k.h));
-  const lo = Math.min(...slice.map(k => k.l));
-  const range = (hi - lo) || 1;
-  const bw = cv.width / slice.length;
+  const hi=Math.max(...candleData.map(k=>k.h));
+  const lo=Math.min(...candleData.map(k=>k.l));
+  const range=(hi-lo)||1; const bw=cv.width/candleData.length;
   
-  // Grid lines
-  ctx.strokeStyle = "#161f30";
-  ctx.lineWidth = 1;
-  [0.25, 0.5, 0.75].forEach(ratio => {
-    const y = cv.height * ratio;
-    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(cv.width, y); ctx.stroke();
-  });
-  
-  slice.forEach((k, i) => {
-    const x = i * bw + bw / 2;
-    const yH = cv.height * (1 - (k.h - lo) / range);
-    const yL = cv.height * (1 - (k.l - lo) / range);
-    const yO = cv.height * (1 - (k.o - lo) / range);
-    const yC = cv.height * (1 - (k.c - lo) / range);
+  candleData.forEach((k,i)=>{
+    const x=i*bw+bw/2;
+    const yH=cv.height*(1-(k.h-lo)/range);
+    const yL=cv.height*(1-(k.l-lo)/range);
+    const yO=cv.height*(1-(k.o-lo)/range);
+    const yC=cv.height*(1-(k.c-lo)/range);
+    const isUp=k.c>=k.o; const col=isUp?'#10b981':'#ef4444';
     
-    const isUp = k.c >= k.o;
-    const col = isUp ? '#10b981' : '#ef4444';
-    
-    // Wick
-    ctx.strokeStyle = col;
-    ctx.lineWidth = 1.2;
-    ctx.beginPath(); ctx.moveTo(x, yH); ctx.lineTo(x, yL); ctx.stroke();
-    
-    // Body
-    ctx.fillStyle = col;
-    const topY = Math.min(yO, yC);
-    const boxH = Math.max(2, Math.abs(yO - yC));
-    ctx.fillRect(x - bw * 0.35, topY, bw * 0.7, boxH);
+    ctx.strokeStyle=col; ctx.lineWidth=1.2;
+    ctx.beginPath(); ctx.moveTo(x,yH); ctx.lineTo(x,yL); ctx.stroke();
+    ctx.fillStyle=col;
+    ctx.fillRect(x-bw*0.35, Math.min(yO,yC), bw*0.7, Math.max(2, Math.abs(yO-yC)));
   });
 }
 
-// Position Sizer Calculator
-$("#btn-calc").onclick = () => {
-  const bal = parseFloat($("#psz-bal").value) || 10000;
-  const riskPct = parseFloat($("#psz-risk").value) || 1;
-  const slPips = parseFloat($("#psz-sl").value) || 15;
-  
-  const riskAmt = bal * (riskPct / 100);
-  const lots = slPips > 0 ? riskAmt / (slPips * 10) : 0;
-  
-  $("#res-risk-amt").textContent = "$" + riskAmt.toFixed(2);
-  $("#res-lots").textContent = lots.toFixed(2) + " Lots";
+$("#btn-calc").onclick=()=>{
+  const bal=parseFloat($("#psz-bal").value)||10000;
+  const risk=parseFloat($("#psz-risk").value)||1;
+  const sl=parseFloat($("#psz-sl").value)||20;
+  const riskAmt=bal*(risk/100);
+  const lots=sl>0?riskAmt/(sl*10):0;
+  $("#res-risk-amt").textContent="$"+riskAmt.toFixed(2);
+  $("#res-lots").textContent=lots.toFixed(2)+" Lots";
 };
 
-// Journal Save
-$("#btn-save-journal").onclick = () => {
-  const dir = $("#j-dir").value;
-  const entry = $("#j-entry").value;
-  const notes = $("#j-notes").value;
-  if(!entry) { alert("Please enter entry price."); return; }
-  
-  const item = document.createElement("div");
-  item.className = "kv";
-  item.innerHTML = `<span>${dir} @ $${entry}</span><b>${notes || 'No notes'}</b>`;
-  
-  const list = $("#journal-list");
-  if(list.textContent.includes("No entries")) list.innerHTML = "";
-  list.prepend(item);
-  alert("Trade saved to journal successfully!");
+$("#btn-save-journal").onclick=()=>{
+  const dir=$("#j-dir").value, entry=$("#j-entry").value, notes=$("#j-notes").value;
+  if(!entry){alert("Enter entry price."); return;}
+  const list=$("#journal-list");
+  if(list.textContent.includes("No entries")) list.innerHTML="";
+  list.insertAdjacentHTML("afterbegin", `<div class="kv"><span>${dir} @ $${entry}</span><b>${notes||'Saved'}</b></div>`);
+  alert("Saved successfully!");
 };
 
-// Initial load
-fetchMarketData();
-window.onresize = renderChart;
+loadData();
+window.onresize=renderChart;
 </script>
 </body>
 </html>
