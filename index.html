@@ -1,237 +1,227 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="GoldPilot"><meta name="theme-color" content="#0b0e14"><title>GoldPilot AI</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0e13">
+<title>GoldPilot AI — XAU/USD</title>
 <style>
-:root{color-scheme:dark;--bg:#0b0e14;--p:#141a24;--b:#232c3b;--t:#e8edf5;--m:#8a97ab;--g:#f5c242;--up:#26d17b;--dn:#ff5b5b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font:15px/1.4 -apple-system,system-ui,Segoe UI,Roboto,sans-serif;padding-bottom:90px}
-main{max-width:560px;margin:auto;padding:12px}.card{background:var(--p);border:1px solid var(--b);border-radius:14px;padding:12px;margin-bottom:10px}
-h1{font-size:18px;margin:0}h2{font-size:13px;color:var(--m);text-transform:uppercase;letter-spacing:.06em;margin:0 0 8px}
-.row{display:flex;justify-content:space-between;align-items:center;gap:8px}.m{color:var(--m)}.up{color:var(--up)}.dn{color:var(--dn)}.g{color:var(--g)}
-.badge{background:#3a2d0a;color:var(--g);border:1px solid #6b5313;border-radius:20px;padding:2px 9px;font-size:11px;font-weight:700}
-canvas{width:100%;height:260px;display:block}
-label{display:block;font-size:12px;color:var(--m);margin:8px 0 3px}
-input,select,textarea{width:100%;background:#0d1219;color:var(--t);border:1px solid var(--b);border-radius:10px;padding:11px;font-size:16px}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-button{background:var(--g);color:#1a1400;border:0;border-radius:10px;padding:12px;font-weight:700;font-size:15px;width:100%;margin-top:10px}
-button.s{background:#222c3c;color:var(--t)}button.b{background:var(--up);color:#04170d}button.r{background:var(--dn);color:#210505}
-.sig{font-size:26px;font-weight:800}.kv{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;margin-top:8px}.kv div span{display:block;font-size:11px;color:var(--m)}
-nav{position:fixed;left:0;right:0;bottom:0;background:#0f141cf2;border-top:1px solid var(--b);display:flex;padding-bottom:env(safe-area-inset-bottom,0px);z-index:5}
-nav a{flex:1;text-align:center;padding:10px 0 8px;font-size:11px;color:var(--m)}nav a b{display:block;font-size:19px}nav a.on{color:var(--g)}
-.err{color:var(--dn);font-size:13px;margin-top:6px;min-height:16px}.it{border-top:1px solid var(--b);padding:8px 0;font-size:14px}.sm{font-size:12px}
-.v{display:none}.v.on{display:block}
-.badge.live{background:#0b2a1a;color:var(--up);border-color:#14683c}.badge.dly{background:#2a1a0b;color:#ffa94d;border-color:#7a4a14}.tf{display:flex;gap:6px;margin-bottom:10px}.tf a{flex:1;text-align:center;padding:8px 0;border:1px solid var(--b);border-radius:10px;font-size:13px;color:var(--m)}.tf a.on{color:#1a1400;background:var(--g);font-weight:700}
-.badge.bad{background:#2a0b0b;color:var(--dn);border-color:#7a1414}summary{cursor:pointer;margin-top:6px}
-body{background:radial-gradient(900px 420px at 50% -8%,#18233a 0,#0b0e14 62%) fixed}.card{box-shadow:0 1px 0 #ffffff0a inset,0 8px 20px #0007}nav{backdrop-filter:blur(14px)}nav a{font-size:10px;padding:8px 0 6px}nav a b{font-size:18px}nav a.on{background:linear-gradient(#f5c24218,transparent)}button{min-height:46px}.tf a{padding:11px 0}.it.row{align-items:flex-start}input[type=checkbox]{width:auto;margin-right:6px}
-</style></head><body><main>
-<div class="row" style="margin:4px 0 10px"><h1>🪙 GoldPilot <span class="g">AI</span></h1><span class="badge" id="bdg">LOADING…</span></div>
-<section id="v0" class="v on"></section><section id="v1" class="v"></section><section id="v2" class="v"></section><section id="v3" class="v"></section><section id="v4" class="v"></section><section id="v5" class="v"></section>
-<p class="m sm">Educational tool only. Not financial advice. No strategy here is shown to be profitable. No real trades are ever executed.</p></main>
-<nav id="nav"></nav>
+:root{--bg:#0b0e13;--panel:#121720;--panel2:#171e29;--line:#283242;--text:#edf1f7;--muted:#8d9aab;--gold:#e5b94e;--green:#38d39f;--red:#ff6577;--blue:#76a9ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#17202b 0,#0b0e13 55%);color:var(--text);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:10px;background:#1a2230;color:var(--text);padding:10px 13px}button:active{transform:scale(.98)}button.primary{background:var(--gold);color:#15130d;border-color:var(--gold);font-weight:800}.app{max-width:1200px;margin:auto;padding:18px 14px 50px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.brand{display:flex;align-items:center;gap:11px}.logo{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#f4d779,#a8761b);color:#16130b;font-weight:1000;font-size:22px;box-shadow:0 5px 25px #d9a62d25}.brand h1{font-size:19px;margin:0;letter-spacing:.3px}.brand p{margin:2px 0 0;color:var(--muted);font-size:11px;letter-spacing:1.6px}.status{display:flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:99px;padding:8px 10px;color:var(--muted);font-size:11px;white-space:nowrap}.dot{width:7px;height:7px;background:var(--red);border-radius:50%}.dot.live{background:var(--green);box-shadow:0 0 9px #38d39f80}.notice{border:1px solid #6d572b;background:#2a2314;color:#f1dca2;border-radius:12px;padding:11px 13px;font-size:12px;margin-bottom:15px}.market{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:14px}.card,.panel{background:linear-gradient(180deg,#151b25,#11161e);border:1px solid var(--line);border-radius:16px;padding:15px;min-width:0}.label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}.value{font-size:24px;font-weight:750;margin-top:6px;letter-spacing:-.5px;overflow-wrap:anywhere}.sub{font-size:11px;color:var(--muted);margin-top:5px}.tabs{display:flex;gap:7px;overflow:auto;padding:2px 0 12px;margin-bottom:2px}.tabs button{white-space:nowrap;color:var(--muted);background:transparent}.tabs button.active{color:#17130a;background:var(--gold);border-color:var(--gold);font-weight:800}.layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(270px,1fr);gap:13px}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:13px}.panel h2{font-size:15px;margin:0}.small{font-size:11px;color:var(--muted)}.timeframes{display:flex;gap:5px;flex-wrap:wrap}.timeframes button{padding:6px 9px;font-size:11px}.timeframes button.active{border-color:var(--gold);color:var(--gold)}.chart-wrap{position:relative;width:100%;height:310px;background:#0d1219;border:1px solid #222c3b;border-radius:12px;overflow:hidden}.chart-wrap canvas{width:100%;height:100%;display:block}.chart-legend{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:11px;margin-top:10px}.legend-dot{display:inline-block;width:7px;height:7px;border-radius:2px;margin-right:5px}.analysis-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.signal{font-size:23px;font-weight:900;letter-spacing:1px}.signal.buy{color:var(--green)}.signal.sell{color:var(--red)}.signal.none{color:var(--gold)}.pill{font-size:10px;border:1px solid var(--line);border-radius:99px;padding:5px 8px;color:var(--muted)}.analysis-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}.metric{background:#0e131a;border:1px solid #222b38;border-radius:10px;padding:10px}.metric span{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.8px}.metric b{display:block;font-size:16px;margin-top:4px;overflow-wrap:anywhere}.reasons{padding-left:18px;margin:10px 0 0;color:#c4ccd7;font-size:12px}.reasons li{margin:7px 0}.section{display:none}.section.active{display:block}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field label{display:block;font-size:11px;color:var(--muted);margin-bottom:6px}.field input,.field select{width:100%;background:#0b1017;border:1px solid var(--line);border-radius:9px;padding:11px;color:var(--text);outline:none}.field input:focus,.field select:focus{border-color:var(--gold)}.result-box{background:#0d1219;border:1px solid var(--line);padding:15px;border-radius:12px;margin-top:14px}.result-box strong{font-size:22px;color:var(--gold)}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:520px;font-size:12px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:600}.empty{padding:24px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}.footer{text-align:center;color:#657184;font-size:11px;margin-top:22px}.hidden{display:none!important}.error{color:#ff9ba6}.good{color:var(--green)}@media(max-width:760px){.app{padding:13px 10px 35px}.market{grid-template-columns:repeat(2,minmax(0,1fr))}.value{font-size:22px}.layout{grid-template-columns:1fr}.chart-wrap{height:270px}.top{align-items:flex-start}.brand h1{font-size:17px}.status{font-size:10px}.form-grid{grid-template-columns:1fr 1fr}}@media(max-width:390px){.value{font-size:19px}.card,.panel{padding:12px}.form-grid{grid-template-columns:1fr}.chart-wrap{height:245px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top">
+  <div class="brand"><div class="logo">G</div><div><h1>GoldPilot <span style="color:var(--gold)">AI</span></h1><p>XAU/USD INTELLIGENCE</p></div></div>
+  <div class="status"><span id="statusDot" class="dot"></span><span id="statusText">CONNECTING</span></div>
+</header>
+<div id="notice" class="notice">Connecting to your Cloudflare market-data service. Signals are unavailable until valid live candle data is received.</div>
+<section class="market">
+  <div class="card"><div class="label">Gold / USD</div><div id="price" class="value">—</div><div id="priceChange" class="sub">Waiting for market data</div></div>
+  <div class="card"><div class="label">Market Trend</div><div id="trend" class="value">—</div><div id="trendSub" class="sub">Requires candle history</div></div>
+  <div class="card"><div class="label">Volatility</div><div id="volatility" class="value">—</div><div class="sub">Recent candle range</div></div>
+  <div class="card"><div class="label">Last Update</div><div id="updated" class="value" style="font-size:17px">—</div><div id="candleCount" class="sub">0 candles</div></div>
+</section>
+<nav class="tabs" aria-label="Main navigation">
+  <button class="active" data-tab="chart">Chart & Analysis</button><button data-tab="size">Position Size</button><button data-tab="journal">Journal</button><button data-tab="paper">Paper Trading</button><button data-tab="test">Backtest</button>
+</nav>
+<section id="chart" class="section active">
+ <div class="layout">
+  <div class="panel">
+   <div class="panel-head"><h2>XAU/USD Candlestick Chart</h2><div class="timeframes"><button class="active" data-tf="1min">1m</button><button data-tf="5min">5m</button><button data-tf="15min">15m</button><button data-tf="1h">1H</button><button data-tf="4h">4H</button><button data-tf="1day">1D</button></div></div>
+   <div class="chart-wrap"><canvas id="chartCanvas" aria-label="XAU/USD candlestick chart"></canvas></div>
+   <div class="chart-legend"><span><i class="legend-dot" style="background:#38d39f"></i>Bullish</span><span><i class="legend-dot" style="background:#ff6577"></i>Bearish</span><span>EMA20 <b style="color:#e5b94e">—</b></span><span>EMA50 <b style="color:#76a9ff">—</b></span></div>
+   <div class="toolbar"><button id="refreshBtn" class="primary">Refresh data</button><span class="small" id="chartMessage">Waiting for candles…</span></div>
+  </div>
+  <div class="panel">
+   <div class="panel-head"><h2>Market Analysis</h2><span class="pill" id="analysisTF">1m</span></div>
+   <div class="analysis-top"><div id="signal" class="signal none">NO TRADE</div><span class="pill" id="quality">Not evaluated</span></div>
+   <div class="small" id="signalSummary" style="margin-top:8px">A signal will appear only after the data is validated.</div>
+   <div class="analysis-grid">
+    <div class="metric"><span>Entry</span><b id="entry">—</b></div><div class="metric"><span>Stop Loss</span><b id="sl">—</b></div>
+    <div class="metric"><span>Take Profit 1</span><b id="tp">—</b></div><div class="metric"><span>Risk : Reward</span><b id="rr">—</b></div>
+   </div>
+   <div class="label">Why this result?</div><ul id="reasons" class="reasons"><li>Waiting for validated candle data.</li></ul>
+   <div class="small" style="margin-top:14px">Educational analysis only. Not financial advice or a guarantee of profit.</div>
+  </div>
+ </div>
+</section>
+<section id="size" class="section">
+ <div class="panel"><div class="panel-head"><h2>Position Size Calculator</h2><span class="pill">Risk planning</span></div>
+  <div class="form-grid">
+   <div class="field"><label>Account balance ($)</label><input id="balance" type="number" value="200" min="0" step="any"></div>
+   <div class="field"><label>Risk per trade (%)</label><input id="riskPct" type="number" value="1" min="0.1" max="5" step="0.1"></div>
+   <div class="field"><label>Entry price</label><input id="sizeEntry" type="number" placeholder="e.g. 2350" step="any"></div>
+   <div class="field"><label>Stop Loss price</label><input id="sizeSL" type="number" placeholder="e.g. 2345" step="any"></div>
+   <div class="field"><label>Contract size (oz per lot)</label><input id="contract" type="number" value="100" min="0.01" step="any"></div>
+   <div class="field"><label>Broker lot increment</label><input id="lotStep" type="number" value="0.01" min="0.001" step="any"></div>
+  </div><div class="toolbar"><button class="primary" id="calcSize">Calculate position</button><button id="useSignal">Use analysis levels</button></div>
+  <div id="sizeResult" class="result-box">Enter your balance, entry and stop loss, then calculate. Confirm contract specifications with your broker.</div>
+ </div>
+</section>
+<section id="journal" class="section">
+ <div class="panel"><div class="panel-head"><h2>Trade Journal</h2><span class="pill">Saved on this device</span></div>
+  <div class="form-grid">
+   <div class="field"><label>Direction</label><select id="jDirection"><option>BUY</option><option>SELL</option></select></div><div class="field"><label>Entry price</label><input id="jEntry" type="number" step="any"></div>
+   <div class="field"><label>Exit price</label><input id="jExit" type="number" step="any"></div><div class="field"><label>Position size (lots)</label><input id="jLots" type="number" value="0.01" min="0" step="any"></div>
+   <div class="field"><label>Contract size (oz per lot)</label><input id="jContract" type="number" value="100" min="0.01" step="any"></div><div class="field"><label>Notes</label><input id="jNotes" type="text" placeholder="Setup / lesson learned"></div>
+  </div><div class="toolbar"><button class="primary" id="addJournal">Save closed trade</button><button id="exportJournal">Export CSV</button></div>
+  <div class="market" style="margin-top:12px"><div class="card"><div class="label">Trades</div><div class="value" id="jTotal">0</div></div><div class="card"><div class="label">Win rate</div><div class="value" id="jWin">—</div></div><div class="card"><div class="label">Net P/L ($)</div><div class="value" id="jPL">$0.00</div></div><div class="card"><div class="label">Wins / Losses</div><div class="value" id="jWL">0 / 0</div></div></div>
+  <div id="journalTable"></div>
+ </div>
+</section>
+<section id="paper" class="section">
+ <div class="panel"><div class="panel-head"><h2>Paper Trading</h2><span class="pill">Virtual only — no real orders</span></div>
+  <div class="form-grid"><div class="field"><label>Starting virtual balance ($)</label><input id="paperBalance" type="number" value="10000" min="0"></div><div class="field"><label>Risk per trade (%)</label><input id="paperRisk" type="number" value="1" min="0.1" max="5" step="0.1"></div></div>
+  <div class="toolbar"><button id="paperBuy" class="primary">Open virtual BUY</button><button id="paperSell">Open virtual SELL</button><button id="closePaper">Close at current price</button></div>
+  <div id="paperInfo" class="result-box">Paper trading requires fresh market data. Trades are simulated only and do not reach a broker.</div><div id="paperTable" style="margin-top:12px"></div>
+ </div>
+</section>
+<section id="test" class="section">
+ <div class="panel"><div class="panel-head"><h2>Strategy Backtest</h2><span class="pill">EMA 20 / EMA 50</span></div>
+  <p class="small">Runs a simple educational EMA-cross simulation on the candles currently loaded. This is not proof of future performance and does not include broker costs or slippage.</p>
+  <div class="toolbar"><button id="runTest" class="primary">Run backtest</button></div><div id="testResult" class="result-box">Load enough real candles to run a backtest.</div>
+ </div>
+</section>
+<div class="footer">GoldPilot AI · Analysis and simulation only · No automatic real-money execution</div>
+</div>
 <script>
-"use strict";
-const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const f2=n=>Number(n).toFixed(2),sg=n=>(n>=0?"+":"")+f2(n);
-const store={get(k,d){try{const v=JSON.parse(localStorage.getItem(k));return v??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-const num=id=>{const v=parseFloat($("#"+id).value);return isFinite(v)?v:NaN};
-const rng=s=>()=>(s=(s*1664525+1013904223)>>>0)/4294967296;
-/* ---------- MODULE: data provider (Cloudflare Worker -> Twelve Data; no API key in this file) ---------- */
-const API_BASE="https://tight-block-d6edgoldpilot-api.sarwarisubhan0.workers.dev";
-const TFS={"1min":["1m",60],"5min":["5m",300],"15min":["15m",900],"1h":["1H",3600],"4h":["4H",14400],"1day":["1D",86400]};
-const SET=Object.assign({tz:"auto",tzCustom:"",askUtc:false,auto:true},store.get("gp_set",{})),saveSet=()=>store.set("gp_set",SET);let DG={};
-function tzOff(ms,tz){try{const p=new Intl.DateTimeFormat("en-US",{timeZone:tz,hourCycle:"h23",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit"}).formatToParts(new Date(ms)).reduce((o,x)=>(o[x.type]=+x.value,o),{});return Date.UTC(p.year,p.month-1,p.day,p.hour,p.minute,p.second)-Math.floor(ms/1e3)*1e3}catch(e){return NaN}}
-function wall2utc(q,tz){const u=Date.parse(q.replace(" ","T")+"Z");if(!isFinite(u)||!tz||tz==="UTC")return u;const m=/^([+-])(\d\d):?(\d\d)$/.exec(tz);if(m)return u-(m[1]=="-"?-1:1)*(+m[2]*60+ +m[3])*6e4;let o=tzOff(u,tz);if(!isFinite(o))return NaN;o=tzOff(u-o,tz);return u-o}
-// Numbers: seconds or ms. Strings with a zone (Z or +hh:mm) are exact. Zone-less date-times are wall-clock in `tz`. Date-only = UTC midnight.
-const ts=(d,tz)=>{if(typeof d==="string"&&/^\d{9,13}$/.test(d.trim()))d=+d;if(typeof d==="number")return d<1e11?d*1e3:d;let q=String(d).trim();if(/^\d{4}-\d\d-\d\d[ T]\d\d:\d\d(:\d\d)?(\.\d+)?$/.test(q)){q=q.replace(/\.\d+$/,"");if(q.length==16)q+=":00";return wall2utc(q,tz)}return Date.parse(q)};
-const hm=t=>t?new Date(t).toLocaleTimeString():"—",cts=t=>new Date(t).toISOString().slice(0,16).replace("T"," ")+" UTC",ago=ms=>{const m=Math.round(ms/6e4);return m<1?"under 1 min ago":m<120?m+" min ago":m<2880?Math.round(m/60)+" h ago":Math.round(m/1440)+" days ago"};
-const E=(m,retry)=>Object.assign(new Error(m),{retry});
-function parseCandles(j){if(j&&(j.status==="error"||(j.error&&!j.values&&!j.candles)))throw E(String(j.message||j.error||"API returned an error"));
- const a=Array.isArray(j)?j:j&&(j.values||j.candles||(j.data&&(j.data.values||j.data)));if(!Array.isArray(a))throw E("Unexpected response format (no candle list found)");
- const meta=(j&&!Array.isArray(j)&&(j.meta||(j.data&&j.data.meta)))||{},mtz=meta.exchange_timezone||meta.timezone;let tz,src;
- if(SET.tz==="UTC"){tz="UTC";src="Settings: UTC"}else if(SET.tz==="custom"&&SET.tzCustom){tz=SET.tzCustom.trim();src="Settings: custom "+tz}else if(mtz){tz=mtz;src="response meta ("+mtz+")"}else{tz="UTC";src="assumed UTC (the response states no timezone; your Worker is reported to request timezone=UTC)"}
- const now=Date.now(),m=new Map(),tl=[];let bad=0,fut=0,mx=null,mn=null,okc=0;
- a.forEach(k=>{const raw=k.datetime??k.t??k.time??k.timestamp,t=ts(raw,tz),o=+(k.open??k.o),h=+(k.high??k.h),l=+(k.low??k.l),c=+(k.close??k.c),v=+(k.volume??k.v);
-  if(Number.isFinite(t)){tl.push(t);if(!mx||t>mx.t)mx={t,raw};if(!mn||t<mn.t)mn={t,raw}}
-  if(![t,o,h,l,c].every(Number.isFinite)||!(o>0&&c>0&&h>=l&&h>=Math.max(o,c)-1e-9&&l<=Math.min(o,c)+1e-9)){bad++;return}
-  if(t>now+12e4){fut++;return}okc++;m.set(t,{t,o,h,l,c,v:Number.isFinite(v)?v:null})});
- const out=[...m.values()].sort((p,q)=>p.t-q.t);
- const asc=tl.every((x,i)=>!i||x>=tl[i-1]),desc=tl.every((x,i)=>!i||x<=tl[i-1]);
- DG={at:now,tz,src,total:a.length,valid:out.length,bad,fut,rawNew:mx&&mx.raw,parsedNew:mx&&mx.t,rawOld:mn&&mn.raw,order:asc?"oldest first":desc?"newest first":"mixed (re-sorted by timestamp)",dup:okc-m.size,meta,sample:a[0],url:DG.url};
- if(out.length<10){if(fut>=Math.max(1,a.length/2)&&mx)throw E(fut+" of "+a.length+" candles have timestamps in the future: newest raw “"+mx.raw+"” → "+new Date(mx.t).toISOString().slice(0,16)+" UTC, "+((mx.t-now)/36e5).toFixed(1)+" h ahead of now, using timezone “"+tz+"” from "+src+". The timezone is probably misread. Open Settings for diagnostics.");throw E("Too few valid candles ("+out.length+" valid, "+bad+" invalid, "+fut+" future)")}
- return out}
-let COOL=0,CF=0,LE={};const REQ=[],LIM=6,REQLOG=[],lg=o=>{REQLOG.unshift(o);if(REQLOG.length>15)REQLOG.length=15};
-const Provider={async once(tf){const t0=Date.now();try{const c=await this.raw(tf);lg({at:t0,tf,ok:true,src:"ok",res:c.length+" valid candles"});return c}catch(e){const w=LE.at>=t0;lg({at:t0,tf,ok:false,src:e.local?"app: this page paused itself, nothing was sent":w&&LE.status>=400?"Worker answered HTTP "+LE.status:w?"Worker answered 200 but the content was unusable":"network/CORS: no answer from the Worker",res:e.message});throw e}},
- async raw(tf){const n=Date.now();while(REQ.length&&n-REQ[0]>6e4)REQ.shift();
-  if(COOL>n)throw Object.assign(E("Paused for "+Math.ceil((COOL-n)/1e3)+" s after a service error, so the app doesn’t add to a possible rate-limit problem"),{local:true});
-  if(REQ.length>=LIM)throw Object.assign(E("Paused: "+LIM+" data requests were already made in the last minute (the free Twelve Data plan has a low per-minute cap). Retry in "+Math.ceil((REQ[0]+6e4-n)/1e3)+" s"),{local:true});
-  REQ.push(n);const ac=new AbortController(),to=setTimeout(()=>ac.abort(),15000);
-  try{const url=(DG.url=API_BASE+"/api/candles?interval="+encodeURIComponent(tf)+(SET.askUtc?"&timezone=UTC":"")),r=await fetch(url,{signal:ac.signal,cache:"no-store"}),tx=await r.text().catch(()=>"");let j=null;try{j=JSON.parse(tx)}catch(e){}
-   LE={at:n,status:r.status,body:tx.slice(0,400),url};
-   if(!r.ok){const m=j&&(j.message||(typeof j.error==="string"&&j.error))||"";if(r.status==429||r.status>=500){CF++;COOL=Date.now()+Math.min(6e4*2**(CF-1),24e4)}
-    throw E(r.status==429?"Rate limit reached":"Data service returned HTTP "+r.status+(m?": "+m:"")+(r.status>=500?" (the Worker could not get a valid answer from Twelve Data; the raw error is in Settings)":""))}
-   if(j==null)throw E("Response wasn’t valid JSON (the raw body is in Settings)");
-   if(j.status==="error"){CF++;COOL=Date.now()+Math.min(6e4*2**(CF-1),24e4)}
-   const c=parseCandles(j);CF=0;COOL=0;return c}
-  catch(e){if(e.name==="AbortError")throw E("Request timed out",true);if(e.name==="TypeError")throw E(navigator.onLine===false?"You appear to be offline":"Can’t reach the data service (network or CORS problem)",true);throw e}finally{clearTimeout(to)}},
- async fetchLive(tf){try{return await this.once(tf)}catch(e){if(!e.retry)throw e;await new Promise(r=>setTimeout(r,2000));return await this.once(tf)}}};
-function quality(c){const n=c.length,op=new Set(c.map(k=>k.o)).size,zr=c.filter(k=>k.h===k.l).length,tu=new Set(c.map(k=>[k.o,k.h,k.l,k.c].join())).size,m=[];let same=0,run=1,mr=1;
- for(let i=1;i<n;i++){if(c[i].o===c[i-1].o){same++;run++;mr=Math.max(mr,run)}else run=1}
- if(n>=20&&op/n<.5)m.push((n-op)+" of "+n+" candles repeat an earlier open price (only "+op+" distinct)");
- if(n>=20&&same/(n-1)>=.3)m.push(same+" of "+(n-1)+" candles open at exactly the previous candle’s open price (longest run "+mr+")");
- if(n>=20&&zr/n>=.4)m.push(zr+" of "+n+" candles have no price range");if(n>=20&&1-tu/n>=.15)m.push(Math.round((1-tu/n)*100)+"% of candles are exact OHLC duplicates of others");
- return{n,op,zr,same,run:mr,dupOHLC:n-tu,bad:m.length>0,msg:m.join("; ")}}
-/* ---------- MODULE: indicators & analysis ---------- */
-const ema=(a,n)=>{const k=2/(n+1);let e=a[0];return a.map((v,i)=>i?(e=v*k+e*(1-k)):e)};
-const atr=(c,n=14)=>{const tr=c.map((k,i)=>i?Math.max(k.h-k.l,Math.abs(k.h-c[i-1].c),Math.abs(k.l-c[i-1].c)):k.h-k.l);return ema(tr,n)};
-function ind(c){const cl=c.map(k=>k.c);return{e20:ema(cl,20),e50:ema(cl,50),atr:atr(c)}}
-function pivots(c,k=4){const H=[],L=[];for(let i=k;i<c.length-k;i++){let h=1,l=1;for(let j=i-k;j<=i+k;j++){if(c[j].h>c[i].h)h=0;if(c[j].l<c[i].l)l=0}if(h)H.push({i,p:c[i].h});if(l)L.push({i,p:c[i].l})}return{H,L}}
-function analyse(c){const x=ind(c),pv=pivots(c.slice(-200),4),px=c[c.length-1].c,H=pv.H.slice(-2),L=pv.L.slice(-2);let st="Range / unclear";
- if(H.length==2&&L.length==2){if(H[1].p>H[0].p&&L[1].p>L[0].p)st="Uptrend (higher highs, higher lows)";else if(H[1].p<H[0].p&&L[1].p<L[0].p)st="Downtrend (lower highs, lower lows)"}
- const dd=(a)=>{const o=[];a.forEach(v=>{if(!o.some(q=>Math.abs(q-v)<3))o.push(v)});return o};
- const res=dd(pv.H.map(h=>h.p).filter(p=>p>px).sort((a,b)=>a-b)).slice(0,2),sup=dd(pv.L.map(h=>h.p).filter(p=>p<px).sort((a,b)=>b-a)).slice(0,2);
- const n=c.length-1;return{x,st,res,sup,px,bias:x.e20[n]>x.e50[n]?"Bullish (EMA20 > EMA50)":"Bearish (EMA20 < EMA50)",atr:x.atr[n]}}
-/* ---------- MODULE: strategies (add more objects here) ---------- */
-const Strategies={ema_cross:{name:"EMA 20/50 cross + ATR stops",
- rules:["BUY: EMA20 crosses above EMA50 on candle close","SELL: EMA20 crosses below EMA50 on candle close","Entry = signal candle close","Stop = 1.5 × ATR(14) · Target = 3 × ATR(14) (R:R 1:2)"],
- signal(c,x,i){if(i<51)return null;const u=x.e20[i-1]<=x.e50[i-1]&&x.e20[i]>x.e50[i],d=x.e20[i-1]>=x.e50[i-1]&&x.e20[i]<x.e50[i];if(!u&&!d)return null;
-  const dir=u?1:-1,e=c[i].c,a=x.atr[i];return{dir,i,entry:e,sl:e-dir*1.5*a,tp:e+dir*3*a,rr:2}}}};
-const S=Strategies.ema_cross;
-/* ---------- MODULE: broker interface (paper only; real brokers intentionally disabled) ---------- */
-const LiveBroker={enabled:false,place(){throw new Error("Live trading is disabled in this version.")}};
-const lotsFor=(bal,riskPct,entry,sl,cs=100)=>{const d=Math.abs(entry-sl);return d>0?(bal*riskPct/100)/(d*cs):NaN};
-/* ---------- STATE ---------- */
-let C=[],A=null;const PA=store.get("gp_paper",{bal:10000,pos:null,hist:[]}),J=store.get("gp_journal",[]),AL=store.get("gp_alog",[]);
-const savePaper=()=>store.set("gp_paper",PA),saveJ=()=>store.set("gp_journal",J),saveAL=()=>store.set("gp_alog",AL);
-/* ---------- DASHBOARD ---------- */
-function lastSignal(){for(let i=C.length-1;i>=Math.max(51,C.length-60);i--){const s=S.signal(C,A.x,i);if(s)return s}return null}
-const inClosed=t=>{const d=new Date(t),w=d.getUTCDay(),h=d.getUTCHours();return w==6||(w==5&&h>=22)||(w==0&&h<21)};
-function fresh(c){const bar=TFS[TF][1]*1e3,age=Date.now()-c[c.length-1].t,u=new Date(),dw=u.getUTCDay(),h=u.getUTCHours(),closed=dw==6||(dw==5&&h>=22)||(dw==0&&h<23);
- if(age<=bar+24e4){if(bar<=36e5&&inClosed(c[c.length-1].t))return{s:"stale",note:"the newest candle ("+cts(c[c.length-1].t)+") falls inside the weekend market closure (Fri 22:00 to Sun 21:00 UTC), when spot gold doesn’t normally trade, so it is not treated as live"};return{s:"fresh",note:"newest candle is current"}}
- return{s:"stale",note:(closed?"market appears closed (weekend); newest candle is "+ago(age):"newest candle is "+ago(age))+(bar<=36e5&&inClosed(c[c.length-1].t)?". The candle itself is dated inside the weekend closure (Fri 22:00 to Sun 21:00 UTC), when spot gold doesn’t normally trade":"")}}
-function evaluate(c,A,F){const n=c.length-1,x=A.x,px=A.px,a=A.atr,K=[],chk=(ok,txt)=>K.push({ok,txt});
- chk(F.s==="fresh",F.s==="fresh"?"data is fresh":"data is "+F.s+(F.note?" ("+F.note+")":""));
- chk(c.length>=60,c.length>=60?c.length+" candles loaded":"only "+c.length+" candles loaded (60 needed)");
- const up=x.e20[n]>x.e50[n]&&px>x.e50[n],dn=x.e20[n]<x.e50[n]&&px<x.e50[n],dir=up?1:dn?-1:0,su=A.st.startsWith("Uptrend"),sd=A.st.startsWith("Downtrend");
- chk(dir!=0,dir?"EMA20 is "+(dir>0?"above":"below")+" EMA50 and price is "+(dir>0?"above":"below")+" EMA50":"EMA20, EMA50 and price don’t line up, so there is no clear bias");
- chk(dir>0?su:dir<0?sd:false,dir&&(dir>0?su:sd)?"swing structure confirms it: "+A.st:"swing structure ("+A.st+") doesn’t confirm the EMA bias");
- const med=[...x.atr.slice(-50)].sort((p,q)=>p-q)[Math.floor(Math.min(50,x.atr.length)/2)];
- chk(a<=2.5*med,a<=2.5*med?"volatility is normal (ATR "+f2(a)+")":"volatility spike (ATR "+f2(a)+" vs typical "+f2(med)+")");
- chk(Math.abs(px-x.e20[n])<=1.2*a,Math.abs(px-x.e20[n])<=1.2*a?"price is near EMA20 (pullback zone)":"price is extended "+f2(Math.abs(px-x.e20[n]))+" from EMA20 (over 1.2×ATR), waiting for a pullback");
- const risk=1.5*a,lv=dir>0?A.res[0]:dir<0?A.sup[0]:null,d=dir==0?0:lv==null?Infinity:Math.abs(lv-px),room=dir!=0&&d>=1.5*risk;
- chk(room,dir==0?"room to the next level can’t be measured without a direction":room?(lv==null?"no blocking level nearby":(dir>0?"resistance ":"support ")+f2(lv)+" leaves at least 1.5R of room"):(dir>0?"resistance ":"support ")+f2(lv)+" is only "+f2(d)+" away (under 1.5R)");
- const met=K.filter(k=>k.ok),miss=K.filter(k=>!k.ok),trend=dir>0?"bullish (EMA20 > EMA50)":dir<0?"bearish (EMA20 < EMA50)":"unclear",valid=!miss.length;let v="NO TRADE",o={};
- if(valid){v=dir>0?"BUY":"SELL";const tp2=px+dir*Math.min(2*risk,d);o={dir,entry:px,sl:px-dir*risk,tp1:px+dir*risk,tp2,rr:Math.abs(tp2-px)/risk,cond:"Entry ≈ "+f2(px)+" (latest close). Skip it if price moves over 0.5×ATR away first, or reaches the stop at "+f2(px-dir*risk)+"."}}
- const why=valid?v+": all "+K.length+" conditions are met: "+met.map(k=>k.txt).join("; ")+". The stop is 1.5×ATR away. This is a rule-based setup, not a prediction or a guaranteed win.":"NO TRADE: the trend is "+trend+". Conditions not met: "+miss.map(k=>k.txt).join("; ")+". No valid setup yet, so wait for confirmation.";
- return{v,K,met,miss,why,trend,...o}}
-function vDash(){const tfb=`<div class="tf">${Object.keys(TFS).map(k=>`<a data-tf="${k}" class="${k==TF?"on":""}">${TFS[k][0]}</a>`).join("")}</div>`,ref='<button class="s" id="rf">↻ Refresh now</button>';
- const bind=()=>{document.querySelectorAll("[data-tf]").forEach(a=>a.onclick=()=>switchTF(a.dataset.tf));if($("#rf"))$("#rf").onclick=()=>loadData(true).then(()=>vDash());if($("#gd"))$("#gd").onclick=()=>show(5)};
- if(!C.length){$("#v0").innerHTML=tfb+`<div class="card"><h2>Market data unavailable</h2><div class="dn">${esc(ST.warn||"No data loaded yet")}</div><p class="m sm">No prices, chart or signals are shown because no real data could be loaded. The other tabs still work. To check the feed, open this in Safari: ${esc(API_BASE)}/api/candles?interval=${TF}</p>${ref}<button class="s" id="gd">Open timestamp diagnostics</button></div>`;bind();return}
- const last=C[C.length-1],px=last.c,pr=C[C.length-25]?.c??C[0].c,ch=px-pr,v=V,s_=lastSignal(),ag=s_?C.length-1-s_.i:null;
- $("#v0").innerHTML=tfb+(ST.warn?`<div class="card dn sm">⚠ ${esc(ST.warn)}</div>`:"")+`<div class="card"><div class="row"><div><div class="m sm">XAU/USD · ${TFS[TF][0]} · latest candle close</div><div style="font-size:30px;font-weight:800">${f2(px)}</div></div><div class="${ch>=0?"up":"dn"}" style="text-align:right">${sg(ch)}<div class="sm m">24 bars</div></div></div><canvas id="cv"></canvas><div class="sm m">Gold = EMA20 · Blue = EMA50 · dashed = support/resistance · ▲▼ swing lows/highs · times in UTC</div>
- <div class="sm" style="margin-top:6px"><b class="${ST.s=="fresh"?"up":"dn"}">${ST.s.toUpperCase()}</b>${ST.s!="fresh"?" ("+esc(ST.note)+")":""} · Source: Twelve Data via your Worker · Updated ${hm(ST.upd)} · Newest candle ${cts(last.t)} (${ago(Date.now()-last.t)}) · EMA20 ${f2(A.x.e20[C.length-1])} · EMA50 ${f2(A.x.e50[C.length-1])}${last.v!=null?" · Vol "+last.v:""}</div>
- <details class="sm m"><summary>Why can this differ from TradingView?</summary>Providers use different sources (spot vs futures, bid vs mid), and the app shows the latest candle’s close at its own timestamp, which can lag by a minute or more. Gold can move a couple of dollars in that time. Prices are never adjusted to match another site.</details>${ref}</div>
- <div class="card"><h2>Analysis</h2><div class="sig ${v.v=="BUY"?"up":v.v=="SELL"?"dn":"m"}">${v.v}</div><p class="sm">${esc(v.why)}</p>${v.K.map(k=>`<div class="sm ${k.ok?"up":"dn"}">${k.ok?"✓":"✗"} ${esc(k.txt)}</div>`).join("")}
- ${v.dir?`<div class="kv"><div><span>Entry</span>${f2(v.entry)}</div><div><span>Stop loss</span>${f2(v.sl)}</div><div><span>TP1 (1R)</span>${f2(v.tp1)}</div><div><span>TP2</span>${f2(v.tp2)}</div><div><span>Risk : Reward (TP2)</span>1 : ${v.rr.toFixed(2)}</div></div><p class="sm">${esc(v.cond)}</p>`:""}
- <p class="m sm">Rule-based output, not advice or a prediction; any setup can lose. The Test tab backtests the EMA-cross rule only.${s_?" Last EMA-cross event: "+(s_.dir>0?"BUY":"SELL")+", "+ag+" bars ago.":""}</p></div>
- <div class="card"><h2>Market structure</h2><div class="kv"><div><span>Structure</span>${A.st}</div><div><span>EMA bias</span>${A.bias}</div><div><span>Resistance</span>${A.res.map(f2).join(" · ")||"—"}</div><div><span>Support</span>${A.sup.map(f2).join(" · ")||"—"}</div><div><span>ATR(14)</span>${f2(A.atr)}</div></div></div>`;bind();draw()}
-function draw(){const cv=$("#cv");if(!cv)return;const x=cv.getContext("2d"),d=devicePixelRatio||1,W=cv.clientWidth,H=cv.clientHeight;cv.width=W*d;cv.height=H*d;x.scale(d,d);
- const N=Math.min(80,C.length),s=C.length-N,v=C.slice(s);let hi=Math.max(...v.map(k=>k.h)),lo=Math.min(...v.map(k=>k.l));const p=(hi-lo)*.06;hi+=p;lo-=p;const Y=q=>H-(q-lo)/(hi-lo)*H,bw=(W-44)/N;
- x.font="10px sans-serif";x.fillStyle="#8a97ab";for(let i=0;i<5;i++){const q=lo+(hi-lo)*i/4;x.fillText(f2(q),W-42,Y(q)-2);x.strokeStyle="#1b2331";x.beginPath();x.moveTo(0,Y(q));x.lineTo(W-44,Y(q));x.stroke()}
- [...A.res.map(q=>[q,"#ff5b5b"]),...A.sup.map(q=>[q,"#26d17b"])].forEach(([q,col])=>{if(q<lo||q>hi)return;x.strokeStyle=col;x.setLineDash([5,4]);x.beginPath();x.moveTo(0,Y(q));x.lineTo(W-44,Y(q));x.stroke();x.setLineDash([])});
- v.forEach((k,i)=>{const cx=i*bw+bw/2,up=k.c>=k.o;x.strokeStyle=x.fillStyle=up?"#26d17b":"#ff5b5b";x.beginPath();x.moveTo(cx,Y(k.h));x.lineTo(cx,Y(k.l));x.stroke();x.fillRect(cx-bw*.35,Y(Math.max(k.o,k.c)),bw*.7,Math.max(1,Math.abs(Y(k.o)-Y(k.c))))});
- const pv=pivots(C,4);x.font="11px sans-serif";pv.H.forEach(h=>{const i=h.i-s;if(i>=0&&i<N){x.fillStyle="#ff5b5b";x.fillText("▼",i*bw+bw/2-4,Y(h.p)-3)}});pv.L.forEach(h=>{const i=h.i-s;if(i>=0&&i<N){x.fillStyle="#26d17b";x.fillText("▲",i*bw+bw/2-4,Y(h.p)+11)}});x.font="10px sans-serif";x.fillStyle="#8a97ab";const dl=TFS[TF][1]>=86400;[0,Math.floor(N/2),N-1].forEach(i=>{const k=v[i];if(k)x.fillText(new Date(k.t).toISOString().slice(dl?5:11,dl?10:16),Math.max(0,Math.min(i*bw,W-80)),H-3)});
- [[A.x.e20,"#f5c242"],[A.x.e50,"#5aa9ff"]].forEach(([a,col])=>{x.strokeStyle=col;x.lineWidth=1.5;x.beginPath();a.slice(s).forEach((q,i)=>i?x.lineTo(i*bw+bw/2,Y(q)):x.moveTo(bw/2,Y(q)));x.stroke();x.lineWidth=1})}
-/* ---------- POSITION SIZE ---------- */
-function vCalc(){const e0=C.length?f2(C[C.length-1].c):"",s0=C.length?f2(C[C.length-1].c-15):"";
- $("#v1").innerHTML=`<div class="card"><h2>Position-size calculator</h2><div class="g2"><div><label>Account balance ($)</label><input id="cb" type="number" inputmode="decimal" value="10000"></div><div><label>Risk per trade (%)</label><input id="cr" type="number" inputmode="decimal" value="1" step="0.1"></div><div><label>Entry price</label><input id="ce" type="number" inputmode="decimal" value="${e0}"></div><div><label>Stop loss</label><input id="cs" type="number" inputmode="decimal" value="${s0}"></div></div><label>Contract size (oz per 1 lot): check with your broker</label><input id="cc" type="number" inputmode="decimal" value="100"><button id="cgo">Calculate</button><div class="err" id="cerr"></div><div id="cout"></div><p class="m sm">Assumption: 1 lot = the contract size above (100 oz is common but varies by broker and account type). Calculations ignore spread, commission and slippage.</p></div>`;
- $("#cgo").onclick=()=>{const b=num("cb"),r=num("cr"),e=num("ce"),s=num("cs"),cs=num("cc");let m="";
-  if(!(b>0&&b<=1e9))m="Balance must be above 0.";else if(!(r>0&&r<=10))m="Risk must be between 0 and 10%.";else if(!(e>0&&s>0))m="Entry and stop must be positive numbers.";else if(e==s)m="Stop can’t equal entry.";else if(!(cs>=1&&cs<=10000))m="Contract size must be between 1 and 10,000 oz.";
-  $("#cerr").textContent=m;if(m){$("#cout").innerHTML="";return}const L=lotsFor(b,r,e,s,cs),Lr=Math.floor(L*100)/100,dist=Math.abs(e-s);
-  $("#cout").innerHTML=`<div class="kv"><div><span>Direction</span>${s<e?"BUY (long)":"SELL (short)"}</div><div><span>Target risk</span>$${f2(b*r/100)} (${r}%)</div><div><span>Stop distance</span>$${f2(dist)} per oz</div><div><span>Exact size</span>${L.toFixed(4)} lots</div><div><span>Rounded down (0.01 step)</span><b class="g">${Lr.toFixed(2)} lots</b></div><div><span>Units</span>${(Lr*cs).toFixed(1)} oz</div><div><span>Actual $ risk</span>$${f2(Lr*cs*dist)} (${(Lr*cs*dist/b*100).toFixed(2)}%)</div></div>${Lr<0.01?'<p class="dn sm">Below 0.01 lot: the risk is too small for this stop distance.</p>':""}${r>2?'<p class="dn sm">Risk above 2% per trade is aggressive.</p>':""}`}}
-/* ---------- JOURNAL ---------- */
-function vTrades(){const t=J.reduce((a,j)=>a+j.pnl,0),w=J.filter(j=>j.pnl>0).length;
- $("#jb").innerHTML=`<div class="card"><h2>Add trade (completed trades you enter manually)</h2><div class="g2"><div><label>Direction</label><select id="jd"><option value="1">BUY</option><option value="-1">SELL</option></select></div><div><label>Lots</label><input id="jl" type="number" inputmode="decimal" value="0.10" step="0.01"></div><div><label>Entry</label><input id="je" type="number" inputmode="decimal"></div><div><label>Exit</label><input id="jx" type="number" inputmode="decimal"></div></div><label>Notes</label><textarea id="jn" rows="2" maxlength="200"></textarea><button id="jgo">Save trade</button><div class="err" id="jerr"></div></div>
- <div class="card"><h2>Results</h2><div class="kv"><div><span>Trades</span>${J.length}</div><div><span>Win rate</span>${J.length?Math.round(w/J.length*100)+"%":"—"}</div><div><span>Net P/L</span><b class="${t>=0?"up":"dn"}">${sg(t)}</b></div></div>${J.slice().reverse().map((j,i)=>`<div class="it row"><div>${new Date(j.t).toLocaleDateString()} · <b class="${j.d>0?"up":"dn"}">${j.d>0?"BUY":"SELL"}</b> ${j.l} @ ${j.e}→${j.x}<div class="m sm">${esc(j.n)}</div></div><div style="text-align:right"><b class="${j.pnl>=0?"up":"dn"}">${sg(j.pnl)}</b><br><a class="m sm" data-del="${J.length-1-i}">delete</a></div></div>`).join("")||'<p class="m sm">No trades yet.</p>'}</div>`;
- $("#jgo").onclick=()=>{const d=+$("#jd").value,l=num("jl"),e=num("je"),x=num("jx");let m="";if(!(l>0&&l<=100))m="Lots must be 0–100.";else if(!(e>0&&x>0))m="Enter valid entry and exit prices.";$("#jerr").textContent=m;if(m)return;
-  J.push({t:Date.now(),d,l,e,x,n:$("#jn").value.slice(0,200),pnl:(x-e)*d*l*100});saveJ();vTrades()};
- document.querySelectorAll("[data-del]").forEach(a=>a.onclick=()=>{J.splice(+a.dataset.del,1);saveJ();vTrades()})}
-/* ---------- AUTOMATIC ANALYSIS LOG ---------- */
-let JT="a",JF="ALL",JOPEN=null;
-function logAnalysis(){if(!C.length||!V)return;const n=C.length-1,sig=[TF,V.v,ST.s,A.st,V.K.map(k=>k.ok?1:0).join("")].join("|"),last=AL.find(e=>e.tf===TF);
- if(last&&last.sig===sig&&Math.abs(A.px-last.price)<A.atr)return;
- AL.unshift({id:Date.now().toString(36)+Math.random().toString(36).slice(2,5),t:Date.now(),sig,tf:TF,price:A.px,ct:C[n].t,trend:V.trend+" · "+A.st,atr:A.atr,e20:A.x.e20[n],e50:A.x.e50[n],sup:A.sup,res:A.res,v:V.v,entry:V.entry,sl:V.sl,tp1:V.tp1,tp2:V.tp2,rr:V.rr,why:V.why,met:V.met.map(k=>k.txt),miss:V.miss.map(k=>k.txt),state:ST.s,warn:[ST.warn,ST.s!=="fresh"?ST.note:"",C.length<60?"Only "+C.length+" candles":""].filter(Boolean)});
- if(AL.length>500)AL.length=500;saveAL()}
-const q_=v=>'"'+String(v??"").replace(/"/g,'""')+'"';
-function csvText(){const H=["time","timeframe","price","trend","atr","ema20","ema50","support","resistance","signal","entry","stop_loss","tp1","tp2","rr","data_state","warnings","explanation","conditions_met","conditions_missing"];
- return[H.join(",")].concat(AL.map(e=>[new Date(e.t).toISOString(),e.tf,e.price,e.trend,e.atr,e.e20,e.e50,e.sup.join(" | "),e.res.join(" | "),e.v,e.entry,e.sl,e.tp1,e.tp2,e.rr,e.state,e.warn.join(" | "),e.why,e.met.join(" | "),e.miss.join(" | ")].map(q_).join(","))).join("\n")}
-function detail(e){const L=(a,b)=>`<div><span class="m">${a}:</span> ${b}</div>`;return `<div class="badge" style="display:inline-block;margin:4px 0">ANALYSIS RECORD · not a trade</div>${L("Candle",cts(e.ct))}${L("Trend",esc(e.trend))}${L("ATR(14)",e.atr!=null?f2(e.atr):"—")}${L("EMA20 / EMA50",f2(e.e20)+" / "+f2(e.e50))}${L("Support",e.sup.map(f2).join(", ")||"—")}${L("Resistance",e.res.map(f2).join(", ")||"—")}${e.entry!=null?L("Entry / SL",f2(e.entry)+" / "+f2(e.sl))+L("TP1 / TP2",f2(e.tp1)+" / "+f2(e.tp2))+L("R:R","1 : "+e.rr.toFixed(2)):""}${L("Data",esc(e.state)+(e.warn.length?" · "+esc(e.warn.join("; ")):""))}<p>${esc(e.why)}</p>${e.met.map(t=>`<div class="up">✓ ${esc(t)}</div>`).join("")}${e.miss.map(t=>`<div class="dn">✗ ${esc(t)}</div>`).join("")}`}
-function vJournal(){$("#v2").innerHTML=`<div class="tf"><a data-jt="a" class="${JT=="a"?"on":""}">Analysis log (${AL.length})</a><a data-jt="t" class="${JT=="t"?"on":""}">My trades</a></div><div id="jb"></div>`;document.querySelectorAll("[data-jt]").forEach(a=>a.onclick=()=>{JT=a.dataset.jt;vJournal()});JT=="t"?vTrades():vAlog()}
-function vAlog(){const L=AL.filter(e=>JF=="ALL"||e.v==JF);
- $("#jb").innerHTML=`<div class="card"><h2>Automatic analysis log</h2><p class="m sm">What the app’s rules concluded, saved on this device. These are <b>analysis records, not trades</b>. A new entry is saved only when the conclusion changes or price moves over 1×ATR. Tap an entry to expand it.</p><div class="tf">${["ALL","BUY","SELL","NO TRADE"].map(f=>`<a data-jf="${f}" class="${JF==f?"on":""}">${f}</a>`).join("")}</div><div class="g2"><button class="s" id="jx">Export CSV</button><button class="s" id="jc">Clear log</button></div><div class="err" id="jerr2"></div></div>`+
- (L.map(e=>`<div class="card sm" data-e="${e.id}"><div class="row"><b class="${e.v=="BUY"?"up":e.v=="SELL"?"dn":"m"}">${e.v}</b><span class="m">${new Date(e.t).toLocaleString()} · ${TFS[e.tf][0]} · ${f2(e.price)}</span></div>${JOPEN==e.id?detail(e):`<div class="m">${esc(e.why.slice(0,110))}…</div>`}</div>`).join("")||'<div class="card m sm">No entries match. Entries are added automatically after market data loads.</div>');
- document.querySelectorAll("[data-jf]").forEach(a=>a.onclick=()=>{JF=a.dataset.jf;vAlog()});document.querySelectorAll("[data-e]").forEach(a=>a.onclick=()=>{JOPEN=JOPEN==a.dataset.e?null:a.dataset.e;vAlog()});
- $("#jc").onclick=()=>{if(confirm("Delete all analysis log entries?")){AL.length=0;saveAL();vAlog()}};
- $("#jx").onclick=()=>{if(!AL.length){$("#jerr2").textContent="Nothing to export yet.";return}try{const u=URL.createObjectURL(new Blob([csvText()],{type:"text/csv"})),a=document.createElement("a");a.href=u;a.download="goldpilot-analysis-log.csv";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),3000)}catch(e){$("#jerr2").textContent="Export failed: "+e.message}}}
-/* ---------- PAPER TRADING (virtual money only) ---------- */
-function closePaper(price,why){const q=PA.pos,pnl=(price-q.entry)*q.dir*q.lots*100;PA.bal+=pnl;PA.hist.push({dir:q.dir,pnl,why,entry:q.entry,exit:price,lots:q.lots,t:Date.now()});PA.pos=null;savePaper()}
-function vPaper(){const ok=C.length&&ST.s==="fresh",px=C.length?C[C.length-1].c:null,p=PA.pos,fl=p&&px!=null?(px-p.entry)*p.dir*p.lots*100:0,net=PA.hist.reduce((a,h)=>a+h.pnl,0);
- $("#v3").innerHTML=`<div class="card"><div class="row"><h2>Paper account</h2><span class="badge">VIRTUAL $ · SIMULATED</span></div><p class="m sm">Virtual money only. Results are simulated and ignore real spreads, slippage and fills. No real orders are ever placed. Assumes 1 lot = 100 oz.</p><div class="kv"><div><span>Balance</span>$${f2(PA.bal)}</div><div><span>Latest price</span>${px==null?"—":f2(px)}</div></div>
- ${p?`<div class="it"><b class="${p.dir>0?"up":"dn"}">OPEN ${p.dir>0?"BUY":"SELL"}</b> ${p.lots.toFixed(2)} lots @ ${f2(p.entry)}<div class="sm m">SL ${f2(p.sl)} · TP ${f2(p.tp)} · Risk $${f2(p.risk)} (${p.rp.toFixed(2)}%)</div><div>Floating: <b class="${fl>=0?"up":"dn"}">${px==null?"—":sg(fl)}</b></div><button class="s" id="pc">Close at latest price</button></div>`:`<div class="g2"><div><label>Risk %</label><input id="pr" type="number" inputmode="decimal" value="1" step="0.1"></div><div><label>SL distance (× ATR)</label><input id="pa" type="number" inputmode="decimal" value="1.5" step="0.1"></div><div><label>Custom SL price (optional)</label><input id="psl" type="number" inputmode="decimal"></div><div><label>Custom TP price (optional)</label><input id="ptp" type="number" inputmode="decimal"></div></div>${ok?"":'<p class="dn sm">Trading is disabled: market data isn’t fresh, so there’s no trustworthy price.</p>'}<div class="g2"><button class="b" id="pb">Open BUY</button><button class="r" id="ps">Open SELL</button></div><p class="m sm">Entry is the latest price. Without custom prices: SL = ATR multiple, TP = 2× the stop distance.</p>`}<div class="err" id="perr"></div>
- <label>Starting balance for reset ($)</label><input id="psb" type="number" inputmode="decimal" value="10000"><button class="s" id="prs">Reset account</button></div>
- <div class="card"><h2>History · ${PA.hist.length} closed · net ${sg(net)}</h2>${PA.hist.slice().reverse().slice(0,20).map(h=>`<div class="it row"><span>${h.dir>0?"BUY":"SELL"} ${h.lots!=null?h.lots.toFixed(2)+" lots ":""}${h.entry!=null?f2(h.entry)+"→"+f2(h.exit)+" ":""}<span class="m sm">${h.why}</span></span><b class="${h.pnl>=0?"up":"dn"}">${sg(h.pnl)}</b></div>`).join("")||'<p class="m sm">No closed trades.</p>'}</div>`;
- const open=dir=>{const e=$("#perr");if(!ok){e.textContent="Data isn’t fresh, so a paper trade can’t be opened.";return}const r=num("pr"),a=num("pa");if(!(r>0&&r<=5)||!(a>=.5&&a<=5)){e.textContent="Risk must be 0–5% and the ATR multiple 0.5–5.";return}
-  const cs_=parseFloat($("#psl").value),ct_=parseFloat($("#ptp").value),hs=isFinite(cs_),ht=isFinite(ct_);
-  if(hs&&!(dir>0?cs_<px&&cs_>0:cs_>px)){e.textContent="Custom SL must be "+(dir>0?"below":"above")+" the entry price.";return}
-  if(ht&&!(dir>0?ct_>px:ct_<px&&ct_>0)){e.textContent="Custom TP must be "+(dir>0?"above":"below")+" the entry price.";return}
-  const d=hs?Math.abs(px-cs_):A.atr*a,L=Math.floor(lotsFor(PA.bal,r,px,px-dir*d)*100)/100;if(!(L>=.01)){e.textContent="Risk too small for the minimum 0.01 lot at this stop distance.";return}const risk=L*100*d;
-  PA.pos={dir,entry:px,sl:px-dir*d,tp:ht?ct_:px+dir*2*d,lots:L,risk,rp:risk/PA.bal*100,et:Date.now()};savePaper();vPaper()};
- if($("#pb")){$("#pb").onclick=()=>open(1);$("#ps").onclick=()=>open(-1)}
- if($("#pc"))$("#pc").onclick=()=>{if(!ok){$("#perr").textContent="Data isn’t fresh, so there’s no trustworthy price to close at. Stops and targets still apply when fresh data returns.";return}closePaper(px,"manual");vPaper()};
- $("#prs").onclick=()=>{const b=num("psb");if(!(b>=100&&b<=1e7)){$("#perr").textContent="Starting balance must be 100–10,000,000.";return}if(confirm("Reset the virtual account to $"+f2(b)+"?")){PA.bal=b;PA.pos=null;PA.hist=[];savePaper();vPaper()}}}
-/* ---------- BACKTEST ---------- */
-function backtest(c,strat,cost){const x=ind(c),T=[];let busy=-1;for(let i=51;i<c.length-1;i++){if(i<=busy)continue;const s=strat.signal(c,x,i);if(!s)continue;const risk=Math.abs(s.entry-s.sl);let ex=null,j=i+1;
-  for(;j<c.length;j++){const k=c[j],sl=s.dir>0?k.l<=s.sl:k.h>=s.sl,tp=s.dir>0?k.h>=s.tp:k.l<=s.tp;if(sl){ex=s.sl;break}if(tp){ex=s.tp;break}}
-  if(ex===null)break;T.push({dir:s.dir,r:((ex-s.entry)*s.dir-cost)/risk});busy=j}
- let eq=0,pk=0,dd=0;T.forEach(t=>{eq+=t.r;pk=Math.max(pk,eq);dd=Math.max(dd,pk-eq)});const gw=T.filter(t=>t.r>0).reduce((a,t)=>a+t.r,0),gl=-T.filter(t=>t.r<=0).reduce((a,t)=>a+t.r,0);
- return{n:T.length,win:T.length?T.filter(t=>t.r>0).length/T.length:0,net:eq,avg:T.length?eq/T.length:0,dd,pf:gl?gw/gl:NaN}}
-function vTest(){if(!C.length){$("#v4").innerHTML='<div class="card m">The backtest needs market data. Open the Chart tab and refresh.</div>';return}
- $("#v4").innerHTML=`<div class="card"><h2>Backtest · EMA 20/50 cross</h2><p class="sm">BUY when EMA20 crosses above EMA50, SELL when below. Entry at that candle’s close, stop 1.5×ATR, target 3×ATR (1:2).</p><div class="g2"><div><label>Cost per trade ($/oz)</label><input id="bc" type="number" inputmode="decimal" value="0.30" step="0.05"></div><div><label>Risk per trade ($)</label><input id="bk" type="number" inputmode="decimal" value="100"></div></div><button id="bgo">Run on ${C.length} ${TFS[TF][0]} candles</button><div class="err" id="berr"></div><div id="bo"></div></div>
- <div class="card"><h2>Assumptions & limits</h2><p class="m sm">• Only the ${C.length} candles the Worker returns are tested (${cts(C[0].t)} → ${cts(C[C.length-1].t)}), so few trades occur.<br>• Same-candle stop and target: the stop is assumed hit first.<br>• One trade at a time, fixed risk, no compounding. Spread is the cost you enter; no slippage or swaps.<br>• Results describe the past on this data only and don’t predict or guarantee anything.</p></div>`;
- $("#bgo").onclick=()=>{const cost=num("bc"),rk=num("bk");if(!(cost>=0&&cost<=20)||!(rk>0&&rk<=1e6)){$("#berr").textContent="Cost must be 0–20 and risk $ above 0.";return}$("#berr").textContent="";const r=backtest(C,Strategies.ema_cross,cost);
-  $("#bo").innerHTML=r.n?`<div class="kv"><div><span>Trades</span>${r.n}</div><div><span>Win rate</span>${(r.win*100).toFixed(0)}%</div><div><span>Net result</span><b class="${r.net>=0?"up":"dn"}">${sg(r.net)} R · ${sg(r.net*rk)} $</b></div><div><span>Avg per trade</span>${sg(r.avg)} R</div><div><span>Max drawdown</span>${f2(r.dd)} R · $${f2(r.dd*rk)}</div><div><span>Profit factor</span>${isFinite(r.pf)?f2(r.pf):"—"}</div></div>${r.n<30?'<p class="dn sm">Only '+r.n+' trades: too few to conclude anything.</p>':""}<p class="m sm">1 R = the amount risked per trade.</p>`:"<p class='m sm'>No completed trades in this data.</p>"}}
-let PROBE=[];
-function vSet(){const d=DG,now=Date.now(),has=d.parsedNew!=null,age=has?now-d.parsedNew:null,ah=has?age/36e5:0;let hint="",off="";if(has&&/^\d{4}-\d\d-\d\d[ T]\d\d:\d\d/.test(String(d.rawNew))){const ru=ts(d.rawNew,"UTC"),df=ru-now,q=Math.round(df/9e5)*9e5;if(q!==0&&Math.abs(q)<=14*36e5&&Math.abs(df-q)<=6e5){const m=Math.abs(q)/6e4;off=(q<0?"-":"+")+String(Math.floor(m/60)).padStart(2,"0")+":"+String(m%60).padStart(2,"0");hint=`If the raw times are local time at UTC${off}, the newest candle would be about ${Math.round(Math.abs(q-df)/6e4)} min old. That match does not prove it. Save an offset only after verifying the real timezone (steps below); a wrong offset can make stale data look current.`}}
- const R=(a,b)=>`<div class="it row sm"><span class="m">${a}</span><span style="text-align:right;word-break:break-all">${b}</span></div>`;
- $("#v5").innerHTML=`<div class="card"><h2>Data status</h2>${R("Status",`<b class="${ST.s=="fresh"?"up":"dn"}">${ST.s==="fresh"?"LIVE":ST.s==="stale"?"STALE":ST.s==="suspect"?"SUSPECT":"NO DATA"}</b>`)}${R("Timeframe",TFS[TF][0])}${R("Endpoint",esc(API_BASE)+"/api/candles?interval="+TF)}${R("Last updated",hm(ST.upd))}${R("Last error",esc(ST.warn||"none"))}${R("Last HTTP error",LE.status>=400?esc("HTTP "+LE.status+" at "+hm(LE.at)+" · body: "+(LE.body||"(empty)")):"none")}${R("Requests in last 60 s",REQ.length+" of "+LIM+" allowed"+(COOL>now?" · cooling down "+Math.ceil((COOL-now)/1e3)+" s":""))}${R("Data quality",Q?Q.op+" distinct opens of "+Q.n+" · "+Q.same+" repeat the previous open (longest run "+Q.run+") · "+Q.zr+" zero-range · "+Q.dupOHLC+" duplicate OHLC"+(Q.bad?'<br><b class="dn">'+esc(Q.msg)+"</b>":""):"—")}<button id="sr">↻ Refresh now</button></div>
- <div class="card"><h2>Timestamp diagnostics</h2>${d.at?R("Timezone used",esc(d.tz)+"<br>"+esc(d.src))+R("Raw newest timestamp",esc(d.rawNew??"—"))+R("Parsed newest (UTC)",has?new Date(d.parsedNew).toISOString():"—")+R("Current time (UTC)",new Date(now).toISOString())+R("Data age",has?(age<0?"−":"")+ago(Math.abs(age)).replace(" ago",""):"—")+R("Inside market-closed window?",has?(inClosed(d.parsedNew)?'<b class="dn">yes: newest candle is in the Fri 22:00–Sun 21:00 UTC closure</b>':"no"):"—")+R("Raw oldest timestamp",esc(d.rawOld??"—"))+R("Candle order in response",d.order+" · "+(d.dup||0)+" duplicate(s) removed")+R("Candles",`${d.total} received · ${d.valid} accepted · ${d.bad} invalid · ${d.fut} rejected (future)`)+R("Response meta",esc(JSON.stringify(d.meta||{})))+R("First raw candle",esc(JSON.stringify(d.sample||{})))+(/assumed/.test(d.src||"")?'<p class="dn sm">⚠ The response states no timezone. UTC is assumed because the Worker requests timezone=UTC. Confirm on a weekday: a live candle should be only minutes old.</p>':"")+(hint?`<p class="dn sm">⚠ ${esc(hint)}</p><button class="s" id="sho">Try UTC${off} (saves; revert anytime)</button>`:""):'<p class="m sm">No response parsed yet. Tap Refresh.</p>'}<p class="m sm">Rules: numbers are Unix seconds or milliseconds; strings with Z or an offset are exact; zone-less date-times use the timezone shown above. Candles more than 2 minutes in the future are rejected, never shifted or ignored silently.</p></div>
- <div class="card"><h2>Timestamp settings</h2><label>Zone-less timestamps are in</label><select id="stz"><option value="auto">Auto (response meta, else UTC)</option><option value="UTC">Always UTC</option><option value="custom">Custom offset / IANA zone</option></select><label>Custom (e.g. +06:00 or America/New_York)</label><input id="stc" value="${esc(SET.tzCustom)}" placeholder="+00:00"><label><input type="checkbox" id="sau" style="width:auto" ${SET.askUtc?"checked":""}> Ask the Worker for UTC (adds &amp;timezone=UTC; only helps if your Worker forwards it)</label><label><input type="checkbox" id="sat" style="width:auto" ${SET.auto?"checked":""}> Auto-refresh</label><button id="ssv">Save and reload data</button><div class="err" id="serr"></div></div>
- <div class="card"><h2>Request log (this page → Worker)</h2>${REQLOG.map(r=>`<div class="it sm"><b>${new Date(r.at).toISOString().slice(11,19)}Z</b> ${r.tf} · ${r.ok?'<span class="up">OK</span> '+esc(r.res):'<span class="dn">FAILED</span>'}<br><span class="m">${esc(r.src)}${r.ok?"":" · "+esc(r.res)}</span></div>`).join("")||'<p class="m sm">No requests yet.</p>'}<p class="m sm">How to read it: “app” = this page paused itself. “network/CORS” = the Worker couldn’t be reached. “Worker answered HTTP 502” = the Worker was reached and says its Twelve Data call failed; the raw body under Data status shows what it said.</p></div>
- <div class="card"><h2>How to verify the real timezone</h2><p class="sm">Your Worker now asks Twelve Data for timezone=UTC, but the response doesn’t echo it, so this page can’t confirm it. While the market is open, the newest candle should be within a few minutes of “Current time (UTC)”. A closed market can’t confirm it.</p><p class="sm">1. In Safari open this, with your own key, and note the newest datetime:<br><code>https://api.twelvedata.com/time_series?symbol=XAU/USD&amp;interval=1min&amp;outputsize=3&amp;timezone=UTC&amp;apikey=YOURKEY</code><br>2. Open your Worker URL for 1min and compare. Same time = the Worker passes it through. Different = the Worker changes timestamps.<br>3. Send me your Worker code (it holds no key) so I can check for a timezone or date step.</p><textarea id="rpt" rows="5" readonly placeholder="Tap “Show report” to build a summary you can send."></textarea><button class="s" id="srp">Show report to copy</button></div>
- <div class="card"><h2>Test every timeframe</h2><button class="s" id="spb">Run test (uses 6 requests)</button>${PROBE.map(p=>`<div class="it sm"><b>${p.tf}</b> ${p.ok?`<span class="up">OK</span> · ${p.n} candles · newest ${esc(p.raw)} → ${p.iso} (${p.age})`:`<span class="dn">${esc(p.err)}</span>`}</div>`).join("")}</div>
- <div class="card"><h2>About</h2><p class="m sm">GoldPilot AI is a rule-based analysis tool. It uses <b>no AI service</b>, places <b>no real orders</b> and holds no API key: the key stays in your Cloudflare Worker. Market data: Twelve Data via your Worker. Nothing here is financial advice.</p></div>`;
- $("#stz").value=SET.tz;if($("#sho"))$("#sho").onclick=()=>{SET.tz="custom";SET.tzCustom=off;saveSet();loadData(true).then(()=>vSet())};
- $("#srp").onclick=()=>{const t=["GoldPilot diagnostics","Now (UTC): "+new Date().toISOString(),"Device timezone: "+Intl.DateTimeFormat().resolvedOptions().timeZone,"Timeframe: "+TF,"Request: "+(d.url||"—"),"Timezone used: "+(d.tz||"—")+" ("+(d.src||"—")+")","Raw newest: "+d.rawNew,"Parsed newest UTC: "+(has?new Date(d.parsedNew).toISOString():"—"),"Raw oldest: "+d.rawOld,"Order: "+d.order,"Candles: "+d.total+" received, "+d.valid+" accepted, "+d.bad+" invalid, "+d.fut+" future","Meta: "+JSON.stringify(d.meta),"First raw candle: "+JSON.stringify(d.sample),"Status: "+ST.s+" · "+(ST.warn||ST.note||"")].join("\n"),r=$("#rpt");r.value=t;try{r.select();navigator.clipboard&&navigator.clipboard.writeText(t)}catch(e){}};
- $("#sr").onclick=()=>loadData(true).then(()=>vSet());
- $("#ssv").onclick=()=>{const c=$("#stc").value.trim();if($("#stz").value==="custom"&&!(/^[+-]\d\d:?\d\d$/.test(c)||isFinite(tzOff(Date.now(),c)))){$("#serr").textContent="Enter an offset like +06:00 or a valid zone name.";return}SET.tz=$("#stz").value;SET.tzCustom=c;SET.askUtc=$("#sau").checked;SET.auto=$("#sat").checked;saveSet();loadData(true).then(()=>vSet())};
- $("#spb").onclick=async()=>{PROBE=[];for(const tf of Object.keys(TFS)){try{const c=await Provider.once(tf),l=c[c.length-1];PROBE.push({tf,ok:true,n:c.length,raw:DG.rawNew,iso:new Date(l.t).toISOString().slice(0,16)+"Z",age:ago(Date.now()-l.t)})}catch(e){PROBE.push({tf,ok:false,err:e.message})}vSet()}}}
-/* ---------- LIVE LOADING / NAV / BOOT ---------- */
-let TF=TFS[store.get("gp_tf","1min")]?store.get("gp_tf","1min"):"1min",ST={s:"unavailable",warn:"",note:"",upd:0},V=null,CTF=null,lastF=0,fails=0,busy=false,Q=null;
-function setBadge(t){const b=$("#bdg"),m={fresh:["LIVE · "+TFS[TF][0],"live"],stale:["STALE · "+TFS[TF][0],"dly"],unavailable:["NO DATA","bad"],suspect:["CHECK DATA · "+TFS[TF][0],"dly"]},[x,k]=t?[t,""]:m[ST.s];b.textContent=x;b.className="badge "+k}
-function checkPaper(){const q=PA.pos;if(!q||!q.et||ST.s==="unavailable")return;for(const k of C){if(k.t<=q.et)continue;const sl=q.dir>0?k.l<=q.sl:k.h>=q.sl,tp=q.dir>0?k.h>=q.tp:k.l<=q.tp;if(sl||tp){closePaper(sl?q.sl:q.tp,sl?"stop loss":"take profit");return}}}
-const CACHE={};function loadCache(tf){const k=store.get("gp_cache_"+tf,null);return k&&Array.isArray(k.c)&&k.c.length>=10&&k.c.every(x=>[x.t,x.o,x.h,x.l,x.c].every(Number.isFinite))?(CACHE[tf]=k):null}
-async function loadData(){if(busy)return;busy=true;lastF=Date.now();setBadge("LOADING…");
- try{const c=await Provider.fetchLive(TF),q=quality(c);C=c;CTF=TF;fails=0;Q=q;let f=fresh(c);
-  if(q.bad)f=f.s==="fresh"?{s:"suspect",note:"the candles look unreliable: "+q.msg}:{...f,note:f.note+"; also "+q.msg};
-  ST={...f,warn:"",upd:Date.now()};CACHE[TF]={c,upd:ST.upd};store.set("gp_cache_"+TF,{c:c.slice(-300),upd:ST.upd})}
- catch(e){if(!e.local)fails++;const k=CACHE[TF]||loadCache(TF);
-  if(k){C=k.c;CTF=TF;ST={...fresh(C),warn:(e.local?"":"Refresh failed: ")+e.message+". Showing the last valid data (received "+ago(Date.now()-k.upd)+", saved on this device). It is not current.",upd:k.upd};ST.s="stale"}
-  else{C=[];CTF=null;ST={s:"unavailable",warn:e.message,note:"",upd:0}}}
- finally{busy=false}
- try{A=C.length?analyse(C):null;V=C.length?evaluate(C,A,ST):null;logAnalysis();checkPaper()}catch(e){V=null;ST.warn=(ST.warn?ST.warn+" ":"")+"Analysis error: "+e.message}setBadge()}
-async function switchTF(tf){if(!TFS[tf]||busy)return;TF=tf;store.set("gp_tf",tf);await loadData();vDash()}
-const tabs=[["📈","Chart","#v0",vDash],["📒","Journal","#v2",vJournal],["🎮","Paper","#v3",vPaper],["🧮","Size","#v1",vCalc],["🧪","Backtest","#v4",vTest],["⚙️","Settings","#v5",vSet]];
-function show(i){try{tabs[i][3]()}catch(e){$(tabs[i][2]).innerHTML='<div class="card dn">This tab hit an error: '+esc(e.message)+"</div>"}document.querySelectorAll(".v").forEach(e=>e.classList.toggle("on","#"+e.id===tabs[i][2]));document.querySelectorAll("nav a").forEach((e,j)=>e.classList.toggle("on",i==j));scrollTo(0,0)}
-$("#nav").innerHTML=tabs.map((t,i)=>`<a href="#" data-i="${i}"><b>${t[0]}</b>${t[1]}</a>`).join("");
-$("#nav").onclick=e=>{const a=e.target.closest("a");if(a){e.preventDefault();show(+a.dataset.i)}};
-setBadge("LOADING…");loadData().then(()=>show(0));
-setInterval(async()=>{const base=TFS[TF][1]<=900&&!inClosed(Date.now())?6e4:3e5;if(!SET.auto||document.hidden||busy||Date.now()-lastF<base*Math.min(2**fails,5))return;await loadData();if($("#v0").classList.contains("on"))vDash()},15e3);
-addEventListener("online",()=>loadData().then(()=>{if($("#v0").classList.contains("on"))vDash()}));
-addEventListener("resize",()=>{if($("#v0").classList.contains("on"))draw()});
-</script></body></html>
+(() => {
+'use strict';
+const WORKER = 'https://tight-block-d6edgoldpilot-api.sarwarisubhan0.workers.dev';
+const $ = id => document.getElementById(id);
+let timeframe='1min', candles=[], lastGoodAt=0, lastPrice=null, analysis=null, loading=false;
+const fmt=(n,d=2)=>Number.isFinite(Number(n))?Number(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
+const timeFmt=s=>{try{return new Date(s).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}catch{return '—'}};
+function setStatus(kind,text){$('statusDot').className='dot'+(kind==='live'?' live':'');$('statusText').textContent=text;}
+function showNotice(text,type='warn'){$('notice').textContent=text;$('notice').style.borderColor=type==='error'?'#803c49':type==='ok'?'#236a54':'#6d572b';$('notice').style.background=type==='error'?'#2b151b':type==='ok'?'#10251e':'#2a2314';$('notice').style.color=type==='error'?'#ffc0c7':type==='ok'?'#b7f4d9':'#f1dca2';}
+function normalizeRows(payload){
+ let rows=Array.isArray(payload)?payload:(payload?.candles||payload?.data||payload?.values||payload?.results||payload?.prices||[]);
+ if(!Array.isArray(rows)&&rows&&typeof rows==='object') rows=Object.values(rows);
+ if(!Array.isArray(rows)) return [];
+ return rows.map((r,i)=>{
+  if(Array.isArray(r)){return {time:r[0]??i,open:+r[1],high:+r[2],low:+r[3],close:+r[4],volume:+r[5]||0};}
+  const time=r.datetime??r.timestamp??r.time??r.date??r.t??i;
+  return {time,open:+(r.open??r.o),high:+(r.high??r.h),low:+(r.low??r.l),close:+(r.close??r.c??r.price),volume:+(r.volume??r.v)||0};
+ }).filter(c=>[c.open,c.high,c.low,c.close].every(Number.isFinite)&&c.open>0&&c.high>0&&c.low>0&&c.close>0&&c.high>=c.low)
+ .sort((a,b)=>new Date(a.time).getTime()-new Date(b.time).getTime());
+}
+async function loadCandles(){
+ if(loading)return;loading=true;$('refreshBtn').disabled=true;$('chartMessage').textContent='Loading market data…';
+ try{
+  const url=WORKER+'/api/candles?interval='+encodeURIComponent(timeframe);
+  const res=await fetch(url,{cache:'no-store'});
+  if(!res.ok)throw new Error('Worker returned HTTP '+res.status);
+  const json=await res.json();
+  const parsed=normalizeRows(json);
+  if(parsed.length<20)throw new Error('The service returned fewer than 20 valid candles.');
+  candles=parsed.slice(-240);lastGoodAt=Date.now();lastPrice=candles[candles.length-1].close;
+  setStatus('live','DATA RECEIVED');showNotice('Market data received from your Cloudflare Worker. Confirm the provider timestamp and market session before relying on any analysis.','ok');
+  $('price').textContent=fmt(lastPrice,2);const first=candles[Math.max(0,candles.length-2)].close;
+  const ch=lastPrice-first;$('priceChange').textContent=(ch>=0?'+':'')+fmt(ch,2)+' vs previous candle';$('priceChange').className='sub '+(ch>=0?'good':'error');
+  $('updated').textContent=timeFmt(candles[candles.length-1].time);$('candleCount').textContent=candles.length+' candles loaded';
+  $('chartMessage').textContent='Data received · '+candles.length+' candles';
+  analyse();drawChart();checkPaper();
+ }catch(e){
+  setStatus('error','DATA ERROR');showNotice('Cannot validate live market data: '+e.message+'. No live signal will be generated. Check the Worker endpoint and its candle response format.','error');
+  $('chartMessage').textContent='Data unavailable';$('signal').textContent='NO TRADE';$('signal').className='signal none';$('signalSummary').textContent='Live data is unavailable or invalid.';$('reasons').innerHTML='<li>Signal generation is disabled until valid candle data is received.</li>';
+  if(!candles.length){$('price').textContent='—';$('trend').textContent='—';$('volatility').textContent='—';drawChart();}
+ }finally{loading=false;$('refreshBtn').disabled=false;}
+}
+function ema(vals,period){let out=[],k=2/(period+1),v=null;for(let i=0;i<vals.length;i++){v=v===null?vals[i]:vals[i]*k+v*(1-k);out.push(v);}return out;}
+function analyse(){
+ const closes=candles.map(c=>c.close), e20=ema(closes,20),e50=ema(closes,50),n=closes.length,last=candles[n-1],prev=candles[n-2];
+ const trend=e20[n-1]>e50[n-1]?'BULLISH':e20[n-1]<e50[n-1]?'BEARISH':'NEUTRAL';
+ const ranges=candles.slice(-14).map(c=>c.high-c.low),avgRange=ranges.reduce((a,b)=>a+b,0)/Math.max(1,ranges.length);
+ const med=candles.slice(-50).map(c=>c.high-c.low).sort((a,b)=>a-b)[Math.floor(Math.min(49,candles.slice(-50).length-1)/2)]||avgRange;
+ const vol=avgRange>med*1.8?'HIGH':avgRange<med*.55?'LOW':'NORMAL';
+ const hi=Math.max(...candles.slice(-20,-1).map(c=>c.high)),lo=Math.min(...candles.slice(-20,-1).map(c=>c.low));
+ const nearEMA=Math.abs(last.close-e20[n-1])<=Math.max(avgRange*1.2,last.close*.0008);
+ const roomBuy=hi-last.close,roomSell=last.close-lo;
+ let direction='NO TRADE',entry=null,sl=null,tp=null,rr=null,reasons=[];
+ if(n<60) reasons.push('At least 60 candles are required; only '+n+' are available.');
+ else {
+  if(trend==='BULLISH'&&last.close>e20[n-1]&&nearEMA&&last.close>prev.close&&vol==='NORMAL'&&roomBuy>avgRange*1.5){direction='BUY';entry=last.close;sl=Math.min(last.low,entry-avgRange*1.2);tp=entry+(entry-sl)*1.5;rr=(tp-entry)/(entry-sl);}
+  else if(trend==='BEARISH'&&last.close<e20[n-1]&&nearEMA&&last.close<prev.close&&vol==='NORMAL'&&roomSell>avgRange*1.5){direction='SELL';entry=last.close;sl=Math.max(last.high,entry+avgRange*1.2);tp=entry-(sl-entry)*1.5;rr=(entry-tp)/(sl-entry);}
+  if(direction==='NO TRADE'){
+   if(trend==='NEUTRAL')reasons.push('EMA20 and EMA50 do not establish a clear trend.');
+   else reasons.push('The current candle does not satisfy all trend and entry conditions.');
+   if(!nearEMA)reasons.push('Price is not close enough to EMA20 for this pullback rule.');
+   if(vol!=='NORMAL')reasons.push('Volatility filter: '+vol.toLowerCase()+' volatility.');
+   if(trend==='BULLISH'&&roomBuy<=avgRange*1.5)reasons.push('Nearby resistance leaves insufficient room.');
+   if(trend==='BEARISH'&&roomSell<=avgRange*1.5)reasons.push('Nearby support leaves insufficient room.');
+  }else reasons=['EMA trend and price direction agree.','Entry is near EMA20 with normal recent volatility.','Minimum 1.5R target is used; verify support/resistance manually.'];
+ }
+ $('trend').textContent=trend;$('trend').style.color=trend==='BULLISH'?'var(--green)':trend==='BEARISH'?'var(--red)':'var(--gold)';$('trendSub').textContent='EMA20 '+fmt(e20[n-1],2)+' · EMA50 '+fmt(e50[n-1],2);
+ $('volatility').textContent=vol;$('volatility').style.color=vol==='NORMAL'?'var(--green)':vol==='HIGH'?'var(--red)':'var(--gold)';$('analysisTF').textContent=timeframe.toUpperCase();
+ $('signal').textContent=direction;$('signal').className='signal '+(direction==='BUY'?'buy':direction==='SELL'?'sell':'none');
+ $('quality').textContent=direction==='NO TRADE'?'Setup not qualified':'Rule-based setup';$('signalSummary').textContent=direction==='NO TRADE'?'No qualified setup. Waiting is a valid decision.':'Conditions passed a simple rule-based filter; this is not a prediction or profit probability.';
+ $('entry').textContent=entry?fmt(entry):'—';$('sl').textContent=sl?fmt(sl):'—';$('tp').textContent=tp?fmt(tp):'—';$('rr').textContent=rr?rr.toFixed(2)+'R':'—';
+ $('reasons').innerHTML='';reasons.forEach(t=>{let li=document.createElement('li');li.textContent=t;$('reasons').appendChild(li)});
+ analysis={direction,entry,sl,tp,rr,trend};
+}
+function drawChart(){
+ const canvas=$('chartCanvas'),rect=canvas.getBoundingClientRect(),dpr=window.devicePixelRatio||1;
+ canvas.width=Math.max(1,Math.floor(rect.width*dpr));canvas.height=Math.max(1,Math.floor(rect.height*dpr));
+ const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);const w=rect.width,h=rect.height;ctx.fillStyle='#0d1219';ctx.fillRect(0,0,w,h);
+ if(!candles.length){ctx.fillStyle='#8794a6';ctx.font='13px sans-serif';ctx.textAlign='center';ctx.fillText('Waiting for valid candle data',w/2,h/2);return;}
+ const data=candles.slice(-65),pad={l:8,r:58,t:16,b:24},cw=w-pad.l-pad.r,ch=h-pad.t-pad.b;
+ let min=Math.min(...data.map(c=>c.low)),max=Math.max(...data.map(c=>c.high));if(max===min){max+=1;min-=1}const extra=(max-min)*.08;min-=extra;max+=extra;
+ const y=p=>pad.t+(max-p)/(max-min)*ch,step=cw/data.length,body=Math.max(2,step*.58);
+ ctx.font='10px sans-serif';ctx.textAlign='left';
+ for(let i=0;i<=4;i++){let val=min+(max-min)*i/4,yy=y(val);ctx.strokeStyle='#202a37';ctx.beginPath();ctx.moveTo(pad.l,yy);ctx.lineTo(w-pad.r+3,yy);ctx.stroke();ctx.fillStyle='#8d9aab';ctx.fillText(val.toFixed(2),w-pad.r+7,yy+3);}
+ const close=data.map(c=>c.close),e20=ema(close,20),e50=ema(close,50);
+ data.forEach((c,i)=>{const x=pad.l+i*step+step/2,up=c.close>=c.open,col=up?'#38d39f':'#ff6577';ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x,y(c.high));ctx.lineTo(x,y(c.low));ctx.stroke();let top=y(Math.max(c.open,c.close)),bh=Math.max(1,Math.abs(y(c.open)-y(c.close)));ctx.fillRect(x-body/2,top,body,bh);});
+ function line(vals,color){ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.beginPath();let started=false;vals.forEach((v,i)=>{if(i<Math.max(0,vals.length-50))return;let x=pad.l+i*step+step/2;if(!started){ctx.moveTo(x,y(v));started=true}else ctx.lineTo(x,y(v));});ctx.stroke();}
+ line(e20,'#e5b94e');line(e50,'#76a9ff');
+ ctx.fillStyle='#8d9aab';ctx.textAlign='left';ctx.fillText(String(data[0].time).slice(0,16),pad.l,h-7);ctx.textAlign='right';ctx.fillText(String(data[data.length-1].time).slice(0,16),w-pad.r,h-7);
+}
+document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id===b.dataset.tab));if(b.dataset.tab==='chart')drawChart();}));
+document.querySelectorAll('[data-tf]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-tf]').forEach(x=>x.classList.toggle('active',x===b));timeframe=b.dataset.tf;loadCandles();}));
+$('refreshBtn').addEventListener('click',loadCandles);window.addEventListener('resize',()=>drawChart());
+$('calcSize').addEventListener('click',()=>{
+ const bal=+$('balance').value,risk=+$('riskPct').value,entry=+$('sizeEntry').value,sl=+$('sizeSL').value,contract=+$('contract').value,step=+$('lotStep').value;
+ if(!(bal>0&&risk>0&&risk<=5&&entry>0&&sl>0&&entry!==sl&&contract>0&&step>0)){$('sizeResult').innerHTML='<span class="error">Enter valid positive values. Risk is limited to 5% in this calculator.</span>';return;}
+ const money=bal*risk/100,perLot=Math.abs(entry-sl)*contract,raw=money/perLot,lots=Math.floor(raw/step)*step;
+ $('sizeResult').innerHTML='Estimated risk budget: <strong>$'+fmt(money)+'</strong><br>Distance to SL: '+fmt(Math.abs(entry-sl),2)+'<br>Estimated position size: <strong>'+fmt(lots,3)+' lots</strong><br>Estimated risk at this size: $'+fmt(lots*perLot)+'<br><span class="small">Calculation assumes your broker’s contract size and USD P/L convention are correct. Confirm them with your broker.</span>';
+});
+$('useSignal').addEventListener('click',()=>{if(analysis?.entry){$('sizeEntry').value=analysis.entry;$('sizeSL').value=analysis.sl;}else{$('sizeResult').textContent='No qualified analysis levels are available. Enter prices manually.';}});
+let journal=JSON.parse(localStorage.getItem('gp_journal')||'[]');
+function persistJournal(){localStorage.setItem('gp_journal',JSON.stringify(journal));renderJournal();}
+function renderJournal(){
+ const wins=journal.filter(t=>t.pnl>0).length,loss=journal.filter(t=>t.pnl<0).length,net=journal.reduce((a,t)=>a+t.pnl,0);
+ $('jTotal').textContent=journal.length;$('jWin').textContent=journal.length?fmt(wins/journal.length*100,1)+'%':'—';$('jPL').textContent='$'+fmt(net);$('jWL').textContent=wins+' / '+loss;
+ if(!journal.length){$('journalTable').innerHTML='<div class="empty">No saved trades yet.</div>';return;}
+ $('journalTable').innerHTML='<div class="table-wrap"><table><thead><tr><th>Date</th><th>Side</th><th>Entry</th><th>Exit</th><th>P/L</th><th>Notes</th><th></th></tr></thead><tbody>'+journal.slice().reverse().map(t=>`<tr><td>${new Date(t.date).toLocaleDateString()}</td><td>${t.side}</td><td>${fmt(t.entry)}</td><td>${fmt(t.exit)}</td><td class="${t.pnl>=0?'good':'error'}">$${fmt(t.pnl)}</td><td>${escapeHtml(t.notes||'')}</td><td><button data-del="${t.id}">Delete</button></td></tr>`).join('')+'</tbody></table></div>';
+ document.querySelectorAll('[data-del]').forEach(b=>b.addEventListener('click',()=>{journal=journal.filter(t=>t.id!==b.dataset.del);persistJournal();}));
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+$('addJournal').addEventListener('click',()=>{const side=$('jDirection').value,entry=+$('jEntry').value,exit=+$('jExit').value,lots=+$('jLots').value,contract=+$('jContract').value;if(!(entry>0&&exit>0&&lots>0&&contract>0)){alert('Enter valid entry, exit, position size and contract size.');return;}const pnl=(side==='BUY'?exit-entry:entry-exit)*lots*contract;journal.push({id:Date.now().toString(),date:new Date().toISOString(),side,entry,exit,lots,contract,pnl,notes:$('jNotes').value});persistJournal();$('jNotes').value='';});
+$('exportJournal').addEventListener('click',()=>{const rows=[['date','side','entry','exit','lots','contract','pnl','notes'],...journal.map(t=>[t.date,t.side,t.entry,t.exit,t.lots,t.contract,t.pnl,t.notes])];const csv=rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='goldpilot-journal.csv';a.click();URL.revokeObjectURL(a.href);});
+let paperTrades=JSON.parse(localStorage.getItem('gp_paper')||'[]');
+function renderPaper(){$('paperTable').innerHTML=paperTrades.length?'<div class="table-wrap"><table><thead><tr><th>Side</th><th>Entry</th><th>Current / Exit</th><th>Status</th><th>P/L</th></tr></thead><tbody>'+paperTrades.slice().reverse().map(t=>`<tr><td>${t.side}</td><td>${fmt(t.entry)}</td><td>${fmt(t.exit??lastPrice)}</td><td>${t.closed?'CLOSED':'OPEN'}</td><td class="${(t.pnl||0)>=0?'good':'error'}">${t.closed?'$'+fmt(t.pnl):'—'}</td></tr>`).join('')+'</tbody></table></div>':'<div class="empty">No virtual trades yet.</div>';}
+function checkPaper(){if(!lastPrice)return;paperTrades=paperTrades.map(t=>{if(t.closed)return t;let exit=null;if(t.side==='BUY'&&lastPrice<=t.sl)exit=t.sl;if(t.side==='BUY'&&lastPrice>=t.tp)exit=t.tp;if(t.side==='SELL'&&lastPrice>=t.sl)exit=t.sl;if(t.side==='SELL'&&lastPrice<=t.tp)exit=t.tp;if(exit!==null)return {...t,closed:true,exit,pnl:(t.side==='BUY'?exit-t.entry:t.entry-exit)*t.lots*t.contract,closedAt:new Date().toISOString()};return t;});localStorage.setItem('gp_paper',JSON.stringify(paperTrades));renderPaper();}
+function openPaper(side){
+ if(!candles.length||Date.now()-lastGoodAt>120000){$('paperInfo').innerHTML='<span class="error">Fresh market data is required. Refresh data first.</span>';return;}
+ const entry=lastPrice,range=candles.slice(-14).reduce((a,c)=>a+c.high-c.low,0)/Math.min(14,candles.length),sl=side==='BUY'?entry-range*1.2:entry+range*1.2,tp=side==='BUY'?entry+range*1.8:entry-range*1.8;
+ const bal=+$('paperBalance').value,risk=+$('paperRisk').value;if(!(bal>0&&risk>0&&risk<=5)){ $('paperInfo').textContent='Enter a valid virtual balance and risk (0–5%).';return;}
+ const lots=(bal*risk/100)/(Math.abs(entry-sl)*100);
+ paperTrades.push({id:Date.now().toString(),side,entry,sl,tp,lots,contract:100,closed:false,openedAt:new Date().toISOString()});localStorage.setItem('gp_paper',JSON.stringify(paperTrades));$('paperInfo').textContent=side+' opened virtually at '+fmt(entry)+'. Approximate size: '+fmt(lots,3)+' lots, using an assumed 100 oz contract. This assumption may not match your broker.';renderPaper();
+}
+$('paperBuy').addEventListener('click',()=>openPaper('BUY'));$('paperSell').addEventListener('click',()=>openPaper('SELL'));
+$('closePaper').addEventListener('click',()=>{if(!lastPrice){$('paperInfo').textContent='No current market price is available.';return;}paperTrades=paperTrades.map(t=>t.closed?t:{...t,closed:true,exit:lastPrice,pnl:(t.side==='BUY'?lastPrice-t.entry:t.entry-lastPrice)*t.lots*t.contract,closedAt:new Date().toISOString()});localStorage.setItem('gp_paper',JSON.stringify(paperTrades));$('paperInfo').textContent='Open virtual trades closed at last received price '+fmt(lastPrice)+'.';renderPaper();});
+$('runTest').addEventListener('click',()=>{
+ if(candles.length<60){$('testResult').innerHTML='<span class="error">At least 60 valid candles are required. Current count: '+candles.length+'.</span>';return;}
+ const close=candles.map(c=>c.close),a=ema(close,20),b=ema(close,50);let pos=0,entry=0,trades=[];
+ for(let i=51;i<close.length;i++){let signal=pos===0&&a[i]>b[i]&&a[i-1]<=b[i-1]?'BUY':pos===0&&a[i]<b[i]&&a[i-1]>=b[i-1]?'SELL':null;if(signal){pos=signal==='BUY'?1:-1;entry=close[i];}else if(pos&&((pos===1&&a[i]<b[i])||(pos===-1&&a[i]>b[i]))){trades.push((close[i]-entry)*pos);pos=0;}}
+ if(pos)trades.push((close[close.length-1]-entry)*pos);
+ const wins=trades.filter(x=>x>0).length,net=trades.reduce((x,y)=>x+y,0),grossWin=trades.filter(x=>x>0).reduce((x,y)=>x+y,0),grossLoss=Math.abs(trades.filter(x=>x<0).reduce((x,y)=>x+y,0));
+ let eq=0,peak=0,dd=0;trades.forEach(p=>{eq+=p;peak=Math.max(peak,eq);dd=Math.max(dd,peak-eq)});
+ $('testResult').innerHTML='Trades: <strong>'+trades.length+'</strong><br>Win rate: <strong>'+(trades.length?fmt(wins/trades.length*100,1)+'%':'—')+'</strong><br>Net move (price units per 1 unit position): <strong class="'+(net>=0?'good':'error')+'">'+fmt(net,2)+'</strong><br>Max drawdown (same units): '+fmt(dd,2)+'<br>Profit factor: '+(grossLoss?fmt(grossWin/grossLoss,2):'—')+'<br><span class="small">Simple EMA crossover only; no SL/TP, spread, commission, slippage or broker contract conversion. Results are historical simulation, not a forecast.</span>';
+});
+renderJournal();renderPaper();drawChart();loadCandles();setInterval(()=>{if(!document.hidden)loadCandles();},60000);
+})();
+</script>
+</body>
+</html>
